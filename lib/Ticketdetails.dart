@@ -444,15 +444,18 @@ class _TicketDetailsState extends State<TicketDetails> {
                                   items: <String>['A', 'B', 'C','Deep','hamdanbin muhammed bin rashid al'].map((item) {
                                     return DropdownMenuItem<String>(
                                         value: item,
-                                        child: Text(item));
+                                        child: Text(item),
+                                    );
                                   }).toList(),
                                   onChanged: (_) {},
                                 isExpanded: true,
                                   decoration: InputDecoration(
-                                    hintStyle: TextStyle(color: Colors.white,fontSize: 14),
+                                      hintStyle: TextStyle(color: Colors.red),
+                                      contentPadding: EdgeInsets.symmetric(horizontal: 5,vertical: 5),
                                       fillColor: Color(0xFF2395FF),
-                                    filled: true,
-                                    border: OutlineInputBorder(
+                                      suffixIconColor: Colors.white,
+                                      filled: true,
+                                      border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(8),
                                     )
                                   ),
