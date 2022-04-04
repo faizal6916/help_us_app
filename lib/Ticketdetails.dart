@@ -1,5 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:help_us/Sidebar.dart';
+import 'package:syncfusion_flutter_datepicker/datepicker.dart';
+import 'dart:async';
 
 class TicketDetails extends StatefulWidget {
   const TicketDetails({Key? key}) : super(key: key);
@@ -427,7 +430,7 @@ class _TicketDetailsState extends State<TicketDetails> {
                   ),
                   Container(
                     width: MediaQuery.of(context).size.width,
-                    height: 800,
+                    height: 780,
                     padding: EdgeInsets.all(20),
                     decoration: BoxDecoration(
                       color: Colors.white,
@@ -437,31 +440,312 @@ class _TicketDetailsState extends State<TicketDetails> {
                       children: [
                         Row(
                           children: [
-                            Expanded(child: Text('Ticket Actions',style: TextStyle(color: Color(0xFF414D55),fontSize: 18,fontWeight: FontWeight.w500),)),
+                            Expanded(
+                                child: Text(
+                              'Ticket Actions',
+                              style: TextStyle(
+                                  color: Color(0xFF414D55),
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w500),
+                            )),
                             Expanded(
                               child: DropdownButtonFormField(
-                                  hint: Text('Assign Ticket',style: TextStyle(color: Colors.white,fontSize: 14),),
-                                  items: <String>['A', 'B', 'C','Deep','hamdanbin muhammed bin rashid al'].map((item) {
-                                    return DropdownMenuItem<String>(
-                                        value: item,
-                                        child: Text(item),
-                                    );
-                                  }).toList(),
-                                  onChanged: (_) {},
+                                hint: Text(
+                                  'Assign Ticket',
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 14),
+                                ),
+                                items: <String>[
+                                  'A',
+                                  'B',
+                                  'C',
+                                  'Deep',
+                                  'hamdanbin muhammed bin rashid al'
+                                ].map((item) {
+                                  return DropdownMenuItem<String>(
+                                    value: item,
+                                    child: Text(item),
+                                  );
+                                }).toList(),
+                                onChanged: (_) {},
                                 isExpanded: true,
-                                  decoration: InputDecoration(
-                                      hintStyle: TextStyle(color: Colors.red),
-                                      contentPadding: EdgeInsets.symmetric(horizontal: 5,vertical: 5),
-                                      fillColor: Color(0xFF2395FF),
-                                      suffixIconColor: Colors.white,
-                                      filled: true,
-                                      border: OutlineInputBorder(
+                                decoration: InputDecoration(
+                                    hintStyle: TextStyle(color: Colors.red),
+                                    contentPadding: EdgeInsets.symmetric(
+                                        horizontal: 15, vertical: 15),
+                                    fillColor: Color(0xFF2395FF),
+                                    suffixIconColor: Colors.white,
+                                    filled: true,
+                                    border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(8),
-                                    )
-                                  ),
+                                    )),
                               ),
                             ),
                           ],
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Department',
+                              style: TextStyle(
+                                  color: Color(0xFF6B6B6B),
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w500),
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            DropdownButtonFormField(
+                              hint: Text('Accadamic-  Primary&Middle'),
+                              items:
+                                  <String>['one', 'two', 'three'].map((item) {
+                                return DropdownMenuItem<String>(
+                                  value: item,
+                                  child: Text(item),
+                                );
+                              }).toList(),
+                              onChanged: (_) {},
+                              decoration: InputDecoration(
+                                contentPadding: EdgeInsets.symmetric(
+                                    horizontal: 15, vertical: 15),
+                                fillColor: Colors.white,
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(6),
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Color(0xFFDDDDDD),
+                                  ),
+                                  borderRadius: BorderRadius.circular(6),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Color(0xFFDDDDDD),
+                                  ),
+                                  borderRadius: BorderRadius.circular(6),
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Row(
+                          children: [
+                            Expanded(
+                              flex: 1,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Severity Level',
+                                    style: TextStyle(
+                                        color: Color(0xFF6B6B6B),
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w500),
+                                  ),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  DropdownButtonFormField(
+                                    hint: Text('Critical'),
+                                    items: ['A', 'B', 'C'].map((item) {
+                                      return DropdownMenuItem<String>(
+                                        value: item,
+                                        child: Text(item),
+                                      );
+                                    }).toList(),
+                                    onChanged: (_) {},
+                                    decoration: InputDecoration(
+                                      contentPadding: EdgeInsets.symmetric(
+                                          horizontal: 15, vertical: 15),
+                                      border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(6),
+                                      ),
+                                      enabledBorder: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(6),
+                                        borderSide: BorderSide(
+                                            color: Color(0xFFDDDDDD)),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(6),
+                                        borderSide: BorderSide(
+                                            color: Color(0xFFDDDDDD)),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Expanded(
+                              flex: 1,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Expected Date',
+                                    style: TextStyle(
+                                        color: Color(0xFF6B6B6B),
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w500),
+                                  ),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  ElevatedButton.icon(
+                                    style: ElevatedButton.styleFrom(
+                                      primary: Colors.white,
+                                      onPrimary: Colors.black,
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(6),
+                                          side: BorderSide(
+                                              color: Color(0xFfDDDDDD))),
+                                      minimumSize: Size(280, 55),
+                                      elevation: 0,
+                                    ),
+                                    onPressed: () async {
+                                      showDatePicker(
+                                        context: context,
+                                        initialDate: DateTime.now(),
+                                        firstDate: DateTime(2010),
+                                        lastDate: DateTime(2050),
+                                      );
+                                    },
+                                    icon: Icon(
+                                      Icons.calendar_today,
+                                      color: Color(0xFF2395FF),
+                                    ),
+                                    label: Text('Date'),
+                                  )
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Attachment',
+                              style: TextStyle(
+                                  color: Color(0xFF6B6B6B),
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w500),
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Row(
+                              children: [
+                                Expanded(
+                                    child: ElevatedButton.icon(
+                                  onPressed: () {},
+                                  icon: Icon(Icons.attach_file_outlined),
+                                  label: Text('Choose File'),
+                                  style: ElevatedButton.styleFrom(
+                                    primary: Color(0xFFF0F0F0),
+                                    onPrimary: Colors.black,
+                                  ),
+                                )),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Expanded(
+                                    child: Text(
+                                  'No File Choosen',
+                                  style: TextStyle(
+                                      color: Colors.black.withOpacity(0.5),
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 14),
+                                )),
+                              ],
+                            )
+                          ],
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Comments',
+                              style: TextStyle(
+                                  color: Color(0xFF6B6B6B),
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w500),
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            TextFormField(
+                              maxLines: 5,
+                              decoration: InputDecoration(
+                                hintText: 'Comments',
+                                contentPadding: EdgeInsets.symmetric(
+                                    horizontal: 20, vertical: 20),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(6),
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(6),
+                                  borderSide:
+                                      BorderSide(color: Color(0xFFC9DEF8)),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(6),
+                                  borderSide:
+                                      BorderSide(color: Color(0xFFC9DEF8)),
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Directionality(
+                          textDirection: TextDirection.rtl,
+                          child: ElevatedButton.icon(
+                            onPressed: () {},
+                            icon: Icon(Icons.arrow_back),
+                            label: Text('SUBMIT'),
+                            style: ElevatedButton.styleFrom(
+                              minimumSize:
+                                  Size(MediaQuery.of(context).size.width, 50),
+                              primary: Color(0xFF7861D7),
+                              onPrimary: Colors.white,
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Directionality(
+                          textDirection: TextDirection.rtl,
+                          child: ElevatedButton.icon(
+                            onPressed: () {},
+                            icon: Icon(Icons.mail_outline),
+                            label: Text('COMPOSE MAIL'),
+                            style: ElevatedButton.styleFrom(
+                              minimumSize:
+                                  Size(MediaQuery.of(context).size.width, 50),
+                              primary: Color(0xFF34D1BF),
+                              onPrimary: Colors.white,
+                            ),
+                          ),
                         ),
                       ],
                     ),
