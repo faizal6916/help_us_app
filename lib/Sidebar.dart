@@ -4,6 +4,7 @@ import 'package:help_us/Todolist.dart';
 import 'package:help_us/Dashboard.dart';
 import 'package:help_us/Createticket.dart';
 import 'package:help_us/ViewTicket.dart';
+import 'dart:math' as math;
 
 class Sidebar extends StatefulWidget {
   const Sidebar({Key? key}) : super(key: key);
@@ -45,7 +46,7 @@ class _SidebarState extends State<Sidebar> {
          ),
 
           ListTile(
-            leading: Icon(Icons.dashboard),
+            leading: Icon(Icons.window_outlined),
             title: Text('Dashboard',style: TextStyle(color: Color(0xFF414D55),fontSize: 16,fontWeight: FontWeight.w400),),
             onTap: (){
               //Navigator.push(context, MaterialPageRoute(builder: (context)=>Dashboard()));
@@ -65,7 +66,7 @@ class _SidebarState extends State<Sidebar> {
             },
           ),
           ListTile(
-            leading: Icon(Icons.group_outlined),
+            leading: Icon(Icons.groups_outlined),
             title: Text('Create Tickets',style: TextStyle(color: Color(0xFF414D55),fontSize: 16,fontWeight: FontWeight.w400),),
             //visualDensity: VisualDensity(vertical: -3),
             onTap: (){
@@ -74,7 +75,7 @@ class _SidebarState extends State<Sidebar> {
             },
           ),
           ListTile(
-            leading: Icon(Icons.mic_external_on),
+            leading: Icon(Icons.biotech_outlined),
             title: Text('View Tickets',style: TextStyle(color: Color(0xFF414D55),fontSize: 16,fontWeight: FontWeight.w400),),
             //visualDensity: VisualDensity(vertical: -3),
             onTap: (){
@@ -100,7 +101,9 @@ class _SidebarState extends State<Sidebar> {
           ),
           SizedBox(height: 80,),
           ListTile(
-            leading: Icon(Icons.settings),
+            leading: Transform.rotate(
+                angle: 270 * math.pi/180,
+                child: Icon(Icons.tune)),
             title: Text('Settings',style: TextStyle(color: Color(0xFF414D55),fontSize: 16,fontWeight: FontWeight.w400),),
             hoverColor: Colors.red,
             enabled: true,

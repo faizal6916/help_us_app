@@ -509,7 +509,7 @@ class _CreateTicketState extends State<CreateTicket> {
         fileName = result!.files.first.name;
         pickedFile = result!.files.first;
 
-        print(fileName);
+        //print(fileName);
       }
 
       setState(() {
