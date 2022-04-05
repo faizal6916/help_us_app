@@ -37,7 +37,7 @@ class _LoginhomeState extends State<Loginhome> {
                   onPressed: (){
                     Navigator.pushNamed(context, '/loginscreen');
                   },
-                  child: Text('Login'),
+                  child: Text('Login',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 16),),
                   style: ElevatedButton.styleFrom(
                     minimumSize: Size(MediaQuery.of(context).size.width, 50),
                     primary: Color(0xFF7861D7),
@@ -49,7 +49,7 @@ class _LoginhomeState extends State<Loginhome> {
                 onPressed: (){
                   //Navigator.pushNamed(context, '/loginscreen');
                 },
-                child: Text('Create Ticket'),
+                child: Text('Create Ticket',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 16),),
                 style: ElevatedButton.styleFrom(
                   minimumSize: Size(MediaQuery.of(context).size.width, 50),
                   primary: Color(0xFF2395FF),
