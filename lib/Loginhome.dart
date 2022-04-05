@@ -33,29 +33,28 @@ class _LoginhomeState extends State<Loginhome> {
               Align(
                   alignment: Alignment(-0.75,-0.50),
                   child: Image(image: AssetImage('assets/images/Group.png'),width: 200,height: 300,)),
-              GestureDetector(
-                onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Login()));
-                },
-                child: Container(
-                  width: MediaQuery.of(context).size.width,
-                  height: 50,
-                  decoration: BoxDecoration(
-                    color: Color(0xFF7861D7),
-                    borderRadius: BorderRadius.all(Radius.circular(15)),
+              ElevatedButton(
+                  onPressed: (){
+                    Navigator.pushNamed(context, '/loginscreen');
+                  },
+                  child: Text('Login'),
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: Size(MediaQuery.of(context).size.width, 50),
+                    primary: Color(0xFF7861D7),
+                    onPrimary: Colors.white,
                   ),
-                  child: Center(child: Text('Login',style: TextStyle(color: Colors.white),)),
-                ),
               ),
               SizedBox(height: 15,),
-              Container(
-                width: MediaQuery.of(context).size.width,
-                height: 50,
-                decoration: BoxDecoration(
-                    color: Color(0xFF2395FF),
-                    borderRadius: BorderRadius.all(Radius.circular(15)),
+              ElevatedButton(
+                onPressed: (){
+                  //Navigator.pushNamed(context, '/loginscreen');
+                },
+                child: Text('Create Ticket'),
+                style: ElevatedButton.styleFrom(
+                  minimumSize: Size(MediaQuery.of(context).size.width, 50),
+                  primary: Color(0xFF2395FF),
+                  onPrimary: Colors.white,
                 ),
-                child: Center(child: Text('Create Ticket',style: TextStyle(color: Colors.white),)),
               ),
             ],
           ),

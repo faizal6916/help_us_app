@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:help_us/Sidebar.dart';
-import 'package:syncfusion_flutter_datepicker/datepicker.dart';
+import 'package:help_us/TicketHistory.dart';
 import 'dart:async';
+import 'package:file_picker/file_picker.dart';
 
 class TicketDetails extends StatefulWidget {
   const TicketDetails({Key? key}) : super(key: key);
@@ -13,6 +14,12 @@ class TicketDetails extends StatefulWidget {
 
 class _TicketDetailsState extends State<TicketDetails> {
   final _scaffoldKey = GlobalKey<ScaffoldState>();
+  DateTime _selectedDate = DateTime.now();
+  String? _showDate = 'Date';
+  bool isLoading = false;
+  FilePickerResult? result;
+  String? fileName;
+  PlatformFile? pickedFile;
   Object? _dropdownvalue;
   @override
   Widget build(BuildContext context) {
@@ -130,7 +137,9 @@ class _TicketDetailsState extends State<TicketDetails> {
                               ],
                             ),
                             ElevatedButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=>TicketHistory()));
+                              },
                               child: Text('View History'),
                               style: ButtonStyle(
                                 backgroundColor: MaterialStateProperty.all(
@@ -421,7 +430,7 @@ class _TicketDetailsState extends State<TicketDetails> {
                                 fontSize: 14,
                                 fontWeight: FontWeight.w400),
                           )),
-                        )
+                        ),
                       ],
                     ),
                   ),
@@ -612,19 +621,12 @@ class _TicketDetailsState extends State<TicketDetails> {
                                       minimumSize: Size(280, 55),
                                       elevation: 0,
                                     ),
-                                    onPressed: () async {
-                                      showDatePicker(
-                                        context: context,
-                                        initialDate: DateTime.now(),
-                                        firstDate: DateTime(2010),
-                                        lastDate: DateTime(2050),
-                                      );
-                                    },
+                                    onPressed: () => _selectDate(context),
                                     icon: Icon(
                                       Icons.calendar_today,
                                       color: Color(0xFF2395FF),
                                     ),
-                                    label: Text('Date'),
+                                    label: Text('$_showDate'),
                                   )
                                 ],
                               ),
@@ -650,8 +652,8 @@ class _TicketDetailsState extends State<TicketDetails> {
                             Row(
                               children: [
                                 Expanded(
-                                    child: ElevatedButton.icon(
-                                  onPressed: () {},
+                                    child: isLoading ? CircularProgressIndicator() : ElevatedButton.icon(
+                                  onPressed: () => pickFile(),
                                   icon: Icon(Icons.attach_file_outlined),
                                   label: Text('Choose File'),
                                   style: ElevatedButton.styleFrom(
@@ -663,13 +665,19 @@ class _TicketDetailsState extends State<TicketDetails> {
                                   width: 10,
                                 ),
                                 Expanded(
-                                    child: Text(
-                                  'No File Choosen',
+                                    child: pickedFile != null ? Text(
+                                  '$fileName',
                                   style: TextStyle(
                                       color: Colors.black.withOpacity(0.5),
                                       fontWeight: FontWeight.w400,
                                       fontSize: 14),
-                                )),
+                                ) : Text(
+                                      'No File Choosen',
+                                      style: TextStyle(
+                                          color: Colors.black.withOpacity(0.5),
+                                          fontWeight: FontWeight.w400,
+                                          fontSize: 14),
+                                    )),
                               ],
                             )
                           ],
@@ -757,5 +765,47 @@ class _TicketDetailsState extends State<TicketDetails> {
         ),
       ),
     );
+  }
+
+  //-------------DatePicker-------------//
+  Future<void> _selectDate(BuildContext context) async{
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: _selectedDate,
+      firstDate: DateTime(2010),
+      lastDate: DateTime(2100),
+    );
+    if(picked != null && picked != _selectedDate){
+      setState(() {
+        _selectedDate = picked;
+        _showDate = _selectedDate.toString().split(' ')[0];
+      });
+    }
+  }
+  //------------file picker-----------//
+  void pickFile() async {
+    try{
+      setState(() {
+        isLoading = true;
+      });
+
+      result = await FilePicker.platform.pickFiles(
+        type: FileType.any,
+        allowMultiple: false,
+      );
+
+      if(result != null){
+        fileName = result!.files.first.name;
+        pickedFile = result!.files.first;
+
+        print(fileName);
+      }
+
+      setState(() {
+        isLoading = false;
+      });
+    }catch(e){
+      print(e);
+    }
   }
 }

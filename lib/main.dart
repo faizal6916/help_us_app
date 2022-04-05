@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:help_us/Loginhome.dart';
+import 'package:help_us/Login.dart';
+import 'package:help_us/Dashboard.dart';
+import 'package:help_us/Todolist.dart';
+import 'package:help_us/Createticket.dart';
+import 'package:help_us/ViewTicket.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,7 +31,16 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: Loginhome(),
+      //home: Loginhome(),
+      initialRoute: '/loginhome',
+      routes: {
+        '/loginhome': (context) => Loginhome(),
+        '/loginscreen': (context) => Login(),
+        '/dashboard': (context) => Dashboard(),
+        '/todolist' : (context) => Todo(),
+        '/createticket': (context) => CreateTicket(),
+        '/viewticket': (context) => ViewTicket(),
+      },
     );
   }
 }

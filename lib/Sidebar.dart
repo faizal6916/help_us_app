@@ -1,6 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:help_us/Todolist.dart';
 import 'package:help_us/Dashboard.dart';
+import 'package:help_us/Createticket.dart';
+import 'package:help_us/ViewTicket.dart';
 
 class Sidebar extends StatefulWidget {
   const Sidebar({Key? key}) : super(key: key);
@@ -12,93 +15,101 @@ class Sidebar extends StatefulWidget {
 class _SidebarState extends State<Sidebar> {
   @override
   Widget build(BuildContext context) {
+    final hoverColor = Color(0xFFF1F5F8);
     return Drawer(
-      child: SafeArea(
-        child: ListView(
-          physics: NeverScrollableScrollPhysics(),
-          padding: EdgeInsets.only(left: 20),
-          children: [
-            Container(
-              margin: EdgeInsets.only(left: 12),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Image(
-                    image: AssetImage('assets/images/helpuslogo.png'),
-                    width: 50,
-                    height: 50,
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text('Sallie McBride'),
-                      Text('POC'),
-                    ],
-                  )
-                ],
-              ),
-            ),
-            Container(
-              //width: 250,
-              height: MediaQuery.of(context).size.height,
-              child: Column(
-                children: [
-                  ListTile(
-                    leading: Icon(Icons.dashboard),
-                    title: Text('Dashboard'),
-                    onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>Dashboard()));
-                    },
-                    //visualDensity: VisualDensity(vertical: -4),
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.event),
-                    title: Text('To-Do-List'),
-                    //visualDensity: VisualDensity(vertical: -4),
-                    onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>Todo()));
-                    },
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.supervisor_account),
-                    title: Text('Create Tickets'),
-                    //visualDensity: VisualDensity(vertical: -3),
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.mic_external_on),
-                    title: Text('View Tickets'),
-                    //visualDensity: VisualDensity(vertical: -3),
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.messenger_outline_outlined),
-                    title: Text('Mail Tickets'),
-                    //visualDensity: VisualDensity(vertical: -3),
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.star_outline),
-                    title: Text('Reviews'),
-                    //visualDensity: VisualDensity(vertical: -3),
-                  ),
-                  Expanded(
-                    child: Align(
-                      alignment: FractionalOffset(0.5,0.65),
-                      child: ListTile(
-                        leading: Icon(Icons.settings),
-                        title: Text('Settings'),
-                        //visualDensity: VisualDensity(vertical: -3),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
+      child: ListView(
+        padding: EdgeInsets.zero,
+        children: [
+         SizedBox(
+           height: 100,
+           child: DrawerHeader(
+              margin: EdgeInsets.zero,
+               child: Container(
+                 child: Row(
+                   crossAxisAlignment: CrossAxisAlignment.start,
+                   children: [
+                     Icon(Icons.account_circle_rounded,size: 48,),
+                     SizedBox(width: 10,),
+                     Column(
+                       crossAxisAlignment: CrossAxisAlignment.start,
+                       children: [
+                         SizedBox(height: 5,),
+                         Text('Sallie McBride',style: TextStyle(color: Color(0xFF414D55),fontSize: 16,fontWeight: FontWeight.w500),),
+                         Text('POC',style: TextStyle(color: Color(0xFF414D55),fontSize: 10,fontWeight: FontWeight.w400),),
+                       ],
+                     ),
+                   ],
+                 ),
+               )
+           ),
+         ),
+
+          ListTile(
+            leading: Icon(Icons.dashboard),
+            title: Text('Dashboard',style: TextStyle(color: Color(0xFF414D55),fontSize: 16,fontWeight: FontWeight.w400),),
+            onTap: (){
+              //Navigator.push(context, MaterialPageRoute(builder: (context)=>Dashboard()));
+
+              Navigator.pop(context);
+              Navigator.pushNamed(context, '/dashboard');
+            },
+            //visualDensity: VisualDensity(vertical: -4),
+          ),
+          ListTile(
+            leading: Icon(Icons.event),
+            title: Text('To-Do-List',style: TextStyle(color: Color(0xFF414D55),fontSize: 16,fontWeight: FontWeight.w400),),
+            //visualDensity: VisualDensity(vertical: -4),
+            onTap: (){
+              Navigator.pop(context);
+              Navigator.pushNamed(context, '/todolist');
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.group_outlined),
+            title: Text('Create Tickets',style: TextStyle(color: Color(0xFF414D55),fontSize: 16,fontWeight: FontWeight.w400),),
+            //visualDensity: VisualDensity(vertical: -3),
+            onTap: (){
+              Navigator.pop(context);
+              Navigator.pushNamed(context, '/createticket');
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.mic_external_on),
+            title: Text('View Tickets',style: TextStyle(color: Color(0xFF414D55),fontSize: 16,fontWeight: FontWeight.w400),),
+            //visualDensity: VisualDensity(vertical: -3),
+            onTap: (){
+               Navigator.pop(context);
+               Navigator.pushNamed(context, '/viewticket');
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.messenger_outline_outlined),
+            title: Text('Mail Tickets',style: TextStyle(color: Color(0xFF414D55),fontSize: 16,fontWeight: FontWeight.w400),),
+            onTap: (){
+              Navigator.pop(context);
+            },
+            //visualDensity: VisualDensity(vertical: -3),
+          ),
+          ListTile(
+            leading: Icon(Icons.star_outline),
+            title: Text('Reviews',style: TextStyle(color: Color(0xFF414D55),fontSize: 16,fontWeight: FontWeight.w400),),
+            onTap: (){
+              Navigator.pop(context);
+            },
+            //visualDensity: VisualDensity(vertical: -3),
+          ),
+          SizedBox(height: 80,),
+          ListTile(
+            leading: Icon(Icons.settings),
+            title: Text('Settings',style: TextStyle(color: Color(0xFF414D55),fontSize: 16,fontWeight: FontWeight.w400),),
+            hoverColor: Colors.red,
+            enabled: true,
+            onTap: (){
+              Navigator.pop(context);
+            },
+            //visualDensity: VisualDensity(vertical: -3),
+          ),
+        ],
       ),
     );
   }

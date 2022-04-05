@@ -26,7 +26,7 @@ class _LoginState extends State<Login> {
               children: [
                 GestureDetector(
                     onTap:(){
-                      Navigator.pop(context);
+                      Navigator.pushReplacementNamed(context, '/loginhome');
                     },
                     child: Icon(Icons.arrow_back_ios_outlined)),
                 SizedBox(height: 5,),
@@ -70,19 +70,16 @@ class _LoginState extends State<Login> {
                   ),
                 ),
                 SizedBox(height: 20,),
-                GestureDetector(
-                  onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>Dashboard()));
-                  },
-                  child: Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: 50,
-                    decoration: BoxDecoration(
-                      color: Color(0xFF7861D7),
-                      borderRadius: BorderRadius.all(Radius.circular(15)),
+                ElevatedButton(
+                    onPressed: (){
+                      Navigator.pushNamed(context, '/dashboard');
+                    },
+                    child: Text('Sign In',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 16),),
+                    style: ElevatedButton.styleFrom(
+                      minimumSize: Size(MediaQuery.of(context).size.width, 50),
+                      primary: Color(0xFF7861D7),
+                      onPrimary: Colors.white,
                     ),
-                    child: Center(child: Text('Sign In',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 16),)),
-                  ),
                 ),
                 SizedBox(height: 10,),
                 Center(child: Text('Did you forgot your password',style: TextStyle(color: Color(0xFF595959)),)),
