@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
 import 'package:help_us/Sidebar.dart';
+import 'package:percent_indicator/percent_indicator.dart';
+import 'package:fl_chart/fl_chart.dart';
+import 'package:help_us/Widgets/Piechart_section_data.dart';
 
 
 class Dashboard extends StatefulWidget {
@@ -25,7 +29,7 @@ class _DashboardState extends State<Dashboard> {
                   ElevatedButton(
                       onPressed: (){
                         willLeave = true;
-                        Navigator.pushReplacementNamed(context, '/loginhome');
+                        SystemNavigator.pop();
                       },
                       child: Text('yes')),
                   ElevatedButton(
@@ -102,8 +106,8 @@ class _DashboardState extends State<Dashboard> {
                   children: [
                     Container(
                       width: MediaQuery.of(context).size.width,
-                      height: 180,
-                      padding: EdgeInsets.all(24),
+                      height: 175,
+                      padding: EdgeInsets.all(20),
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(10),
@@ -124,14 +128,14 @@ class _DashboardState extends State<Dashboard> {
                               SizedBox(width: 5,),
                               Text('Nims DXB',style: TextStyle(color: Color(0xFF2395FF),fontSize: 18,fontWeight: FontWeight.bold),)],
                           ),
-                          Row(
-                            children: [
-                              Container(
-                                width: MediaQuery.of(context).size.width * 0.7,
-                                height: 8,
-                                decoration: BoxDecoration(color: Colors.purple),
-                              )
-                            ],
+                          LinearPercentIndicator(
+                            width: MediaQuery.of(context).size.width-80,
+                            lineHeight: 8,
+                            percent: 0.8,
+                            backgroundColor: Color(0xFFE4EAF0),
+                            progressColor: Color(0xFF9A9ADC),
+                            padding: EdgeInsets.zero,
+                            barRadius: Radius.circular(5),
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -323,8 +327,8 @@ class _DashboardState extends State<Dashboard> {
                     SizedBox(height: 10,),
                     Container(
                       width: MediaQuery.of(context).size.width,
-                      height: 280,
-                      padding: EdgeInsets.all(24),
+                      height: 320,
+                      padding: EdgeInsets.fromLTRB(18,20,34,20),
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(10),
@@ -376,8 +380,9 @@ class _DashboardState extends State<Dashboard> {
                                             crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                             children: [
-                                              Text('112'),
-                                              Text('PENDING')
+                                              Text('112',style: TextStyle(color: Color(0xFF333333),fontWeight: FontWeight.w500,fontSize: 14),),
+                                              SizedBox(height: 5,),
+                                              Text('PENDING',style: TextStyle(color: Color(0xFF414D55),fontSize: 12,fontWeight: FontWeight.w400),)
                                             ],
                                           )
                                         ],
@@ -406,8 +411,9 @@ class _DashboardState extends State<Dashboard> {
                                             crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                             children: [
-                                              Text('112'),
-                                              Text('RESOLVED')
+                                              Text('112',style: TextStyle(color: Color(0xFF333333),fontWeight: FontWeight.w500,fontSize: 14),),
+                                              SizedBox(height: 5,),
+                                              Text('RESOLVED',style: TextStyle(color: Color(0xFF414D55),fontSize: 12,fontWeight: FontWeight.w400),)
                                             ],
                                           )
                                         ],
@@ -436,8 +442,9 @@ class _DashboardState extends State<Dashboard> {
                                             crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                             children: [
-                                              Text('112'),
-                                              Text('ESCALATED')
+                                              Text('112',style: TextStyle(color: Color(0xFF333333),fontWeight: FontWeight.w500,fontSize: 14),),
+                                              SizedBox(height: 5,),
+                                              Text('ESCALATED',style: TextStyle(color: Color(0xFF414D55),fontSize: 12,fontWeight: FontWeight.w400),)
                                             ],
                                           )
                                         ],
@@ -447,10 +454,31 @@ class _DashboardState extends State<Dashboard> {
                                 ),
                               ),
                               Expanded(
-                                child: Column(
+                                child: Stack(
                                   children: [
-                                    Text('456'),
-                                    Text('Total Tickets'),
+                                    Positioned(
+                                      top: 50,
+                                      left: 28,
+                                      child: Column(
+                                        children: [
+                                          Text('456',style: TextStyle(color: Color(0xFF414D55),fontWeight: FontWeight.w500,fontSize: 20),),
+                                          Text('Total Tickets',style: TextStyle(color: Color(0xFF414D55),fontWeight: FontWeight.w400,fontSize: 14),),
+                                        ],
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(horizontal: 6,vertical: 0),
+                                      child: SizedBox(
+                                        //width: 200,
+                                        height: 150,
+                                        child: PieChart(
+                                            PieChartData(
+                                              sections: getSections(),
+                                              centerSpaceRadius: 45,
+                                            )
+                                        ),
+                                      ),
+                                    ),
                                   ],
                                 ),
                               )
@@ -462,8 +490,8 @@ class _DashboardState extends State<Dashboard> {
                     SizedBox(height: 10,),
                     Container(
                       width: MediaQuery.of(context).size.width,
-                      height: 350,
-                      padding: EdgeInsets.all(24),
+                      height: 360,
+                      padding: EdgeInsets.all(20),
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(10),
@@ -487,103 +515,118 @@ class _DashboardState extends State<Dashboard> {
                               Icon(Icons.arrow_forward_ios_outlined,color: Color(0xFFA2C0D4),),
                             ],
                           ),
-                          SizedBox(height: 50,),
+                          SizedBox(height: 40,),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text('648'),
-                                  Text('Resolved'),
+                                  Text('648',style: TextStyle(color: Color(0xFF414D55),fontWeight: FontWeight.w500,fontSize: 14),),
+                                  Text('Resolved',style: TextStyle(color: Color(0xFF414D55),fontSize: 14,fontWeight: FontWeight.w400),),
                                 ],
                               ),
-                              Container(
-                                width: 120,
-                                height: 10,
-                                decoration: BoxDecoration(
-                                  color: Color(0xFF04E762),
-                                ),
+                              SizedBox(height: 5,),
+                              LinearPercentIndicator(
+                                width: MediaQuery.of(context).size.width-80,
+                                lineHeight: 8,
+                                percent: 0.9,
+                                backgroundColor: Color(0xFFE4EAF0),
+                                progressColor: Color(0xFF04E762),
+                                padding: EdgeInsets.zero,
+                                barRadius: Radius.circular(5),
                               )
                             ],
                           ),
-                          SizedBox(height: 10,),
+                          SizedBox(height: 15,),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text('648'),
-                                  Text('Rejected'),
+                                  Text('648',style: TextStyle(color: Color(0xFF414D55),fontWeight: FontWeight.w500,fontSize: 14),),
+                                  Text('Rejected',style: TextStyle(color: Color(0xFF414D55),fontSize: 14,fontWeight: FontWeight.w400),),
                                 ],
                               ),
-                              Container(
-                                width: 200,
-                                height: 10,
-                                decoration: BoxDecoration(
-                                  color: Color(0xFFFF715B),
-                                ),
+                              SizedBox(height: 5,),
+                              LinearPercentIndicator(
+                                width: MediaQuery.of(context).size.width-80,
+                                lineHeight: 8,
+                                percent: 0.9,
+                                backgroundColor: Color(0xFFE4EAF0),
+                                progressColor: Color(0xFFFF715B),
+                                padding: EdgeInsets.zero,
+                                barRadius: Radius.circular(5),
                               )
                             ],
                           ),
-                          SizedBox(height: 10,),
+                          SizedBox(height: 15,),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text('648'),
-                                  Text('In Progress'),
+                                  Text('648',style: TextStyle(color: Color(0xFF414D55),fontWeight: FontWeight.w500,fontSize: 14),),
+                                  Text('In Progress',style: TextStyle(color: Color(0xFF414D55),fontSize: 14,fontWeight: FontWeight.w400),),
                                 ],
                               ),
-                              Container(
-                                width: 40,
-                                height: 10,
-                                decoration: BoxDecoration(
-                                  color: Color(0xFF0496FF),
-                                ),
+                              SizedBox(height: 5,),
+                              LinearPercentIndicator(
+                                width: MediaQuery.of(context).size.width-80,
+                                lineHeight: 8,
+                                percent: 0.9,
+                                backgroundColor: Color(0xFFE4EAF0),
+                                progressColor: Color(0xFF0496FF),
+                                padding: EdgeInsets.zero,
+                                barRadius: Radius.circular(5),
                               )
                             ],
                           ),
-                          SizedBox(height: 10,),
+                          SizedBox(height: 15,),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text('648'),
-                                  Text('Created'),
+                                  Text('648',style: TextStyle(color: Color(0xFF414D55),fontWeight: FontWeight.w500,fontSize: 14),),
+                                  Text('Created',style: TextStyle(color: Color(0xFF414D55),fontSize: 14,fontWeight: FontWeight.w400),),
                                 ],
                               ),
-                              Container(
-                                width: 60,
-                                height: 10,
-                                decoration: BoxDecoration(
-                                  color: Color(0xFF6665DD),
-                                ),
+                              SizedBox(height: 5,),
+                              LinearPercentIndicator(
+                                width: MediaQuery.of(context).size.width-80,
+                                lineHeight: 8,
+                                percent: 0.9,
+                                backgroundColor: Color(0xFFE4EAF0),
+                                progressColor: Color(0xFF6665DD),
+                                padding: EdgeInsets.zero,
+                                barRadius: Radius.circular(5),
                               )
                             ],
                           ),
-                          SizedBox(height: 10,),
+                          SizedBox(height: 15,),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text('648'),
-                                  Text('Reopen'),
+                                  Text('648',style: TextStyle(color: Color(0xFF414D55),fontWeight: FontWeight.w500,fontSize: 14),),
+                                  Text('Reopen',style: TextStyle(color: Color(0xFF414D55),fontSize: 14,fontWeight: FontWeight.w400),),
                                 ],
                               ),
-                              Container(
-                                width: 80,
-                                height: 10,
-                                decoration: BoxDecoration(
-                                  color: Color(0xFF34D1BF),
-                                ),
+                              SizedBox(height: 5,),
+                              LinearPercentIndicator(
+                                width: MediaQuery.of(context).size.width-80,
+                                lineHeight: 8,
+                                percent: 0.9,
+                                backgroundColor: Color(0xFFE4EAF0),
+                                progressColor: Color(0xFF34D1BF),
+                                padding: EdgeInsets.zero,
+                                barRadius: Radius.circular(5),
                               )
                             ],
                           ),
