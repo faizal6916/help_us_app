@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 class PieData {
+
   static List<Data> data = [
 
     Data(name: 'pending',percent: 40,color: Color(0xFFFF715B)),

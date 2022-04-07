@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:help_us/Sidebar.dart';
+import 'package:help_us/Widgets/Selector_widget.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:help_us/Widgets/Piechart_section_data.dart';
+import 'package:help_us/Widgets/Department_section_data.dart';
 
 
 class Dashboard extends StatefulWidget {
@@ -15,6 +17,14 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
+  String firstDpt = 'Administration';
+  int deptIndex = 0;
+  final List<String> deptmnts = [
+    'Administration',
+    'It',
+    'Transport',
+    'Accounts'
+  ];
   final _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
@@ -343,147 +353,32 @@ class _DashboardState extends State<Dashboard> {
                       child: Column(
                         children: [
                           Text('Departments',style: TextStyle(color: Color(0xFF414D55),fontSize: 18,fontWeight: FontWeight.bold),),
-                          SizedBox(height: 18,),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Icon(Icons.arrow_back_ios_outlined,color: Color(0xFFA2C0D4),),
-                              Text('Administration',style: TextStyle(color: Color(0xFF414D55),fontSize: 14),),
-                              Icon(Icons.arrow_forward_ios_outlined,color: Color(0xFFA2C0D4),),
-                            ],
-                          ),
-                          SizedBox(height: 40,),
-                          Row(
-                            children: [
-                              Expanded(
-                                child: Column(
-                                  children: [
-                                    Container(
-                                      width: MediaQuery.of(context).size.width *
-                                          0.4,
-                                      child: Row(
-                                        crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                        children: [
-                                          CircleAvatar(
-                                            backgroundColor: Color(0xFFFF715B),
-                                            radius: 8,
-                                            child: CircleAvatar(
-                                              backgroundColor: Colors.white,
-                                              radius: 4,
-                                            ),
-                                          ),
-                                          SizedBox(
-                                            width: 10,
-                                          ),
-                                          Column(
-                                            crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                            children: [
-                                              Text('112',style: TextStyle(color: Color(0xFF333333),fontWeight: FontWeight.w500,fontSize: 14),),
-                                              SizedBox(height: 5,),
-                                              Text('PENDING',style: TextStyle(color: Color(0xFF414D55),fontSize: 12,fontWeight: FontWeight.w400),)
-                                            ],
-                                          )
-                                        ],
-                                      ),
-                                    ),
-                                    SizedBox(height: 10,),
-                                    Container(
-                                      width: MediaQuery.of(context).size.width *
-                                          0.4,
-                                      child: Row(
-                                        crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                        children: [
-                                          CircleAvatar(
-                                            backgroundColor: Color(0xFF29E7CD),
-                                            radius: 8,
-                                            child: CircleAvatar(
-                                              backgroundColor: Colors.white,
-                                              radius: 4,
-                                            ),
-                                          ),
-                                          SizedBox(
-                                            width: 10,
-                                          ),
-                                          Column(
-                                            crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                            children: [
-                                              Text('112',style: TextStyle(color: Color(0xFF333333),fontWeight: FontWeight.w500,fontSize: 14),),
-                                              SizedBox(height: 5,),
-                                              Text('RESOLVED',style: TextStyle(color: Color(0xFF414D55),fontSize: 12,fontWeight: FontWeight.w400),)
-                                            ],
-                                          )
-                                        ],
-                                      ),
-                                    ),
-                                    SizedBox(height: 10,),
-                                    Container(
-                                      width: MediaQuery.of(context).size.width *
-                                          0.4,
-                                      child: Row(
-                                        crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                        children: [
-                                          CircleAvatar(
-                                            backgroundColor: Color(0xFF6665DD),
-                                            radius: 8,
-                                            child: CircleAvatar(
-                                              backgroundColor: Colors.white,
-                                              radius: 4,
-                                            ),
-                                          ),
-                                          SizedBox(
-                                            width: 10,
-                                          ),
-                                          Column(
-                                            crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                            children: [
-                                              Text('112',style: TextStyle(color: Color(0xFF333333),fontWeight: FontWeight.w500,fontSize: 14),),
-                                              SizedBox(height: 5,),
-                                              Text('ESCALATED',style: TextStyle(color: Color(0xFF414D55),fontSize: 12,fontWeight: FontWeight.w400),)
-                                            ],
-                                          )
-                                        ],
-                                      ),
-                                    ),
-                                  ],
-                                ),
+                          SizedBox(height: 5,),
+                          Container(
+                              width: MediaQuery.of(context).size.width,
+                              height: 60,
+                              padding: EdgeInsets.symmetric(horizontal: 5,vertical: 5),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: Colors.white,
                               ),
-                              Expanded(
-                                child: Stack(
-                                  children: [
-                                    Positioned(
-                                      top: 50,
-                                      left: 28,
-                                      child: Column(
-                                        children: [
-                                          Text('456',style: TextStyle(color: Color(0xFF414D55),fontWeight: FontWeight.w500,fontSize: 20),),
-                                          Text('Total Tickets',style: TextStyle(color: Color(0xFF414D55),fontWeight: FontWeight.w400,fontSize: 14),),
-                                        ],
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.symmetric(horizontal: 6,vertical: 0),
-                                      child: SizedBox(
-                                        //width: 200,
-                                        height: 150,
-                                        child: PieChart(
-                                            PieChartData(
-                                              sections: getSections(),
-                                              centerSpaceRadius: 45,
-                                            )
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
+                              child: SelectorWidget(
+                                values: deptmnts,
+                                onChangedValue: (dept){
+                                  setState(() {
+                                    this.firstDpt = dept;
+                                  });
+                                },
+                                onIndexChange: (index){
+                                  setState(() {
+                                    this.deptIndex = index;
+                                    //print(deptIndex);
+                                  });
+                                },
                               )
-                            ],
-                          )
+                          ),
+                          SizedBox(height: 20,),
+                          deptSection(),
                         ],
                       ),
                     ),
@@ -641,5 +536,20 @@ class _DashboardState extends State<Dashboard> {
         ),
       ),
     );
+  }
+  Widget deptSection (){
+     switch(deptIndex){
+       case 0:
+         return DepartmentData(totalTicket: '30',pendingTcts: 100,);
+       case 1:
+         return DepartmentData(totalTicket: '3',pendingTcts: 140,);
+       case 2:
+         return DepartmentData(totalTicket: '344',pendingTcts: 120,);
+       case 3:
+         return DepartmentData(totalTicket: '374',pendingTcts: 100,);
+       default:
+         return DepartmentData(totalTicket: '000',pendingTcts: 000,);
+
+     }
   }
 }

@@ -7,6 +7,7 @@ import 'package:help_us/ViewTicket.dart';
 import 'dart:math' as math;
 
 
+
 class Sidebar extends StatefulWidget {
   const Sidebar({Key? key}) : super(key: key);
 
@@ -110,6 +111,7 @@ class _SidebarState extends State<Sidebar> {
             enabled: true,
             onTap: (){
               Navigator.pop(context);
+
             },
             //visualDensity: VisualDensity(vertical: -3),
           ),
