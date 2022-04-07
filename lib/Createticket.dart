@@ -20,7 +20,6 @@ class _CreateTicketState extends State<CreateTicket> {
   PlatformFile? pickedFile;
   bool isLoading = false;
 
-
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -51,10 +50,14 @@ class _CreateTicketState extends State<CreateTicket> {
               child: Row(
                 children: [
                   GestureDetector(
-                      onTap: (){
+                      onTap: () {
                         Navigator.pushReplacementNamed(context, '/dashboard');
                       },
-                      child: Icon(Icons.arrow_back,color: Color(0xFF414D55),size: 30,)),
+                      child: Icon(
+                        Icons.arrow_back,
+                        color: Color(0xFF414D55),
+                        size: 30,
+                      )),
                   SizedBox(
                     width: 5,
                   ),
@@ -138,9 +141,11 @@ class _CreateTicketState extends State<CreateTicket> {
                                 ),
                                 DropdownButtonFormField(
                                   hint: Text('Nims Dubai'),
-                                  validator: (value) => value == null ? 'Select an institute' : null ,
-                                  items:
-                                      <String>['one', 'two', 'three'].map((item) {
+                                  validator: (value) => value == null
+                                      ? 'Select an institute'
+                                      : null,
+                                  items: <String>['one', 'two', 'three']
+                                      .map((item) {
                                     return DropdownMenuItem<String>(
                                       value: item,
                                       child: Text(item),
@@ -188,9 +193,11 @@ class _CreateTicketState extends State<CreateTicket> {
                                 ),
                                 DropdownButtonFormField(
                                   hint: Text('Accadamic-  Primary&Middle'),
-                                  validator: (value) => value == null ? 'Select a department' : null ,
-                                  items:
-                                      <String>['one', 'two', 'three'].map((item) {
+                                  validator: (value) => value == null
+                                      ? 'Select a department'
+                                      : null,
+                                  items: <String>['one', 'two', 'three']
+                                      .map((item) {
                                     return DropdownMenuItem<String>(
                                       value: item,
                                       child: Text(item),
@@ -228,7 +235,8 @@ class _CreateTicketState extends State<CreateTicket> {
                                 Expanded(
                                   flex: 1,
                                   child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Text(
                                         'Severity Level',
@@ -242,7 +250,9 @@ class _CreateTicketState extends State<CreateTicket> {
                                       ),
                                       DropdownButtonFormField(
                                         hint: Text('Critical'),
-                                        validator: (value) => value == null ? 'Select Severity Level' : null,
+                                        validator: (value) => value == null
+                                            ? 'Select Severity Level'
+                                            : null,
                                         items: ['A', 'B', 'C'].map((item) {
                                           return DropdownMenuItem<String>(
                                             value: item,
@@ -254,15 +264,18 @@ class _CreateTicketState extends State<CreateTicket> {
                                           contentPadding: EdgeInsets.symmetric(
                                               horizontal: 15, vertical: 15),
                                           border: OutlineInputBorder(
-                                            borderRadius: BorderRadius.circular(6),
+                                            borderRadius:
+                                                BorderRadius.circular(6),
                                           ),
                                           enabledBorder: OutlineInputBorder(
-                                            borderRadius: BorderRadius.circular(6),
+                                            borderRadius:
+                                                BorderRadius.circular(6),
                                             borderSide: BorderSide(
                                                 color: Color(0xFFDDDDDD)),
                                           ),
                                           focusedBorder: OutlineInputBorder(
-                                            borderRadius: BorderRadius.circular(6),
+                                            borderRadius:
+                                                BorderRadius.circular(6),
                                             borderSide: BorderSide(
                                                 color: Color(0xFFDDDDDD)),
                                           ),
@@ -277,7 +290,8 @@ class _CreateTicketState extends State<CreateTicket> {
                                 Expanded(
                                   flex: 1,
                                   child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Text(
                                         'Expected Date',
@@ -289,51 +303,38 @@ class _CreateTicketState extends State<CreateTicket> {
                                       SizedBox(
                                         height: 10,
                                       ),
-                                      // ElevatedButton.icon(
-                                      //   style: ElevatedButton.styleFrom(
-                                      //     primary: Colors.white,
-                                      //     onPrimary: Colors.black,
-                                      //     shape: RoundedRectangleBorder(
-                                      //         borderRadius:
-                                      //             BorderRadius.circular(6),
-                                      //         side: BorderSide(
-                                      //             color: Color(0xFfDDDDDD))),
-                                      //     minimumSize: Size(280, 55),
-                                      //     elevation: 0,
-                                      //   ),
-                                      //   onPressed: () => _selectDate(context),
-                                      //   icon: Icon(
-                                      //     Icons.calendar_today,
-                                      //     color: Color(0xFF2395FF),
-                                      //   ),
-                                      //   label: Text(showDate),
-                                      //
-                                      // )
                                       TextFormField(
                                         controller: selectdatectrl,
-                                        validator: (value)=>value == null ? 'Select a date' : null,
+                                        validator: (value) =>
+                                            value == null || value.isEmpty
+                                                ? 'Select a date'
+                                                : null,
                                         decoration: InputDecoration(
                                           hintText: showDate,
-                                          contentPadding: EdgeInsets.symmetric(horizontal: 15,vertical: 18),
+                                          contentPadding: EdgeInsets.symmetric(
+                                              horizontal: 25, vertical: 18),
                                           border: OutlineInputBorder(
-                                            borderRadius: BorderRadius.circular(6),
+                                            borderRadius:
+                                                BorderRadius.circular(6),
                                           ),
                                           enabledBorder: OutlineInputBorder(
-                                            borderRadius: BorderRadius.circular(6),
-                                            borderSide:
-                                            BorderSide(color: Color(0xFFDDDDDD)),
+                                            borderRadius:
+                                                BorderRadius.circular(6),
+                                            borderSide: BorderSide(
+                                                color: Color(0xFFDDDDDD)),
                                           ),
                                           focusedBorder: OutlineInputBorder(
-                                            borderRadius: BorderRadius.circular(6),
-                                            borderSide:
-                                            BorderSide(color: Color(0xFFDDDDDD)),
+                                            borderRadius:
+                                                BorderRadius.circular(6),
+                                            borderSide: BorderSide(
+                                                color: Color(0xFFDDDDDD)),
                                           ),
                                         ),
                                         autofocus: false,
-                                        onTap: (){
+                                        onTap: () {
                                           _selectDate(context);
-                                          FocusScope.of(context).requestFocus(new FocusNode());
-                                          selectdatectrl.text = showDate;
+                                          FocusScope.of(context)
+                                              .requestFocus(new FocusNode());
                                         },
                                       )
                                     ],
@@ -359,9 +360,11 @@ class _CreateTicketState extends State<CreateTicket> {
                                 ),
                                 DropdownButtonFormField(
                                   hint: Text('Motor not workimg'),
-                                  validator: (value) => value == null ? 'Select Ticket Subject' : null,
-                                  items:
-                                      <String>['one', 'two', 'three'].map((item) {
+                                  validator: (value) => value == null
+                                      ? 'Select Ticket Subject'
+                                      : null,
+                                  items: <String>['one', 'two', 'three']
+                                      .map((item) {
                                     return DropdownMenuItem<String>(
                                       value: item,
                                       child: Text(item),
@@ -449,34 +452,41 @@ class _CreateTicketState extends State<CreateTicket> {
                                 Row(
                                   children: [
                                     Expanded(
-                                        child: isLoading ? CircularProgressIndicator() : ElevatedButton.icon(
-                                      onPressed: () {
-                                        pickFile();
-                                      },
-                                      icon: Icon(Icons.attach_file_outlined),
-                                      label: Text('Choose File'),
-                                      style: ElevatedButton.styleFrom(
-                                        primary: Color(0xFFF0F0F0),
-                                        onPrimary: Colors.black,
-                                      ),
-                                    )),
+                                        child: isLoading
+                                            ? CircularProgressIndicator()
+                                            : ElevatedButton.icon(
+                                                onPressed: () {
+                                                  pickFile();
+                                                },
+                                                icon: Icon(
+                                                    Icons.attach_file_outlined),
+                                                label: Text('Choose File'),
+                                                style: ElevatedButton.styleFrom(
+                                                  primary: Color(0xFFF0F0F0),
+                                                  onPrimary: Colors.black,
+                                                ),
+                                              )),
                                     SizedBox(
                                       width: 10,
                                     ),
                                     Expanded(
-                                        child: pickedFile != null ? Text(
-                                      'file${fileName}',
-                                      style: TextStyle(
-                                          color: Colors.black.withOpacity(0.5),
-                                          fontWeight: FontWeight.w400,
-                                          fontSize: 14),
-                                    ) : Text(
-                                          'No File Choosen',
-                                          style: TextStyle(
-                                              color: Colors.black.withOpacity(0.5),
-                                              fontWeight: FontWeight.w400,
-                                              fontSize: 14),
-                                        )),
+                                        child: pickedFile != null
+                                            ? Text(
+                                                'file${fileName}',
+                                                style: TextStyle(
+                                                    color: Colors.black
+                                                        .withOpacity(0.5),
+                                                    fontWeight: FontWeight.w400,
+                                                    fontSize: 14),
+                                              )
+                                            : Text(
+                                                'No File Choosen',
+                                                style: TextStyle(
+                                                    color: Colors.black
+                                                        .withOpacity(0.5),
+                                                    fontWeight: FontWeight.w400,
+                                                    fontSize: 14),
+                                              )),
                                   ],
                                 )
                               ],
@@ -488,15 +498,15 @@ class _CreateTicketState extends State<CreateTicket> {
                               textDirection: TextDirection.rtl,
                               child: ElevatedButton.icon(
                                 onPressed: () {
-                                  if(_formkey.currentState!.validate()){
+                                  if (_formkey.currentState!.validate()) {
                                     print('success');
                                   }
                                 },
                                 icon: Icon(Icons.arrow_back),
                                 label: Text('SUBMIT'),
                                 style: ElevatedButton.styleFrom(
-                                  minimumSize:
-                                      Size(MediaQuery.of(context).size.width, 50),
+                                  minimumSize: Size(
+                                      MediaQuery.of(context).size.width, 50),
                                   primary: Color(0xFF2395FF),
                                   onPrimary: Colors.white,
                                 ),
@@ -517,24 +527,26 @@ class _CreateTicketState extends State<CreateTicket> {
   }
 
   //-----------Datepicker------------//
-  Future<void> _selectDate(BuildContext context) async{
+  Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
-        context: context,
-        initialDate: selectedDate,
-        firstDate: DateTime(2010),
-        lastDate: DateTime(2100),
+      context: context,
+      initialDate: selectedDate,
+      firstDate: DateTime(2010),
+      lastDate: DateTime(2100),
     );
-    if(picked != null && picked != selectedDate){
+    if (picked != null && picked != selectedDate) {
       setState(() {
         selectedDate = picked;
-        showDate = selectedDate.toString().split(' ')[0];
+        selectdatectrl.text = selectedDate.toString().split(' ')[0];
+        showDate = selectdatectrl.text;
+        //showDate = selectedDate.toString().split(' ')[0];
       });
     }
   }
 
   //----------FilePicker----------//
- void pickFile() async {
-    try{
+  void pickFile() async {
+    try {
       setState(() {
         isLoading = true;
       });
@@ -544,7 +556,7 @@ class _CreateTicketState extends State<CreateTicket> {
         allowMultiple: false,
       );
 
-      if(result != null){
+      if (result != null) {
         fileName = result!.files.first.name;
         pickedFile = result!.files.first;
 
@@ -554,8 +566,8 @@ class _CreateTicketState extends State<CreateTicket> {
       setState(() {
         isLoading = false;
       });
-    }catch(e){
+    } catch (e) {
       print(e);
     }
- }
+  }
 }
