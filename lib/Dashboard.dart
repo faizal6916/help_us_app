@@ -272,82 +272,97 @@ class _DashboardState extends State<Dashboard> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Container(
-                            width: 100,
-                            height: 40,
-                            decoration: BoxDecoration(
-                              color: Color(0xFF2395FF),
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Image(
-                                    image:
-                                    AssetImage('assets/images/Create.png')),
-                                SizedBox(
-                                  width: 5,
-                                ),
-                                Text(
-                                  'Create',
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Container(
-                            width: 80,
-                            height: 40,
-                            decoration: BoxDecoration(
-                              color: Color(0xFF7861D7),
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Image(
-                                    image:
-                                    AssetImage('assets/images/View.png')),
-                                SizedBox(
-                                  width: 5,
-                                ),
-                                Text(
-                                  'View',
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ],
+                          GestureDetector(
+                            onTap: (){
+                              Navigator.pushNamed(context, '/createticket');
+                            },
+                            child: Container(
+                              width: 100,
+                              height: 40,
+                              decoration: BoxDecoration(
+                                color: Color(0xFF2395FF),
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Image(
+                                      image:
+                                      AssetImage('assets/images/Create.png')),
+                                  SizedBox(
+                                    width: 5,
+                                  ),
+                                  Text(
+                                    'Create',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
-                          Container(
-                            width: 110,
-                            height: 40,
-                            decoration: BoxDecoration(
-                              color: Color(0xFF34D1BF),
-                              borderRadius: BorderRadius.circular(8),
+                          GestureDetector(
+                            onTap: (){
+                              Navigator.pushNamed(context, '/viewticket');
+                            },
+                            child: Container(
+                              width: 80,
+                              height: 40,
+                              decoration: BoxDecoration(
+                                color: Color(0xFF7861D7),
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Image(
+                                      image:
+                                      AssetImage('assets/images/View.png')),
+                                  SizedBox(
+                                    width: 5,
+                                  ),
+                                  Text(
+                                    'View',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ],
+                              ),
                             ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Image(
-                                    image: AssetImage(
-                                        'assets/images/Todoicon.png')),
-                                SizedBox(
-                                  width: 5,
-                                ),
-                                Text(
-                                  'To-Do-List',
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ],
+                          ),
+                          GestureDetector(
+                            onTap: (){
+                              Navigator.pushNamed(context, '/todolist');
+                            },
+                            child: Container(
+                              width: 110,
+                              height: 40,
+                              decoration: BoxDecoration(
+                                color: Color(0xFF34D1BF),
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Image(
+                                      image: AssetImage(
+                                          'assets/images/Todoicon.png')),
+                                  SizedBox(
+                                    width: 5,
+                                  ),
+                                  Text(
+                                    'To-Do-List',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ],
@@ -439,7 +454,7 @@ class _DashboardState extends State<Dashboard> {
                                 onIndexChange: (index){
                                   setState(() {
                                     this.monthIndex = index;
-                                    print(monthIndex);
+                                    //print(monthIndex);
                                   });
                                 },
                               )
