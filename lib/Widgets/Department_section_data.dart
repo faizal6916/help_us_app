@@ -1,6 +1,7 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:help_us/Widgets/Piechart_section_data.dart';
+
 class DepartmentData extends StatefulWidget {
   final String? totalTicket;
   final int? pendingTcts;
@@ -23,11 +24,9 @@ class _DepartmentDataState extends State<DepartmentData> {
           child: Column(
             children: [
               Container(
-                width: MediaQuery.of(context).size.width *
-                    0.4,
+                width: MediaQuery.of(context).size.width * 0.4,
                 child: Row(
-                  crossAxisAlignment:
-                  CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     CircleAvatar(
                       backgroundColor: Color(0xFFFF715B),
@@ -41,24 +40,37 @@ class _DepartmentDataState extends State<DepartmentData> {
                       width: 10,
                     ),
                     Column(
-                      crossAxisAlignment:
-                      CrossAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(widget.pendingTcts.toString(),style: TextStyle(color: Color(0xFF333333),fontWeight: FontWeight.w500,fontSize: 14),),
-                        SizedBox(height: 5,),
-                        Text('PENDING',style: TextStyle(color: Color(0xFF414D55),fontSize: 12,fontWeight: FontWeight.w400),)
+                        Text(
+                          widget.pendingTcts.toString(),
+                          style: TextStyle(
+                              color: Color(0xFF333333),
+                              fontWeight: FontWeight.w500,
+                              fontSize: 14),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          'PENDING',
+                          style: TextStyle(
+                              color: Color(0xFF414D55),
+                              fontSize: 12,
+                              fontWeight: FontWeight.w400),
+                        )
                       ],
                     )
                   ],
                 ),
               ),
-              SizedBox(height: 10,),
+              SizedBox(
+                height: 10,
+              ),
               Container(
-                width: MediaQuery.of(context).size.width *
-                    0.4,
+                width: MediaQuery.of(context).size.width * 0.4,
                 child: Row(
-                  crossAxisAlignment:
-                  CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     CircleAvatar(
                       backgroundColor: Color(0xFF29E7CD),
@@ -72,24 +84,37 @@ class _DepartmentDataState extends State<DepartmentData> {
                       width: 10,
                     ),
                     Column(
-                      crossAxisAlignment:
-                      CrossAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('112',style: TextStyle(color: Color(0xFF333333),fontWeight: FontWeight.w500,fontSize: 14),),
-                        SizedBox(height: 5,),
-                        Text('RESOLVED',style: TextStyle(color: Color(0xFF414D55),fontSize: 12,fontWeight: FontWeight.w400),)
+                        Text(
+                          '112',
+                          style: TextStyle(
+                              color: Color(0xFF333333),
+                              fontWeight: FontWeight.w500,
+                              fontSize: 14),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          'RESOLVED',
+                          style: TextStyle(
+                              color: Color(0xFF414D55),
+                              fontSize: 12,
+                              fontWeight: FontWeight.w400),
+                        )
                       ],
                     )
                   ],
                 ),
               ),
-              SizedBox(height: 10,),
+              SizedBox(
+                height: 10,
+              ),
               Container(
-                width: MediaQuery.of(context).size.width *
-                    0.4,
+                width: MediaQuery.of(context).size.width * 0.4,
                 child: Row(
-                  crossAxisAlignment:
-                  CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     CircleAvatar(
                       backgroundColor: Color(0xFF6665DD),
@@ -103,12 +128,25 @@ class _DepartmentDataState extends State<DepartmentData> {
                       width: 10,
                     ),
                     Column(
-                      crossAxisAlignment:
-                      CrossAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('112',style: TextStyle(color: Color(0xFF333333),fontWeight: FontWeight.w500,fontSize: 14),),
-                        SizedBox(height: 5,),
-                        Text('ESCALATED',style: TextStyle(color: Color(0xFF414D55),fontSize: 12,fontWeight: FontWeight.w400),)
+                        Text(
+                          '112',
+                          style: TextStyle(
+                              color: Color(0xFF333333),
+                              fontWeight: FontWeight.w500,
+                              fontSize: 14),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          'ESCALATED',
+                          style: TextStyle(
+                              color: Color(0xFF414D55),
+                              fontSize: 12,
+                              fontWeight: FontWeight.w400),
+                        )
                       ],
                     )
                   ],
@@ -125,22 +163,32 @@ class _DepartmentDataState extends State<DepartmentData> {
                 left: 28,
                 child: Column(
                   children: [
-                    Text(widget.totalTicket.toString(),style: TextStyle(color: Color(0xFF414D55),fontWeight: FontWeight.w500,fontSize: 20),),
-                    Text('Total Tickets',style: TextStyle(color: Color(0xFF414D55),fontWeight: FontWeight.w400,fontSize: 14),),
+                    Text(
+                      widget.totalTicket.toString(),
+                      style: TextStyle(
+                          color: Color(0xFF414D55),
+                          fontWeight: FontWeight.w500,
+                          fontSize: 20),
+                    ),
+                    Text(
+                      'Total Tickets',
+                      style: TextStyle(
+                          color: Color(0xFF414D55),
+                          fontWeight: FontWeight.w400,
+                          fontSize: 14),
+                    ),
                   ],
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 6,vertical: 0),
+                padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 0),
                 child: SizedBox(
                   //width: 200,
                   height: 150,
-                  child: PieChart(
-                      PieChartData(
-                        sections: getSections(),
-                        centerSpaceRadius: 45,
-                      )
-                  ),
+                  child: PieChart(PieChartData(
+                    sections: getSections(),
+                    centerSpaceRadius: 45,
+                  )),
                 ),
               ),
             ],

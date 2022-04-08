@@ -6,7 +6,8 @@ class TicketStatus extends StatefulWidget {
   final String? status;
   final int? nos;
   final int? total;
-  const TicketStatus({Key? key,
+  const TicketStatus({
+    Key? key,
     this.color,
     this.status,
     this.nos,
@@ -20,7 +21,6 @@ class TicketStatus extends StatefulWidget {
 class _TicketStatusState extends State<TicketStatus> {
   //double percent = percentage();
   @override
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -29,13 +29,27 @@ class _TicketStatusState extends State<TicketStatus> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(widget.nos.toString(),style: TextStyle(color: Color(0xFF414D55),fontWeight: FontWeight.w500,fontSize: 14),),
-            Text(widget.status.toString(),style: TextStyle(color: Color(0xFF414D55),fontSize: 14,fontWeight: FontWeight.w400),),
+            Text(
+              widget.nos.toString(),
+              style: TextStyle(
+                  color: Color(0xFF414D55),
+                  fontWeight: FontWeight.w500,
+                  fontSize: 14),
+            ),
+            Text(
+              widget.status.toString(),
+              style: TextStyle(
+                  color: Color(0xFF414D55),
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400),
+            ),
           ],
         ),
-        SizedBox(height: 5,),
+        SizedBox(
+          height: 5,
+        ),
         LinearPercentIndicator(
-          width: MediaQuery.of(context).size.width-80,
+          width: MediaQuery.of(context).size.width - 80,
           lineHeight: 8,
           percent: percentage(),
           backgroundColor: Color(0xFFE4EAF0),
@@ -46,10 +60,11 @@ class _TicketStatusState extends State<TicketStatus> {
       ],
     );
   }
-  double percentage(){
-    final  nos = widget.nos;
+
+  double percentage() {
+    final nos = widget.nos;
     final total = widget.total;
-    final  perc = ( nos! / total! );
+    final perc = (nos! / total!);
     return perc;
   }
 }

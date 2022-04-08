@@ -40,14 +40,20 @@ class _TodoState extends State<Todo> {
         drawer: Sidebar(),
         appBar: AppBar(
           leading: IconButton(
-            icon: Icon(Icons.menu,color: Color(0xFF2662F0),),
-            onPressed: (){
+            icon: Icon(
+              Icons.menu,
+              color: Color(0xFF2662F0),
+            ),
+            onPressed: () {
               _scaffoldKey.currentState!.openDrawer();
             },
           ),
           backgroundColor: Color(0xFFE5E5E5),
           elevation: 0,
-          title: Text('Menu',style: TextStyle(color: Color(0xFF2662F0)),),
+          title: Text(
+            'Menu',
+            style: TextStyle(color: Color(0xFF2662F0)),
+          ),
           bottom: PreferredSize(
             preferredSize: Size.fromHeight(20),
             child: Container(
@@ -55,14 +61,24 @@ class _TodoState extends State<Todo> {
               child: Row(
                 children: [
                   GestureDetector(
-                      onTap: (){
+                      onTap: () {
                         Navigator.pushReplacementNamed(context, '/dashboard');
                       },
-                      child: Icon(Icons.arrow_back,color: Color(0xFF414D55),size: 30,)),
+                      child: Icon(
+                        Icons.arrow_back,
+                        color: Color(0xFF414D55),
+                        size: 30,
+                      )),
                   SizedBox(
                     width: 5,
                   ),
-                  Text('To Do List',style: TextStyle(color: Color(0xFF414D55),fontSize: 28,fontWeight: FontWeight.bold),),
+                  Text(
+                    'To Do List',
+                    style: TextStyle(
+                        color: Color(0xFF414D55),
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold),
+                  ),
                 ],
               ),
             ),
@@ -72,14 +88,15 @@ class _TodoState extends State<Todo> {
               child: Row(
                 children: [
                   Icon(Icons.notifications),
-                  SizedBox(width: 10,),
+                  SizedBox(
+                    width: 10,
+                  ),
                   CircleAvatar(
-                       backgroundColor: Colors.white,
-                       radius: 20,
+                      backgroundColor: Colors.white,
+                      radius: 20,
                       child: CircleAvatar(
                         radius: 18,
-                      )
-                  ),
+                      )),
                   Container(
                     width: 15,
                     height: 10,
@@ -93,95 +110,128 @@ class _TodoState extends State<Todo> {
         body: SafeArea(
           child: ListView(
             children: [
-               Container(
-                 width: MediaQuery.of(context).size.width,
-                 margin: EdgeInsets.fromLTRB(20,0,20,20),
-                 child: Column(
-                   children: [
-                     SizedBox(height: 10,),
-                     Container(
-                       width: MediaQuery.of(context).size.width,
-                       height: 48,
-                       padding: EdgeInsets.only(left: 15),
-                       decoration: BoxDecoration(
-                         borderRadius: BorderRadius.circular(10),
-                         color: Colors.white,
-                       ),
-                       child: TextField(
-                         decoration: InputDecoration(
-                           border: InputBorder.none,
-                           errorBorder: InputBorder.none,
-                           focusedBorder: InputBorder.none,
-                           contentPadding: EdgeInsets.symmetric(horizontal: 5,vertical: 15),
-                           hintText: 'Ticket No',
-                           icon: Icon(Icons.search),
-                         ),
-                       ),
-                     ),
-                     SizedBox(height: 15,),
-                     Container(
-                       width: MediaQuery.of(context).size.width,
-                       height: 60,
-                       padding: EdgeInsets.symmetric(horizontal: 5,vertical: 5),
-                       decoration: BoxDecoration(
-                         borderRadius: BorderRadius.circular(10),
-                         color: Colors.white,
-                       ),
-                       child: SelectorWidget(
-                         values: months,
-                         onChangedValue: (month){
-                           setState(() {
-                             this.month = month;
-                           });
-                         },
-                         onIndexChange: (index){
-                           setState(() {
-                             this.monthIndex = index;
-                             //print(monthIndex);
-                           });
-                         },
-                       )
-                     ),
-                     SizedBox(height: 15,),
-                     recentTicket(),
-                   ],
-                 ),
-               ),
-
+              Container(
+                width: MediaQuery.of(context).size.width,
+                margin: EdgeInsets.fromLTRB(20, 0, 20, 20),
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Container(
+                      width: MediaQuery.of(context).size.width,
+                      height: 48,
+                      padding: EdgeInsets.only(left: 15),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.white,
+                      ),
+                      child: TextField(
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          errorBorder: InputBorder.none,
+                          focusedBorder: InputBorder.none,
+                          contentPadding:
+                              EdgeInsets.symmetric(horizontal: 5, vertical: 15),
+                          hintText: 'Ticket No',
+                          icon: Icon(Icons.search),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Container(
+                        width: MediaQuery.of(context).size.width,
+                        height: 60,
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.white,
+                        ),
+                        child: SelectorWidget(
+                          values: months,
+                          onChangedValue: (month) {
+                            setState(() {
+                              this.month = month;
+                            });
+                          },
+                          onIndexChange: (index) {
+                            setState(() {
+                              this.monthIndex = index;
+                              //print(monthIndex);
+                            });
+                          },
+                        )),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    recentTicket(),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
       ),
     );
   }
-  Widget recentTicket (){
-    switch(monthIndex){
+
+  Widget recentTicket() {
+    switch (monthIndex) {
       case 0:
-        return RecentTicket(nameOfmonth: '05 JAN',);
+        return RecentTicket(
+          nameOfmonth: '05 JAN',
+        );
       case 1:
-        return RecentTicket(nameOfmonth: 'FEB',);
+        return RecentTicket(
+          nameOfmonth: 'FEB',
+        );
       case 2:
-        return RecentTicket(nameOfmonth: 'MAR',);
+        return RecentTicket(
+          nameOfmonth: 'MAR',
+        );
       case 3:
-        return RecentTicket(nameOfmonth: 'APR',);
+        return RecentTicket(
+          nameOfmonth: 'APR',
+        );
       case 4:
-        return RecentTicket(nameOfmonth: 'MAY',);
+        return RecentTicket(
+          nameOfmonth: 'MAY',
+        );
       case 5:
-        return RecentTicket(nameOfmonth: 'JUN',);
+        return RecentTicket(
+          nameOfmonth: 'JUN',
+        );
       case 6:
-        return RecentTicket(nameOfmonth: 'JUL',);
+        return RecentTicket(
+          nameOfmonth: 'JUL',
+        );
       case 7:
-        return RecentTicket(nameOfmonth: 'AUG',);
+        return RecentTicket(
+          nameOfmonth: 'AUG',
+        );
       case 8:
-        return RecentTicket(nameOfmonth: 'SEP',);
+        return RecentTicket(
+          nameOfmonth: 'SEP',
+        );
       case 9:
-        return RecentTicket(nameOfmonth: 'OCT',);
+        return RecentTicket(
+          nameOfmonth: 'OCT',
+        );
       case 10:
-        return RecentTicket(nameOfmonth: 'NOV',);
+        return RecentTicket(
+          nameOfmonth: 'NOV',
+        );
       case 11:
-        return RecentTicket(nameOfmonth: 'DEC',);
+        return RecentTicket(
+          nameOfmonth: 'DEC',
+        );
       default:
-        return RecentTicket(nameOfmonth: 'no',);
+        return RecentTicket(
+          nameOfmonth: 'no',
+        );
     }
   }
 }

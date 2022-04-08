@@ -37,12 +37,10 @@ class MyApp extends StatelessWidget {
         '/loginhome': (context) => Loginhome(),
         '/loginscreen': (context) => Login(),
         '/dashboard': (context) => Dashboard(),
-        '/todolist' : (context) => Todo(),
+        '/todolist': (context) => Todo(),
         '/createticket': (context) => CreateTicket(),
         '/viewticket': (context) => ViewTicket(),
       },
     );
   }
 }
-
-

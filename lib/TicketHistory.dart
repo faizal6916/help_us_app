@@ -102,8 +102,17 @@ class _TicketHistoryState extends State<TicketHistory> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('Ticket 582 Details',style: TextStyle(color: Color(0xFF333333),fontSize: 16,fontWeight: FontWeight.w500,letterSpacing: 1),),
-                        SizedBox(height: 20,),
+                        Text(
+                          'Ticket 582 Details',
+                          style: TextStyle(
+                              color: Color(0xFF333333),
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                              letterSpacing: 1),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
                         Container(
                           //margin: EdgeInsets.only(bottom: 10),
                           child: Row(
@@ -117,8 +126,8 @@ class _TicketHistoryState extends State<TicketHistory> {
                                       margin: EdgeInsets.only(left: 3.5),
                                       width: 5,
                                       height: 76,
-                                      decoration:
-                                          BoxDecoration(color: Color(0xFF3B6DF1)),
+                                      decoration: BoxDecoration(
+                                          color: Color(0xFF3B6DF1)),
                                     ),
                                     CircleAvatar(
                                       backgroundColor: Color(0xFF3B6DF1),
@@ -132,10 +141,9 @@ class _TicketHistoryState extends State<TicketHistory> {
                                       margin: EdgeInsets.only(left: 3.5),
                                       width: 5,
                                       height: 76,
-                                      decoration:
-                                          BoxDecoration(
-                                              color: Color(0xFF3B6DF1),
-                                          ),
+                                      decoration: BoxDecoration(
+                                        color: Color(0xFF3B6DF1),
+                                      ),
                                     ),
                                   ],
                                 ),
@@ -146,38 +154,49 @@ class _TicketHistoryState extends State<TicketHistory> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Container(
-                                      height: MediaQuery.of(context).size.height*0.25,
-                                      padding: EdgeInsets.symmetric(horizontal: 10,vertical: 10),
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.25,
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: 10, vertical: 10),
                                       margin: EdgeInsets.only(bottom: 10),
                                       decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius: BorderRadius.circular(6),
-                                        border: Border.all(
-                                          color: Color(0xFFD4E1FF),
-                                        )
-
-                                      ),
+                                          color: Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(6),
+                                          border: Border.all(
+                                            color: Color(0xFFD4E1FF),
+                                          )),
                                       child: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
                                         children: [
-                                          SizedBox(height: 5,),
-                                          Text('March 24', style: TextStyle(
-                                            color: Color(0xFFF59100),
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.w400,
-                                            letterSpacing: 1,
-                                             ),
+                                          SizedBox(
+                                            height: 5,
                                           ),
-                                          SizedBox(height: 10,),
                                           Text(
-                                              'Dept Head Aneesh Y N assigned ticket - TICKT-584 to Dept Employee.',
-                                               style: TextStyle(
-                                                 color: Color(0xFF242527),
-                                                 fontWeight: FontWeight.w500,
-                                                 fontSize: 14,
-                                               ),
+                                            'March 24',
+                                            style: TextStyle(
+                                              color: Color(0xFFF59100),
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.w400,
+                                              letterSpacing: 1,
+                                            ),
                                           ),
-                                          SizedBox(height: 10,),
+                                          SizedBox(
+                                            height: 10,
+                                          ),
+                                          Text(
+                                            'Dept Head Aneesh Y N assigned ticket - TICKT-584 to Dept Employee.',
+                                            style: TextStyle(
+                                              color: Color(0xFF242527),
+                                              fontWeight: FontWeight.w500,
+                                              fontSize: 14,
+                                            ),
+                                          ),
+                                          SizedBox(
+                                            height: 10,
+                                          ),
                                           Row(
                                             mainAxisAlignment:
                                                 MainAxisAlignment.spaceBetween,
@@ -188,32 +207,40 @@ class _TicketHistoryState extends State<TicketHistory> {
                                                   onPressed: () {},
                                                   child: Text(
                                                     'Parent ticket details',
-                                                    style: TextStyle(fontSize: 9),
+                                                    style:
+                                                        TextStyle(fontSize: 9),
                                                   ),
-                                                  style: ElevatedButton.styleFrom(
+                                                  style:
+                                                      ElevatedButton.styleFrom(
                                                     primary: Color(0xFFA1A0FD),
                                                     onPrimary: Colors.white,
                                                     elevation: 0,
                                                   ),
                                                 ),
                                               ),
-                                              SizedBox(width: 5,),
+                                              SizedBox(
+                                                width: 5,
+                                              ),
                                               Expanded(
                                                 flex: 3,
                                                 child: ElevatedButton(
                                                   onPressed: () {},
                                                   child: Text(
                                                     'Child ticket details',
-                                                    style: TextStyle(fontSize: 9),
+                                                    style:
+                                                        TextStyle(fontSize: 9),
                                                   ),
-                                                  style: ElevatedButton.styleFrom(
+                                                  style:
+                                                      ElevatedButton.styleFrom(
                                                     primary: Color(0xFF7BEBA1),
                                                     onPrimary: Colors.white,
                                                     elevation: 0,
                                                   ),
                                                 ),
                                               ),
-                                              SizedBox(width: 5,),
+                                              SizedBox(
+                                                width: 5,
+                                              ),
                                               Expanded(
                                                 flex: 1,
                                                 child: Container(
@@ -231,7 +258,9 @@ class _TicketHistoryState extends State<TicketHistory> {
                                                   ),
                                                 ),
                                               ),
-                                              SizedBox(width: 5,),
+                                              SizedBox(
+                                                width: 5,
+                                              ),
                                               Expanded(
                                                 flex: 1,
                                                 child: Container(
@@ -274,8 +303,8 @@ class _TicketHistoryState extends State<TicketHistory> {
                                       margin: EdgeInsets.only(left: 3.5),
                                       width: 5,
                                       height: 76,
-                                      decoration:
-                                      BoxDecoration(color: Color(0xFF3B6DF1)),
+                                      decoration: BoxDecoration(
+                                          color: Color(0xFF3B6DF1)),
                                     ),
                                     CircleAvatar(
                                       backgroundColor: Color(0xFF3B6DF1),
@@ -289,8 +318,7 @@ class _TicketHistoryState extends State<TicketHistory> {
                                       margin: EdgeInsets.only(left: 3.5),
                                       width: 5,
                                       height: 76,
-                                      decoration:
-                                      BoxDecoration(
+                                      decoration: BoxDecoration(
                                         color: Color(0xFF3B6DF1),
                                       ),
                                     ),
@@ -303,29 +331,38 @@ class _TicketHistoryState extends State<TicketHistory> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Container(
-                                      height: MediaQuery.of(context).size.height*0.25,
-                                      padding: EdgeInsets.symmetric(horizontal: 10,vertical: 10),
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.25,
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: 10, vertical: 10),
                                       margin: EdgeInsets.only(bottom: 10),
                                       decoration: BoxDecoration(
                                           color: Colors.white,
-                                          borderRadius: BorderRadius.circular(6),
+                                          borderRadius:
+                                              BorderRadius.circular(6),
                                           border: Border.all(
                                             color: Color(0xFFD4E1FF),
-                                          )
-
-                                      ),
+                                          )),
                                       child: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
                                         children: [
-                                          SizedBox(height: 5,),
-                                          Text('March 24', style: TextStyle(
-                                            color: Color(0xFFF59100),
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.w400,
-                                            letterSpacing: 1,
+                                          SizedBox(
+                                            height: 5,
                                           ),
+                                          Text(
+                                            'March 24',
+                                            style: TextStyle(
+                                              color: Color(0xFFF59100),
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.w400,
+                                              letterSpacing: 1,
+                                            ),
                                           ),
-                                          SizedBox(height: 10,),
+                                          SizedBox(
+                                            height: 10,
+                                          ),
                                           Text(
                                             'Dept Head Aneesh Y N assigned ticket - TICKT-584 to Dept Employee.',
                                             style: TextStyle(
@@ -334,10 +371,12 @@ class _TicketHistoryState extends State<TicketHistory> {
                                               fontSize: 14,
                                             ),
                                           ),
-                                          SizedBox(height: 10,),
+                                          SizedBox(
+                                            height: 10,
+                                          ),
                                           Row(
                                             mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
+                                                MainAxisAlignment.spaceBetween,
                                             children: [
                                               Expanded(
                                                 flex: 3,
@@ -345,32 +384,40 @@ class _TicketHistoryState extends State<TicketHistory> {
                                                   onPressed: () {},
                                                   child: Text(
                                                     'Parent ticket details',
-                                                    style: TextStyle(fontSize: 9),
+                                                    style:
+                                                        TextStyle(fontSize: 9),
                                                   ),
-                                                  style: ElevatedButton.styleFrom(
+                                                  style:
+                                                      ElevatedButton.styleFrom(
                                                     primary: Color(0xFFA1A0FD),
                                                     onPrimary: Colors.white,
                                                     elevation: 0,
                                                   ),
                                                 ),
                                               ),
-                                              SizedBox(width: 5,),
+                                              SizedBox(
+                                                width: 5,
+                                              ),
                                               Expanded(
                                                 flex: 3,
                                                 child: ElevatedButton(
                                                   onPressed: () {},
                                                   child: Text(
                                                     'Child ticket details',
-                                                    style: TextStyle(fontSize: 9),
+                                                    style:
+                                                        TextStyle(fontSize: 9),
                                                   ),
-                                                  style: ElevatedButton.styleFrom(
+                                                  style:
+                                                      ElevatedButton.styleFrom(
                                                     primary: Color(0xFF7BEBA1),
                                                     onPrimary: Colors.white,
                                                     elevation: 0,
                                                   ),
                                                 ),
                                               ),
-                                              SizedBox(width: 5,),
+                                              SizedBox(
+                                                width: 5,
+                                              ),
                                               Expanded(
                                                 flex: 1,
                                                 child: Container(
@@ -378,8 +425,8 @@ class _TicketHistoryState extends State<TicketHistory> {
                                                   height: 30,
                                                   decoration: BoxDecoration(
                                                       borderRadius:
-                                                      BorderRadius.circular(
-                                                          30),
+                                                          BorderRadius.circular(
+                                                              30),
                                                       color: Color(0xFFEDF4FF)),
                                                   child: Icon(
                                                     Icons.attach_file,
@@ -388,7 +435,9 @@ class _TicketHistoryState extends State<TicketHistory> {
                                                   ),
                                                 ),
                                               ),
-                                              SizedBox(width: 5,),
+                                              SizedBox(
+                                                width: 5,
+                                              ),
                                               Expanded(
                                                 flex: 1,
                                                 child: Container(
@@ -396,8 +445,8 @@ class _TicketHistoryState extends State<TicketHistory> {
                                                   height: 30,
                                                   decoration: BoxDecoration(
                                                       borderRadius:
-                                                      BorderRadius.circular(
-                                                          30),
+                                                          BorderRadius.circular(
+                                                              30),
                                                       color: Color(0xFFEDF4FF)),
                                                   child: Icon(
                                                     Icons
@@ -431,8 +480,8 @@ class _TicketHistoryState extends State<TicketHistory> {
                                       margin: EdgeInsets.only(left: 3.5),
                                       width: 5,
                                       height: 76,
-                                      decoration:
-                                      BoxDecoration(color: Color(0xFF3B6DF1)),
+                                      decoration: BoxDecoration(
+                                          color: Color(0xFF3B6DF1)),
                                     ),
                                     CircleAvatar(
                                       backgroundColor: Color(0xFF3B6DF1),
@@ -446,8 +495,7 @@ class _TicketHistoryState extends State<TicketHistory> {
                                       margin: EdgeInsets.only(left: 3.5),
                                       width: 5,
                                       height: 76,
-                                      decoration:
-                                      BoxDecoration(
+                                      decoration: BoxDecoration(
                                         color: Color(0xFF3B6DF1),
                                       ),
                                     ),
@@ -460,29 +508,38 @@ class _TicketHistoryState extends State<TicketHistory> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Container(
-                                      height: MediaQuery.of(context).size.height*0.25,
-                                      padding: EdgeInsets.symmetric(horizontal: 10,vertical: 10),
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.25,
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: 10, vertical: 10),
                                       margin: EdgeInsets.only(bottom: 10),
                                       decoration: BoxDecoration(
                                           color: Colors.white,
-                                          borderRadius: BorderRadius.circular(6),
+                                          borderRadius:
+                                              BorderRadius.circular(6),
                                           border: Border.all(
                                             color: Color(0xFFD4E1FF),
-                                          )
-
-                                      ),
+                                          )),
                                       child: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
                                         children: [
-                                          SizedBox(height: 5,),
-                                          Text('March 24', style: TextStyle(
-                                            color: Color(0xFFF59100),
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.w400,
-                                            letterSpacing: 1,
+                                          SizedBox(
+                                            height: 5,
                                           ),
+                                          Text(
+                                            'March 24',
+                                            style: TextStyle(
+                                              color: Color(0xFFF59100),
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.w400,
+                                              letterSpacing: 1,
+                                            ),
                                           ),
-                                          SizedBox(height: 10,),
+                                          SizedBox(
+                                            height: 10,
+                                          ),
                                           Text(
                                             'Dept Head Aneesh Y N assigned ticket - TICKT-584 to Dept Employee.',
                                             style: TextStyle(
@@ -491,10 +548,12 @@ class _TicketHistoryState extends State<TicketHistory> {
                                               fontSize: 14,
                                             ),
                                           ),
-                                          SizedBox(height: 10,),
+                                          SizedBox(
+                                            height: 10,
+                                          ),
                                           Row(
                                             mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
+                                                MainAxisAlignment.spaceBetween,
                                             children: [
                                               Expanded(
                                                 flex: 3,
@@ -502,32 +561,40 @@ class _TicketHistoryState extends State<TicketHistory> {
                                                   onPressed: () {},
                                                   child: Text(
                                                     'Parent ticket details',
-                                                    style: TextStyle(fontSize: 9),
+                                                    style:
+                                                        TextStyle(fontSize: 9),
                                                   ),
-                                                  style: ElevatedButton.styleFrom(
+                                                  style:
+                                                      ElevatedButton.styleFrom(
                                                     primary: Color(0xFFA1A0FD),
                                                     onPrimary: Colors.white,
                                                     elevation: 0,
                                                   ),
                                                 ),
                                               ),
-                                              SizedBox(width: 5,),
+                                              SizedBox(
+                                                width: 5,
+                                              ),
                                               Expanded(
                                                 flex: 3,
                                                 child: ElevatedButton(
                                                   onPressed: () {},
                                                   child: Text(
                                                     'Child ticket details',
-                                                    style: TextStyle(fontSize: 9),
+                                                    style:
+                                                        TextStyle(fontSize: 9),
                                                   ),
-                                                  style: ElevatedButton.styleFrom(
+                                                  style:
+                                                      ElevatedButton.styleFrom(
                                                     primary: Color(0xFF7BEBA1),
                                                     onPrimary: Colors.white,
                                                     elevation: 0,
                                                   ),
                                                 ),
                                               ),
-                                              SizedBox(width: 5,),
+                                              SizedBox(
+                                                width: 5,
+                                              ),
                                               Expanded(
                                                 flex: 1,
                                                 child: Container(
@@ -535,8 +602,8 @@ class _TicketHistoryState extends State<TicketHistory> {
                                                   height: 30,
                                                   decoration: BoxDecoration(
                                                       borderRadius:
-                                                      BorderRadius.circular(
-                                                          30),
+                                                          BorderRadius.circular(
+                                                              30),
                                                       color: Color(0xFFEDF4FF)),
                                                   child: Icon(
                                                     Icons.attach_file,
@@ -545,7 +612,9 @@ class _TicketHistoryState extends State<TicketHistory> {
                                                   ),
                                                 ),
                                               ),
-                                              SizedBox(width: 5,),
+                                              SizedBox(
+                                                width: 5,
+                                              ),
                                               Expanded(
                                                 flex: 1,
                                                 child: Container(
@@ -553,8 +622,8 @@ class _TicketHistoryState extends State<TicketHistory> {
                                                   height: 30,
                                                   decoration: BoxDecoration(
                                                       borderRadius:
-                                                      BorderRadius.circular(
-                                                          30),
+                                                          BorderRadius.circular(
+                                                              30),
                                                       color: Color(0xFFEDF4FF)),
                                                   child: Icon(
                                                     Icons
@@ -575,7 +644,6 @@ class _TicketHistoryState extends State<TicketHistory> {
                             ],
                           ),
                         ),
-
                       ],
                     ),
                   )

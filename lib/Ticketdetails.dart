@@ -143,7 +143,10 @@ class _TicketDetailsState extends State<TicketDetails> {
                             ),
                             ElevatedButton(
                               onPressed: () {
-                                Navigator.push(context, MaterialPageRoute(builder: (context)=>TicketHistory()));
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => TicketHistory()));
                               },
                               child: Text('View History'),
                               style: ButtonStyle(
@@ -516,7 +519,9 @@ class _TicketDetailsState extends State<TicketDetails> {
                               ),
                               DropdownButtonFormField(
                                 hint: Text('Accadamic-  Primary&Middle'),
-                                validator: (value) => value == null ? 'Select a Department' : null,
+                                validator: (value) => value == null
+                                    ? 'Select a Department'
+                                    : null,
                                 items:
                                     <String>['one', 'two', 'three'].map((item) {
                                   return DropdownMenuItem<String>(
@@ -570,7 +575,9 @@ class _TicketDetailsState extends State<TicketDetails> {
                                     ),
                                     DropdownButtonFormField(
                                       hint: Text('Critical'),
-                                      validator: (value) => value == null ? 'Select Severity level' : null,
+                                      validator: (value) => value == null
+                                          ? 'Select Severity level'
+                                          : null,
                                       items: ['A', 'B', 'C'].map((item) {
                                         return DropdownMenuItem<String>(
                                           value: item,
@@ -582,15 +589,18 @@ class _TicketDetailsState extends State<TicketDetails> {
                                         contentPadding: EdgeInsets.symmetric(
                                             horizontal: 15, vertical: 15),
                                         border: OutlineInputBorder(
-                                          borderRadius: BorderRadius.circular(6),
+                                          borderRadius:
+                                              BorderRadius.circular(6),
                                         ),
                                         enabledBorder: OutlineInputBorder(
-                                          borderRadius: BorderRadius.circular(6),
+                                          borderRadius:
+                                              BorderRadius.circular(6),
                                           borderSide: BorderSide(
                                               color: Color(0xFFDDDDDD)),
                                         ),
                                         focusedBorder: OutlineInputBorder(
-                                          borderRadius: BorderRadius.circular(6),
+                                          borderRadius:
+                                              BorderRadius.circular(6),
                                           borderSide: BorderSide(
                                               color: Color(0xFFDDDDDD)),
                                         ),
@@ -620,26 +630,26 @@ class _TicketDetailsState extends State<TicketDetails> {
                                     TextFormField(
                                       controller: selectdatectrl,
                                       validator: (value) =>
-                                      value == null || value.isEmpty
-                                          ? 'Select a date'
-                                          : null,
+                                          value == null || value.isEmpty
+                                              ? 'Select a date'
+                                              : null,
                                       decoration: InputDecoration(
                                         hintText: showDate,
                                         contentPadding: EdgeInsets.symmetric(
                                             horizontal: 25, vertical: 18),
                                         border: OutlineInputBorder(
                                           borderRadius:
-                                          BorderRadius.circular(6),
+                                              BorderRadius.circular(6),
                                         ),
                                         enabledBorder: OutlineInputBorder(
                                           borderRadius:
-                                          BorderRadius.circular(6),
+                                              BorderRadius.circular(6),
                                           borderSide: BorderSide(
                                               color: Color(0xFFDDDDDD)),
                                         ),
                                         focusedBorder: OutlineInputBorder(
                                           borderRadius:
-                                          BorderRadius.circular(6),
+                                              BorderRadius.circular(6),
                                           borderSide: BorderSide(
                                               color: Color(0xFFDDDDDD)),
                                         ),
@@ -675,37 +685,51 @@ class _TicketDetailsState extends State<TicketDetails> {
                               Row(
                                 children: [
                                   Expanded(
-                                      child: isLoading ? CircularProgressIndicator() : ElevatedButton.icon(
-                                    onPressed: () => pickFile(),
-                                    icon: Icon(Icons.attach_file_outlined),
-                                    label: Text('Choose File'),
-                                    style: ElevatedButton.styleFrom(
-                                      primary: Color(0xFFF0F0F0),
-                                      onPrimary: Colors.black,
-                                    ),
-                                  )),
+                                      child: isLoading
+                                          ? CircularProgressIndicator()
+                                          : ElevatedButton.icon(
+                                              onPressed: () => pickFile(),
+                                              icon: Icon(
+                                                  Icons.attach_file_outlined),
+                                              label: Text('Choose File'),
+                                              style: ElevatedButton.styleFrom(
+                                                primary: Color(0xFFF0F0F0),
+                                                onPrimary: Colors.black,
+                                              ),
+                                            )),
                                   SizedBox(
                                     width: 10,
                                   ),
                                   Expanded(
-                                      child: pickedFile != null ? Text(
-                                    '$fileName',
-                                    style: TextStyle(
-                                        color: Colors.black.withOpacity(0.5),
-                                        fontWeight: FontWeight.w400,
-                                        fontSize: 14),
-                                  ) : Text(
-                                        'No File Choosen',
-                                        style: TextStyle(
-                                            color: Colors.black.withOpacity(0.5),
-                                            fontWeight: FontWeight.w400,
-                                            fontSize: 14),
-                                      )),
+                                      child: pickedFile != null
+                                          ? Text(
+                                              '$fileName',
+                                              style: TextStyle(
+                                                  color: Colors.black
+                                                      .withOpacity(0.5),
+                                                  fontWeight: FontWeight.w400,
+                                                  fontSize: 14),
+                                            )
+                                          : Text(
+                                              'No File Choosen',
+                                              style: TextStyle(
+                                                  color: Colors.black
+                                                      .withOpacity(0.5),
+                                                  fontWeight: FontWeight.w400,
+                                                  fontSize: 14),
+                                            )),
                                 ],
                               ),
                               Container(
-                                padding: EdgeInsets.symmetric(horizontal: 18,vertical: 2),
-                                child: isPicked ? Text('') : Text('Attachment Required',style: TextStyle(color: pickColor,fontSize: 12),),
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 18, vertical: 2),
+                                child: isPicked
+                                    ? Text('')
+                                    : Text(
+                                        'Attachment Required',
+                                        style: TextStyle(
+                                            color: pickColor, fontSize: 12),
+                                      ),
                               )
                             ],
                           ),
@@ -755,12 +779,13 @@ class _TicketDetailsState extends State<TicketDetails> {
                             textDirection: TextDirection.rtl,
                             child: ElevatedButton.icon(
                               onPressed: () {
-                                if(_formkey.currentState!.validate() && pickedFile != null){
+                                if (_formkey.currentState!.validate() &&
+                                    pickedFile != null) {
                                   print('success');
                                   setState(() {
                                     isPicked = true;
                                   });
-                                }else{
+                                } else {
                                   setState(() {
                                     pickColor = Color(0xFFD50000);
                                   });
@@ -807,25 +832,25 @@ class _TicketDetailsState extends State<TicketDetails> {
   }
 
   //-------------DatePicker-------------//
-  Future<void> _selectDate(BuildContext context) async{
+  Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
       context: context,
       initialDate: _selectedDate,
       firstDate: DateTime(2010),
       lastDate: DateTime(2100),
     );
-    if(picked != null && picked != _selectedDate){
+    if (picked != null && picked != _selectedDate) {
       setState(() {
         _selectedDate = picked;
         selectdatectrl.text = _selectedDate.toString().split(' ')[0];
         showDate = selectdatectrl.text;
-
       });
     }
   }
+
   //------------file picker-----------//
   void pickFile() async {
-    try{
+    try {
       setState(() {
         isLoading = true;
       });
@@ -835,7 +860,7 @@ class _TicketDetailsState extends State<TicketDetails> {
         allowMultiple: false,
       );
 
-      if(result != null){
+      if (result != null) {
         fileName = result!.files.first.name;
         pickedFile = result!.files.first;
 
@@ -845,7 +870,7 @@ class _TicketDetailsState extends State<TicketDetails> {
       setState(() {
         isLoading = false;
       });
-    }catch(e){
+    } catch (e) {
       print(e);
     }
   }

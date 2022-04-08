@@ -491,8 +491,15 @@ class _CreateTicketState extends State<CreateTicket> {
                                   ],
                                 ),
                                 Container(
-                                  padding: EdgeInsets.symmetric(horizontal: 18,vertical: 2),
-                                  child: isPicked ? Text(''): Text('Attachment Required',style: TextStyle(color: errColor,fontSize: 12),) ,
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: 18, vertical: 2),
+                                  child: isPicked
+                                      ? Text('')
+                                      : Text(
+                                          'Attachment Required',
+                                          style: TextStyle(
+                                              color: errColor, fontSize: 12),
+                                        ),
                                 ),
                               ],
                             ),
@@ -503,14 +510,13 @@ class _CreateTicketState extends State<CreateTicket> {
                               textDirection: TextDirection.rtl,
                               child: ElevatedButton.icon(
                                 onPressed: () {
-
-                                  if (_formkey.currentState!.validate() && pickedFile != null) {
-
+                                  if (_formkey.currentState!.validate() &&
+                                      pickedFile != null) {
                                     print('success');
-                                   setState(() {
-                                     isPicked = true;
-                                   });
-                                  }else{
+                                    setState(() {
+                                      isPicked = true;
+                                    });
+                                  } else {
                                     setState(() {
                                       errColor = Color(0xFFD50000);
                                     });
