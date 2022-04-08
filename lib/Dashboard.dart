@@ -7,6 +7,7 @@ import 'package:percent_indicator/percent_indicator.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:help_us/Widgets/Piechart_section_data.dart';
 import 'package:help_us/Widgets/Department_section_data.dart';
+import 'package:help_us/Widgets/Ticket_status_widget.dart';
 
 
 class Dashboard extends StatefulWidget {
@@ -19,11 +20,29 @@ class Dashboard extends StatefulWidget {
 class _DashboardState extends State<Dashboard> {
   String firstDpt = 'Administration';
   int deptIndex = 0;
+  final double percent = 0.4;
+  final double rejectPercent = 0.2;
   final List<String> deptmnts = [
     'Administration',
     'It',
     'Transport',
     'Accounts'
+  ];
+  int monthIndex = 0;
+  String month = 'January';
+  final List<String> months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
   ];
   final _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
@@ -402,129 +421,31 @@ class _DashboardState extends State<Dashboard> {
                         children: [
                           Text('Ticket Status',style: TextStyle(color: Color(0xFF414D55),fontSize: 18,fontWeight: FontWeight.bold),),
                           SizedBox(height: 18,),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Icon(Icons.arrow_back_ios_outlined,color: Color(0xFFA2C0D4),),
-                              Text('March',style: TextStyle(color: Color(0xFF414D55),fontSize: 14),),
-                              Icon(Icons.arrow_forward_ios_outlined,color: Color(0xFFA2C0D4),),
-                            ],
-                          ),
-                          SizedBox(height: 40,),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text('648',style: TextStyle(color: Color(0xFF414D55),fontWeight: FontWeight.w500,fontSize: 14),),
-                                  Text('Resolved',style: TextStyle(color: Color(0xFF414D55),fontSize: 14,fontWeight: FontWeight.w400),),
-                                ],
+                          Container(
+                              width: MediaQuery.of(context).size.width,
+                              height: 60,
+                              padding: EdgeInsets.symmetric(horizontal: 5,vertical: 5),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: Colors.white,
                               ),
-                              SizedBox(height: 5,),
-                              LinearPercentIndicator(
-                                width: MediaQuery.of(context).size.width-80,
-                                lineHeight: 8,
-                                percent: 0.9,
-                                backgroundColor: Color(0xFFE4EAF0),
-                                progressColor: Color(0xFF04E762),
-                                padding: EdgeInsets.zero,
-                                barRadius: Radius.circular(5),
+                              child: SelectorWidget(
+                                values: months,
+                                onChangedValue: (month){
+                                  setState(() {
+                                    this.month = month;
+                                  });
+                                },
+                                onIndexChange: (index){
+                                  setState(() {
+                                    this.monthIndex = index;
+                                    print(monthIndex);
+                                  });
+                                },
                               )
-                            ],
                           ),
-                          SizedBox(height: 15,),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text('648',style: TextStyle(color: Color(0xFF414D55),fontWeight: FontWeight.w500,fontSize: 14),),
-                                  Text('Rejected',style: TextStyle(color: Color(0xFF414D55),fontSize: 14,fontWeight: FontWeight.w400),),
-                                ],
-                              ),
-                              SizedBox(height: 5,),
-                              LinearPercentIndicator(
-                                width: MediaQuery.of(context).size.width-80,
-                                lineHeight: 8,
-                                percent: 0.9,
-                                backgroundColor: Color(0xFFE4EAF0),
-                                progressColor: Color(0xFFFF715B),
-                                padding: EdgeInsets.zero,
-                                barRadius: Radius.circular(5),
-                              )
-                            ],
-                          ),
-                          SizedBox(height: 15,),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text('648',style: TextStyle(color: Color(0xFF414D55),fontWeight: FontWeight.w500,fontSize: 14),),
-                                  Text('In Progress',style: TextStyle(color: Color(0xFF414D55),fontSize: 14,fontWeight: FontWeight.w400),),
-                                ],
-                              ),
-                              SizedBox(height: 5,),
-                              LinearPercentIndicator(
-                                width: MediaQuery.of(context).size.width-80,
-                                lineHeight: 8,
-                                percent: 0.9,
-                                backgroundColor: Color(0xFFE4EAF0),
-                                progressColor: Color(0xFF0496FF),
-                                padding: EdgeInsets.zero,
-                                barRadius: Radius.circular(5),
-                              )
-                            ],
-                          ),
-                          SizedBox(height: 15,),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text('648',style: TextStyle(color: Color(0xFF414D55),fontWeight: FontWeight.w500,fontSize: 14),),
-                                  Text('Created',style: TextStyle(color: Color(0xFF414D55),fontSize: 14,fontWeight: FontWeight.w400),),
-                                ],
-                              ),
-                              SizedBox(height: 5,),
-                              LinearPercentIndicator(
-                                width: MediaQuery.of(context).size.width-80,
-                                lineHeight: 8,
-                                percent: 0.9,
-                                backgroundColor: Color(0xFFE4EAF0),
-                                progressColor: Color(0xFF6665DD),
-                                padding: EdgeInsets.zero,
-                                barRadius: Radius.circular(5),
-                              )
-                            ],
-                          ),
-                          SizedBox(height: 15,),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text('648',style: TextStyle(color: Color(0xFF414D55),fontWeight: FontWeight.w500,fontSize: 14),),
-                                  Text('Reopen',style: TextStyle(color: Color(0xFF414D55),fontSize: 14,fontWeight: FontWeight.w400),),
-                                ],
-                              ),
-                              SizedBox(height: 5,),
-                              LinearPercentIndicator(
-                                width: MediaQuery.of(context).size.width-80,
-                                lineHeight: 8,
-                                percent: 0.9,
-                                backgroundColor: Color(0xFFE4EAF0),
-                                progressColor: Color(0xFF34D1BF),
-                                padding: EdgeInsets.zero,
-                                barRadius: Radius.circular(5),
-                              )
-                            ],
-                          ),
+                          SizedBox(height: 10,),
+                          statusBars(),
                         ],
                       ),
                     )
@@ -551,5 +472,23 @@ class _DashboardState extends State<Dashboard> {
          return DepartmentData(totalTicket: '000',pendingTcts: 000,);
 
      }
+  }
+
+  Widget statusBars(){
+    return Container(
+      child: Column(
+        children: [
+          TicketStatus(color: Color(0xFF04E762),status: 'Resolved',nos: 500,total: 1000,),
+          SizedBox(height: 10,),
+          TicketStatus(color: Color(0xFFFF715B),status: 'Rejected',nos: 200,total: 1000,),
+          SizedBox(height: 10,),
+          TicketStatus(color: Color(0xFF0496FF),status: 'In Progress',nos: 0,total: 1000,),
+          SizedBox(height: 10,),
+          TicketStatus(color: Color(0xFF6665DD),status: 'Created',nos: 12,total: 1000,),
+          SizedBox(height: 10,),
+          TicketStatus(color: Color(0xFF34D1BF),status: 'Reopen',nos: 52,total: 1000,)
+        ],
+      ),
+    );
   }
 }

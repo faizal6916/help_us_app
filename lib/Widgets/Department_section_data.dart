@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:help_us/Widgets/Piechart_section_data.dart';
 class DepartmentData extends StatefulWidget {
   final String? totalTicket;
-  final double? pendingTcts;
+  final int? pendingTcts;
   const DepartmentData({
     Key? key,
     this.totalTicket,
