@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:help_us/Loginhome.dart';
 import 'package:help_us/Login.dart';
 import 'package:help_us/Dashboard.dart';
 import 'package:help_us/Todolist.dart';
 import 'package:help_us/Createticket.dart';
 import 'package:help_us/ViewTicket.dart';
+import 'package:help_us/Welcome_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -32,9 +32,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       //home: Loginhome(),
-      initialRoute: '/loginhome',
+      initialRoute: '/welcomescreen',
       routes: {
-        '/loginhome': (context) => Loginhome(),
+        '/welcomescreen': (context) => WelcomeScreen(),
         '/loginscreen': (context) => Login(),
         '/dashboard': (context) => Dashboard(),
         '/todolist': (context) => Todo(),

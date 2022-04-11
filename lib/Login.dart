@@ -20,7 +20,8 @@ class _LoginState extends State<Login> {
       body: SafeArea(
         child: Container(
           width: MediaQuery.of(context).size.width,
-          padding: EdgeInsets.fromLTRB(30, 0, 30, 30),
+          height: MediaQuery.of(context).size.height,
+          padding: EdgeInsets.symmetric(horizontal: 30,vertical: 20),
           child: SingleChildScrollView(
             child: Form(
               key: _formKey,
@@ -30,7 +31,7 @@ class _LoginState extends State<Login> {
                 children: [
                   GestureDetector(
                       onTap: () {
-                        Navigator.pushReplacementNamed(context, '/loginhome');
+                        Navigator.pushReplacementNamed(context, '/welcomescreen');
                       },
                       child: Icon(Icons.arrow_back_ios_outlined)),
                   SizedBox(
