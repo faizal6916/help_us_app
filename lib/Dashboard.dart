@@ -4,8 +4,6 @@ import 'package:flutter/services.dart';
 import 'package:help_us/Sidebar.dart';
 import 'package:help_us/Widgets/Selector_widget.dart';
 import 'package:percent_indicator/percent_indicator.dart';
-import 'package:fl_chart/fl_chart.dart';
-import 'package:help_us/Widgets/Piechart_section_data.dart';
 import 'package:help_us/Widgets/Department_section_data.dart';
 import 'package:help_us/Widgets/Ticket_status_widget.dart';
 
@@ -550,27 +548,27 @@ class _DashboardState extends State<Dashboard> {
     switch (deptIndex) {
       case 0:
         return DepartmentData(
-          totalTicket: '30',
-          pendingTcts: 100,
+          totalTicket: 400,
+          pendingTcts: 180,
         );
       case 1:
         return DepartmentData(
-          totalTicket: '3',
+          totalTicket: 400,
           pendingTcts: 140,
         );
       case 2:
         return DepartmentData(
-          totalTicket: '344',
+          totalTicket: 400,
           pendingTcts: 120,
         );
       case 3:
         return DepartmentData(
-          totalTicket: '374',
+          totalTicket: 400,
           pendingTcts: 100,
         );
       default:
         return DepartmentData(
-          totalTicket: '000',
+          totalTicket: 400,
           pendingTcts: 000,
         );
     }

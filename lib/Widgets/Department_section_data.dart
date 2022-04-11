@@ -1,9 +1,10 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:help_us/Widgets/Piechart_section_data.dart';
+import 'dart:math' as math;
+
 
 class DepartmentData extends StatefulWidget {
-  final String? totalTicket;
+  final int? totalTicket;
   final int? pendingTcts;
   const DepartmentData({
     Key? key,
@@ -186,7 +187,7 @@ class _DepartmentDataState extends State<DepartmentData> {
                   //width: 200,
                   height: 150,
                   child: PieChart(PieChartData(
-                    sections: getSections(),
+                    sections: showingSection(),
                     centerSpaceRadius: 45,
                   )),
                 ),
@@ -196,5 +197,42 @@ class _DepartmentDataState extends State<DepartmentData> {
         )
       ],
     );
+  }
+
+  double pendingPercIndicator(){
+    final pendingNos = widget.pendingTcts;
+    final totalNos = widget.totalTicket;
+    final pendPerc = (pendingNos! / totalNos! * 100);
+    return pendPerc;
+  }
+
+  List<PieChartSectionData> showingSection(){
+    return List.generate(3, (index) {
+      switch(index){
+        case 0:
+          return PieChartSectionData(
+            color: Color(0xFFFF715B),
+            value: pendingPercIndicator(),
+            title: '${pendingPercIndicator().floor()}%',
+            titleStyle: TextStyle(
+              color: Colors.white
+            )
+          );
+        case 1:
+          return PieChartSectionData(
+            color: Color(0xFF29E7CD),
+            value: 20,
+            title: '',
+          );
+        case 2:
+          return PieChartSectionData(
+            color: Color(0xFF6665DD),
+            value: 20,
+            title: '',
+          );
+        default:
+          throw Error();
+      }
+    });
   }
 }
