@@ -183,55 +183,65 @@ class _TodoState extends State<Todo> {
       case 0:
         return RecentTicket(
           nameOfmonth: '05 JAN',
+          ticketLength: 2,
         );
       case 1:
         return RecentTicket(
           nameOfmonth: 'FEB',
+          ticketLength: 3,
         );
       case 2:
         return RecentTicket(
           nameOfmonth: 'MAR',
+          ticketLength: 4,
         );
       case 3:
         return RecentTicket(
           nameOfmonth: 'APR',
+          ticketLength: 5,
         );
       case 4:
         return RecentTicket(
           nameOfmonth: 'MAY',
+          ticketLength: 12,
         );
       case 5:
         return RecentTicket(
           nameOfmonth: 'JUN',
+          ticketLength: 1,
         );
       case 6:
         return RecentTicket(
           nameOfmonth: 'JUL',
+          ticketLength: 2,
         );
       case 7:
         return RecentTicket(
           nameOfmonth: 'AUG',
+          ticketLength: 2,
         );
       case 8:
         return RecentTicket(
           nameOfmonth: 'SEP',
+          ticketLength: 4,
         );
       case 9:
         return RecentTicket(
           nameOfmonth: 'OCT',
+          ticketLength: 5,
         );
       case 10:
         return RecentTicket(
           nameOfmonth: 'NOV',
+          ticketLength: 8,
         );
       case 11:
         return RecentTicket(
           nameOfmonth: 'DEC',
+          ticketLength: 0,
         );
       default:
-        return RecentTicket(
-          nameOfmonth: 'no',
-        );
+        throw Error();
     }
   }
 }

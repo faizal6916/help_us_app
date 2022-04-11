@@ -548,22 +548,22 @@ class _DashboardState extends State<Dashboard> {
     switch (deptIndex) {
       case 0:
         return DepartmentData(
-          totalTicket: 400,
+          totalTicket: 450,
           pendingTcts: 180,
         );
       case 1:
         return DepartmentData(
-          totalTicket: 400,
+          totalTicket: 430,
           pendingTcts: 140,
         );
       case 2:
         return DepartmentData(
-          totalTicket: 400,
+          totalTicket: 5000,
           pendingTcts: 120,
         );
       case 3:
         return DepartmentData(
-          totalTicket: 400,
+          totalTicket: 8000,
           pendingTcts: 100,
         );
       default:

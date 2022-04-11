@@ -3,9 +3,11 @@ import 'package:help_us/Ticketdetails.dart';
 
 class RecentTicket extends StatefulWidget {
   final String? nameOfmonth;
+  final int? ticketLength;
   const RecentTicket({
     Key? key,
     this.nameOfmonth,
+    this.ticketLength,
   }) : super(key: key);
 
   @override
@@ -13,7 +15,7 @@ class RecentTicket extends StatefulWidget {
 }
 
 class _RecentTicketState extends State<RecentTicket> {
-  int i = 0;
+  //int i = 0;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -142,183 +144,203 @@ class _RecentTicketState extends State<RecentTicket> {
           SizedBox(
             height: 10,
           ),
-          Column(
-            children: [
-              Container(
-                margin: EdgeInsets.only(left: 10, right: 10, top: 15),
-                decoration: BoxDecoration(
-                    border: Border(
-                        bottom: BorderSide(
-                  width: 1,
-                  color: Color(0xFFA2C0D4),
-                ))),
-                child: Column(
+          widget.ticketLength != 0
+              ? Column(
                   children: [
-                    Row(
-                      children: [
-                        CircleAvatar(
-                          backgroundColor: Color(0xFFF1F5F8),
-                          radius: 14,
-                          child: CircleAvatar(
-                            backgroundColor: Color(0xFFFF3F3F),
-                            radius: 10,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        Text(
-                          'TICKET-${i}',
-                          style: TextStyle(
-                              color: Color(0xFF414D55),
-                              fontSize: 10,
-                              fontWeight: FontWeight.w400),
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Text(
-                          '/',
-                          style: TextStyle(
-                              color: Color(0xFF8EA9BA),
-                              fontSize: 10,
-                              fontWeight: FontWeight.w400),
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Text(
-                          'Abdul Manaf',
-                          style: TextStyle(
-                              color: Color(0xFF414D55),
-                              fontSize: 10,
-                              fontWeight: FontWeight.w400),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      'Amet minim mollit non deserunt ullamco est sit aliqua dolor',
-                      style: TextStyle(
-                          color: Color(0xFF414D55),
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500),
-                    ),
-                    //SizedBox(height: 5,),
-                    Container(
-                      width: MediaQuery.of(context).size.width,
-                      height: 60,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Container(
-                            width: MediaQuery.of(context).size.width * 0.23,
-                            height: 50,
-                            padding: EdgeInsets.only(top: 8),
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.start,
+                    for (int i = 1; i <= widget.ticketLength!; i++)
+                      Container(
+                        margin: EdgeInsets.only(left: 10, right: 10, top: 15),
+                        decoration: BoxDecoration(
+                            border: Border(
+                                bottom: BorderSide(
+                          width: 1,
+                          color: Color(0xFFA2C0D4),
+                        ))),
+                        child: Column(
+                          children: [
+                            Row(
                               children: [
-                                Icon(
-                                  Icons.calendar_today,
-                                  color: Color(0xFF7861D7),
+                                CircleAvatar(
+                                  backgroundColor: Color(0xFFF1F5F8),
+                                  radius: 14,
+                                  child: CircleAvatar(
+                                    backgroundColor: Color(0xFFFF3F3F),
+                                    radius: 10,
+                                  ),
                                 ),
                                 SizedBox(
                                   width: 5,
                                 ),
-                                Container(
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        widget.nameOfmonth.toString(),
-                                        style: TextStyle(
-                                            color: Color(0xFF7861D7),
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w400),
-                                      ),
-                                      Text(
-                                        'Created',
-                                        style: TextStyle(
-                                            color: Color(0xFF59636A),
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.w400),
-                                      ),
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                          Container(
-                            width: MediaQuery.of(context).size.width * 0.23,
-                            height: 50,
-                            padding: EdgeInsets.only(top: 8),
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Icon(
-                                  Icons.calendar_today,
-                                  color: Color(0xFF7861D7),
+                                Text(
+                                  'TICKET-$i',
+                                  style: TextStyle(
+                                      color: Color(0xFF414D55),
+                                      fontSize: 10,
+                                      fontWeight: FontWeight.w400),
                                 ),
                                 SizedBox(
-                                  width: 5,
+                                  width: 10,
                                 ),
-                                Container(
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        widget.nameOfmonth.toString(),
-                                        style: TextStyle(
-                                            color: Color(0xFF7861D7),
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w400),
-                                      ),
-                                      Text(
-                                        'Expected',
-                                        style: TextStyle(
-                                            color: Color(0xFF59636A),
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.w400),
-                                      ),
-                                    ],
-                                  ),
-                                )
+                                Text(
+                                  '/',
+                                  style: TextStyle(
+                                      color: Color(0xFF8EA9BA),
+                                      fontSize: 10,
+                                      fontWeight: FontWeight.w400),
+                                ),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Text(
+                                  'Abdul Manaf',
+                                  style: TextStyle(
+                                      color: Color(0xFF414D55),
+                                      fontSize: 10,
+                                      fontWeight: FontWeight.w400),
+                                ),
                               ],
                             ),
-                          ),
-                          ElevatedButton(
-                            onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => TicketDetails()));
-                            },
-                            child: Text('Actions'),
-                            style: ButtonStyle(
-                              backgroundColor:
-                                  MaterialStateProperty.all(Color(0xFF7861D7)),
+                            SizedBox(
+                              height: 10,
                             ),
-                          ),
-                        ],
+                            Text(
+                              'Amet minim mollit non deserunt ullamco est sit aliqua dolor.Amet minim mollit non deserunt ullamco est sit aliqua dolor',
+                              maxLines: 3,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                  color: Color(0xFF414D55),
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500),
+                            ),
+                            //SizedBox(height: 5,),
+                            Container(
+                              width: MediaQuery.of(context).size.width,
+                              height: 60,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                              ),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: [
+                                  Container(
+                                    width: MediaQuery.of(context).size.width *
+                                        0.23,
+                                    height: 50,
+                                    padding: EdgeInsets.only(top: 8),
+                                    child: Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        Icon(
+                                          Icons.calendar_today,
+                                          color: Color(0xFF7861D7),
+                                        ),
+                                        SizedBox(
+                                          width: 5,
+                                        ),
+                                        Container(
+                                          child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                widget.nameOfmonth.toString(),
+                                                style: TextStyle(
+                                                    color: Color(0xFF7861D7),
+                                                    fontSize: 16,
+                                                    fontWeight:
+                                                        FontWeight.w400),
+                                              ),
+                                              Text(
+                                                'Created',
+                                                style: TextStyle(
+                                                    color: Color(0xFF59636A),
+                                                    fontSize: 12,
+                                                    fontWeight:
+                                                        FontWeight.w400),
+                                              ),
+                                            ],
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                  Container(
+                                    width: MediaQuery.of(context).size.width *
+                                        0.23,
+                                    height: 50,
+                                    padding: EdgeInsets.only(top: 8),
+                                    child: Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        Icon(
+                                          Icons.calendar_today,
+                                          color: Color(0xFF7861D7),
+                                        ),
+                                        SizedBox(
+                                          width: 5,
+                                        ),
+                                        Container(
+                                          child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                widget.nameOfmonth.toString(),
+                                                style: TextStyle(
+                                                    color: Color(0xFF7861D7),
+                                                    fontSize: 16,
+                                                    fontWeight:
+                                                        FontWeight.w400),
+                                              ),
+                                              Text(
+                                                'Expected',
+                                                style: TextStyle(
+                                                    color: Color(0xFF59636A),
+                                                    fontSize: 12,
+                                                    fontWeight:
+                                                        FontWeight.w400),
+                                              ),
+                                            ],
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                  ElevatedButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  TicketDetails()));
+                                    },
+                                    child: Text('Actions'),
+                                    style: ButtonStyle(
+                                      backgroundColor:
+                                          MaterialStateProperty.all(
+                                              Color(0xFF7861D7)),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
                       ),
-                    )
                   ],
-                ),
-              ),
-            ],
-          )
+                )
+              : Center(child: Text('No tickets')),
         ],
       ),
     );
