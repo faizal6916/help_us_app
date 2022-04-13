@@ -39,23 +39,36 @@ class _TodoState extends State<Todo> {
         key: _scaffoldKey,
         drawer: Sidebar(),
         appBar: AppBar(
-          leading: IconButton(
-            icon: Icon(
-              Icons.menu,
-              color: Color(0xFF2662F0),
-            ),
-            onPressed: () {
+          leading: GestureDetector(
+            onTap: () {
               _scaffoldKey.currentState!.openDrawer();
             },
+            child: Container(
+              margin: EdgeInsets.only(left: 12),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Icon(
+                    Icons.menu,
+                    size: 24,
+                    color: Color(0xFF7861D7),
+                  ),
+                  Text(
+                    'Menu',
+                    style: TextStyle(fontSize: 7, color: Color(0xFF7861D7)),
+                  )
+                ],
+              ),
+            ),
           ),
-          backgroundColor: Color(0xFFE5E5E5),
+          backgroundColor: Color(0xFFF1F5F8),
           elevation: 0,
-          title: Text(
-            'Menu',
-            style: TextStyle(color: Color(0xFF2662F0)),
-          ),
+          // title: Text(
+          //   'Menu',
+          //   style: TextStyle(color: Color(0xFF7861D7),fontSize: 14),
+          // ),
           bottom: PreferredSize(
-            preferredSize: Size.fromHeight(20),
+            preferredSize: Size.fromHeight(30),
             child: Container(
               margin: EdgeInsets.only(left: 12),
               child: Row(
@@ -70,7 +83,7 @@ class _TodoState extends State<Todo> {
                         size: 30,
                       )),
                   SizedBox(
-                    width: 5,
+                    width: 10,
                   ),
                   Text(
                     'To Do List',
@@ -106,7 +119,7 @@ class _TodoState extends State<Todo> {
             )
           ],
         ),
-        backgroundColor: Color(0xFFE5E5E5),
+        //backgroundColor: Color(0xFFE5E5E5),
         body: SafeArea(
           child: ListView(
             children: [

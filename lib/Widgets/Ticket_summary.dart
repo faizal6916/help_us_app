@@ -14,9 +14,9 @@ class TicketSummary extends StatelessWidget {
       padding: EdgeInsets.all(20),
       decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/Ticketbg.png'),
-            fit: BoxFit.cover,
-          )),
+        image: AssetImage('assets/images/Ticketbg.png'),
+        fit: BoxFit.cover,
+      )),
       child: Column(
         children: [
           Row(
@@ -43,15 +43,12 @@ class TicketSummary extends StatelessWidget {
               ),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => TicketHistory()));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => TicketHistory()));
                 },
                 child: Text('View History'),
                 style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(
-                      Color(0xFF34D1BF)),
+                  backgroundColor: MaterialStateProperty.all(Color(0xFF34D1BF)),
                 ),
               )
             ],
@@ -307,8 +304,7 @@ class TicketSummary extends StatelessWidget {
               children: [
                 Text(
                   'Description:',
-                  style: TextStyle(
-                      color: Color(0xFF2395FF).withOpacity(0.5)),
+                  style: TextStyle(color: Color(0xFF2395FF).withOpacity(0.5)),
                 ),
                 Text(
                   'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. ',
@@ -332,12 +328,12 @@ class TicketSummary extends StatelessWidget {
             ),
             child: Center(
                 child: Text(
-                  ' User Created - Assigned To POC',
-                  style: TextStyle(
-                      color: Color(0xFF1B5E20),
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400),
-                )),
+              ' User Created - Assigned To POC',
+              style: TextStyle(
+                  color: Color(0xFF1B5E20),
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400),
+            )),
           ),
         ],
       ),

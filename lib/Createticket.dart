@@ -29,23 +29,36 @@ class _CreateTicketState extends State<CreateTicket> {
         key: _scaffoldKey,
         drawer: Sidebar(),
         appBar: AppBar(
-          leading: IconButton(
-            icon: Icon(
-              Icons.menu,
-              color: Color(0xFF2662F0),
-            ),
-            onPressed: () {
+          leading: GestureDetector(
+            onTap: () {
               _scaffoldKey.currentState!.openDrawer();
             },
+            child: Container(
+              margin: EdgeInsets.only(left: 12),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Icon(
+                    Icons.menu,
+                    size: 24,
+                    color: Color(0xFF7861D7),
+                  ),
+                  Text(
+                    'Menu',
+                    style: TextStyle(fontSize: 7, color: Color(0xFF7861D7)),
+                  )
+                ],
+              ),
+            ),
           ),
-          backgroundColor: Color(0xFFE5E5E5),
+          backgroundColor: Color(0xFFF1F5F8),
           elevation: 0,
-          title: Text(
-            'Menu',
-            style: TextStyle(color: Color(0xFF2662F0)),
-          ),
+          // title: Text(
+          //   'Menu',
+          //   style: TextStyle(color: Color(0xFF7F6AD8),fontSize: 14),
+          // ),
           bottom: PreferredSize(
-            preferredSize: Size.fromHeight(20),
+            preferredSize: Size.fromHeight(30),
             child: Container(
               margin: EdgeInsets.only(left: 12),
               child: Row(
@@ -60,7 +73,7 @@ class _CreateTicketState extends State<CreateTicket> {
                         size: 30,
                       )),
                   SizedBox(
-                    width: 5,
+                    width: 10,
                   ),
                   Text(
                     'Create Ticket',
@@ -96,7 +109,7 @@ class _CreateTicketState extends State<CreateTicket> {
             )
           ],
         ),
-        backgroundColor: Color(0xFFE5E5E5),
+        //backgroundColor: Color(0xFFE5E5E5),
         body: SafeArea(
           child: Form(
             key: _formkey,
@@ -142,6 +155,10 @@ class _CreateTicketState extends State<CreateTicket> {
                                 ),
                                 DropdownButtonFormField(
                                   hint: Text('Nims Dubai'),
+                                  icon: Icon(
+                                    Icons.arrow_drop_down_outlined,
+                                    color: Color(0xFF7861D7),
+                                  ),
                                   validator: (value) => value == null
                                       ? 'Select an institute'
                                       : null,
@@ -194,6 +211,10 @@ class _CreateTicketState extends State<CreateTicket> {
                                 ),
                                 DropdownButtonFormField(
                                   hint: Text('Accadamic-  Primary&Middle'),
+                                  icon: Icon(
+                                    Icons.arrow_drop_down_outlined,
+                                    color: Color(0xFF7861D7),
+                                  ),
                                   validator: (value) => value == null
                                       ? 'Select a department'
                                       : null,
@@ -251,6 +272,10 @@ class _CreateTicketState extends State<CreateTicket> {
                                       ),
                                       DropdownButtonFormField(
                                         hint: Text('Critical'),
+                                        icon: Icon(
+                                          Icons.arrow_drop_down_outlined,
+                                          color: Color(0xFF7861D7),
+                                        ),
                                         validator: (value) => value == null
                                             ? 'Select Severity Level'
                                             : null,
@@ -312,8 +337,12 @@ class _CreateTicketState extends State<CreateTicket> {
                                                 : null,
                                         decoration: InputDecoration(
                                           hintText: showDate,
+                                          suffixIcon: Icon(
+                                            Icons.calendar_today,
+                                            color: Color(0xFF7861D7),
+                                          ),
                                           contentPadding: EdgeInsets.symmetric(
-                                              horizontal: 25, vertical: 18),
+                                              horizontal: 10, vertical: 18),
                                           border: OutlineInputBorder(
                                             borderRadius:
                                                 BorderRadius.circular(6),
@@ -359,37 +388,24 @@ class _CreateTicketState extends State<CreateTicket> {
                                 SizedBox(
                                   height: 10,
                                 ),
-                                DropdownButtonFormField(
-                                  hint: Text('Motor not workimg'),
-                                  validator: (value) => value == null
-                                      ? 'Select Ticket Subject'
-                                      : null,
-                                  items: <String>['one', 'two', 'three']
-                                      .map((item) {
-                                    return DropdownMenuItem<String>(
-                                      value: item,
-                                      child: Text(item),
-                                    );
-                                  }).toList(),
-                                  onChanged: (_) {},
+                                TextFormField(
+                                  //maxLines: 5,
                                   decoration: InputDecoration(
+                                    hintText: 'Motor not workimg',
                                     contentPadding: EdgeInsets.symmetric(
-                                        horizontal: 15, vertical: 15),
-                                    fillColor: Colors.white,
+                                        horizontal: 20, vertical: 20),
                                     border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(6),
                                     ),
                                     enabledBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Color(0xFFDDDDDD),
-                                      ),
                                       borderRadius: BorderRadius.circular(6),
+                                      borderSide:
+                                          BorderSide(color: Color(0xFFDDDDDD)),
                                     ),
                                     focusedBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Color(0xFFDDDDDD),
-                                      ),
                                       borderRadius: BorderRadius.circular(6),
+                                      borderSide:
+                                          BorderSide(color: Color(0xFFC9DEF8)),
                                     ),
                                   ),
                                 )
@@ -461,7 +477,15 @@ class _CreateTicketState extends State<CreateTicket> {
                                                 },
                                                 icon: Icon(
                                                     Icons.attach_file_outlined),
-                                                label: Text('Choose File'),
+                                                label: Text(
+                                                  'Choose File',
+                                                  style: TextStyle(
+                                                      color: Color.fromRGBO(
+                                                          0, 0, 0, 0.54),
+                                                      fontWeight:
+                                                          FontWeight.w400,
+                                                      fontSize: 14),
+                                                ),
                                                 style: ElevatedButton.styleFrom(
                                                   primary: Color(0xFFF0F0F0),
                                                   onPrimary: Colors.black,
@@ -506,29 +530,37 @@ class _CreateTicketState extends State<CreateTicket> {
                             SizedBox(
                               height: 20,
                             ),
-                            Directionality(
-                              textDirection: TextDirection.rtl,
-                              child: ElevatedButton.icon(
-                                onPressed: () {
-                                  if (_formkey.currentState!.validate() &&
-                                      pickedFile != null) {
-                                    print('success');
-                                    setState(() {
-                                      isPicked = true;
-                                    });
-                                  } else {
-                                    setState(() {
-                                      errColor = Color(0xFFD50000);
-                                    });
-                                  }
-                                },
-                                icon: Icon(Icons.arrow_back),
-                                label: Text('SUBMIT'),
-                                style: ElevatedButton.styleFrom(
-                                  minimumSize: Size(
-                                      MediaQuery.of(context).size.width, 50),
-                                  primary: Color(0xFF2395FF),
-                                  onPrimary: Colors.white,
+                            Center(
+                              child: Directionality(
+                                textDirection: TextDirection.rtl,
+                                child: ElevatedButton.icon(
+                                  onPressed: () {
+                                    if (_formkey.currentState!.validate() &&
+                                        pickedFile != null) {
+                                      print('success');
+                                      setState(() {
+                                        isPicked = true;
+                                      });
+                                    } else {
+                                      setState(() {
+                                        errColor = Color(0xFFD50000);
+                                      });
+                                    }
+                                  },
+                                  icon: Icon(Icons.arrow_back),
+                                  label: Text(
+                                    'SUBMIT',
+                                    style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w700),
+                                  ),
+                                  style: ElevatedButton.styleFrom(
+                                      minimumSize: Size(320, 50),
+                                      primary: Color(0xFF7861D7),
+                                      onPrimary: Colors.white,
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10))),
                                 ),
                               ),
                             ),

@@ -162,10 +162,10 @@ class _RecentTicketState extends State<RecentTicket> {
                               children: [
                                 CircleAvatar(
                                   backgroundColor: Color(0xFFF1F5F8),
-                                  radius: 14,
+                                  radius: 10,
                                   child: CircleAvatar(
                                     backgroundColor: Color(0xFFFF3F3F),
-                                    radius: 10,
+                                    radius: 8,
                                   ),
                                 ),
                                 SizedBox(
@@ -175,7 +175,7 @@ class _RecentTicketState extends State<RecentTicket> {
                                   'TICKET-$i',
                                   style: TextStyle(
                                       color: Color(0xFF414D55),
-                                      fontSize: 10,
+                                      fontSize: 14,
                                       fontWeight: FontWeight.w400),
                                 ),
                                 SizedBox(
@@ -185,7 +185,7 @@ class _RecentTicketState extends State<RecentTicket> {
                                   '/',
                                   style: TextStyle(
                                       color: Color(0xFF8EA9BA),
-                                      fontSize: 10,
+                                      fontSize: 14,
                                       fontWeight: FontWeight.w400),
                                 ),
                                 SizedBox(
@@ -195,7 +195,7 @@ class _RecentTicketState extends State<RecentTicket> {
                                   'Abdul Manaf',
                                   style: TextStyle(
                                       color: Color(0xFF414D55),
-                                      fontSize: 10,
+                                      fontSize: 14,
                                       fontWeight: FontWeight.w400),
                                 ),
                               ],
@@ -326,10 +326,12 @@ class _RecentTicketState extends State<RecentTicket> {
                                                   TicketDetails()));
                                     },
                                     child: Text('Actions'),
-                                    style: ButtonStyle(
-                                      backgroundColor:
-                                          MaterialStateProperty.all(
-                                              Color(0xFF7861D7)),
+                                    style: ElevatedButton.styleFrom(
+                                      onPrimary: Colors.white,
+                                      primary: Color(0xFF7861D7),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(20),
+                                      ),
                                     ),
                                   ),
                                 ],

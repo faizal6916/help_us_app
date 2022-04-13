@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math' as math;
 
 class SingleTicket extends StatelessWidget {
   const SingleTicket({
@@ -15,16 +16,15 @@ class SingleTicket extends StatelessWidget {
         Expanded(
           flex: 1,
           child: Container(
-            height: size.height*0.25+12,
+            height: 162,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  margin: EdgeInsets.only(left: 3.5),
-                  width: 5,
-                  height: size.height*0.125,
-                  decoration: BoxDecoration(
-                      color: Color(0xFF3B6DF1)),
+                  margin: EdgeInsets.only(left: 4.5),
+                  width: 3,
+                  height: 75,
+                  decoration: BoxDecoration(color: Color(0xFF3B6DF1)),
                 ),
                 CircleAvatar(
                   backgroundColor: Color(0xFF3B6DF1),
@@ -35,9 +35,9 @@ class SingleTicket extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(left: 3.5),
-                  width: 5,
-                  height: size.height*0.125,
+                  margin: EdgeInsets.only(left: 4.5),
+                  width: 3,
+                  height: 75,
                   decoration: BoxDecoration(
                     color: Color(0xFF3B6DF1),
                   ),
@@ -49,20 +49,17 @@ class SingleTicket extends StatelessWidget {
         Expanded(
           flex: 10,
           child: Container(
-            height: size.height*0.25,
-            padding: EdgeInsets.symmetric(
-                horizontal: 10, vertical: 10),
+            height: 150,
+            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
             margin: EdgeInsets.only(bottom: 12),
             decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius:
-                BorderRadius.circular(6),
+                borderRadius: BorderRadius.circular(6),
                 border: Border.all(
                   color: Color(0xFFD4E1FF),
                 )),
             child: Column(
-              crossAxisAlignment:
-              CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
@@ -74,7 +71,9 @@ class SingleTicket extends StatelessWidget {
                     letterSpacing: 1,
                   ),
                 ),
-                SizedBox(height: size.height*0.01,),
+                SizedBox(
+                  height: 10,
+                ),
                 Expanded(
                   child: Text(
                     'Dept Head Aneesh Y N assigned ticket - TICKT-584 to Dept Employee.Dept Head Aneesh Y N assigned ticket - TICKT-584 to Dept Employee.',
@@ -87,10 +86,8 @@ class SingleTicket extends StatelessWidget {
                     ),
                   ),
                 ),
-
                 Row(
-                  mainAxisAlignment:
-                  MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Expanded(
                       flex: 3,
@@ -98,15 +95,15 @@ class SingleTicket extends StatelessWidget {
                         onPressed: () {},
                         child: Text(
                           'Parent ticket details',
-                          style:
-                          TextStyle(fontSize: 9),
+                          style: TextStyle(fontSize: 8),
                         ),
-                        style:
-                        ElevatedButton.styleFrom(
-                          primary: Color(0xFFA1A0FD),
-                          onPrimary: Colors.white,
-                          elevation: 0,
-                        ),
+                        style: ElevatedButton.styleFrom(
+                            primary: Color(0xFFA1A0FD),
+                            onPrimary: Colors.white,
+                            elevation: 0,
+                            padding: EdgeInsets.zero,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(9))),
                       ),
                     ),
                     SizedBox(
@@ -118,14 +115,35 @@ class SingleTicket extends StatelessWidget {
                         onPressed: () {},
                         child: Text(
                           'Child ticket details',
-                          style:
-                          TextStyle(fontSize: 9),
+                          style: TextStyle(fontSize: 8),
                         ),
-                        style:
-                        ElevatedButton.styleFrom(
-                          primary: Color(0xFF7BEBA1),
-                          onPrimary: Colors.white,
-                          elevation: 0,
+                        style: ElevatedButton.styleFrom(
+                            primary: Color(0xFF7BEBA1),
+                            onPrimary: Colors.white,
+                            elevation: 0,
+                            padding: EdgeInsets.zero,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(9))),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Container(
+                        width: 30,
+                        height: 38,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30),
+                            color: Color(0xFFEDF4FF)),
+                        child: Transform.rotate(
+                          angle: 30 * math.pi / 180,
+                          child: Icon(
+                            Icons.attach_file,
+                            color: Color(0xFF3B6DF1),
+                            size: 16,
+                          ),
                         ),
                       ),
                     ),
@@ -136,35 +154,12 @@ class SingleTicket extends StatelessWidget {
                       flex: 1,
                       child: Container(
                         width: 30,
-                        height: 30,
+                        height: 38,
                         decoration: BoxDecoration(
-                            borderRadius:
-                            BorderRadius.circular(
-                                30),
+                            borderRadius: BorderRadius.circular(30),
                             color: Color(0xFFEDF4FF)),
                         child: Icon(
-                          Icons.attach_file,
-                          color: Color(0xFF3B6DF1),
-                          size: 16,
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: Container(
-                        width: 30,
-                        height: 30,
-                        decoration: BoxDecoration(
-                            borderRadius:
-                            BorderRadius.circular(
-                                30),
-                            color: Color(0xFFEDF4FF)),
-                        child: Icon(
-                          Icons
-                              .messenger_outline_outlined,
+                          Icons.messenger_outline_outlined,
                           color: Color(0xFF3B6DF1),
                           size: 16,
                         ),

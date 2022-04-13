@@ -32,23 +32,36 @@ class _TicketDetailsState extends State<TicketDetails> {
       key: _scaffoldKey,
       drawer: Sidebar(),
       appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(
-            Icons.menu,
-            color: Color(0xFF2662F0),
-          ),
-          onPressed: () {
+        leading: GestureDetector(
+          onTap: () {
             _scaffoldKey.currentState!.openDrawer();
           },
+          child: Container(
+            margin: EdgeInsets.only(left: 12),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Icon(
+                  Icons.menu,
+                  size: 24,
+                  color: Color(0xFF7861D7),
+                ),
+                Text(
+                  'Menu',
+                  style: TextStyle(fontSize: 7, color: Color(0xFF7861D7)),
+                )
+              ],
+            ),
+          ),
         ),
-        backgroundColor: Color(0xFFE5E5E5),
+        backgroundColor: Color(0xFFF1F5F8),
         elevation: 0,
-        title: Text(
-          'Menu',
-          style: TextStyle(color: Color(0xFF2662F0)),
-        ),
+        // title: Text(
+        //   'Menu',
+        //   style: TextStyle(color: Color(0xFF7861D7)),
+        // ),
         bottom: PreferredSize(
-          preferredSize: Size.fromHeight(20),
+          preferredSize: Size.fromHeight(30),
           child: Container(
             margin: EdgeInsets.only(left: 12),
             child: Row(
@@ -63,7 +76,7 @@ class _TicketDetailsState extends State<TicketDetails> {
                       size: 30,
                     )),
                 SizedBox(
-                  width: 5,
+                  width: 10,
                 ),
                 Text(
                   'Ticket Details',
@@ -99,7 +112,7 @@ class _TicketDetailsState extends State<TicketDetails> {
           )
         ],
       ),
-      backgroundColor: Color(0xFFE5E5E5),
+      //backgroundColor: Color(0xFFE5E5E5),
       body: SafeArea(
         child: ListView(
           children: [
@@ -140,6 +153,10 @@ class _TicketDetailsState extends State<TicketDetails> {
                                     style: TextStyle(
                                         color: Colors.white, fontSize: 14),
                                   ),
+                                  icon: Icon(
+                                    Icons.arrow_drop_down_outlined,
+                                    color: Colors.white,
+                                  ),
                                   items: <String>[
                                     'A',
                                     'B',
@@ -157,9 +174,8 @@ class _TicketDetailsState extends State<TicketDetails> {
                                   decoration: InputDecoration(
                                       hintStyle: TextStyle(color: Colors.red),
                                       contentPadding: EdgeInsets.symmetric(
-                                          horizontal: 15, vertical: 15),
+                                          horizontal: 15, vertical: 10),
                                       fillColor: Color(0xFF2395FF),
-                                      suffixIconColor: Colors.white,
                                       filled: true,
                                       border: OutlineInputBorder(
                                         borderRadius: BorderRadius.circular(8),
@@ -186,6 +202,10 @@ class _TicketDetailsState extends State<TicketDetails> {
                               ),
                               DropdownButtonFormField(
                                 hint: Text('Accadamic-  Primary&Middle'),
+                                icon: Icon(
+                                  Icons.arrow_drop_down_outlined,
+                                  color: Color(0xFF7861D7),
+                                ),
                                 validator: (value) => value == null
                                     ? 'Select a Department'
                                     : null,
@@ -242,6 +262,10 @@ class _TicketDetailsState extends State<TicketDetails> {
                                     ),
                                     DropdownButtonFormField(
                                       hint: Text('Critical'),
+                                      icon: Icon(
+                                        Icons.arrow_drop_down_outlined,
+                                        color: Color(0xFF7861D7),
+                                      ),
                                       validator: (value) => value == null
                                           ? 'Select Severity level'
                                           : null,
@@ -302,8 +326,12 @@ class _TicketDetailsState extends State<TicketDetails> {
                                               : null,
                                       decoration: InputDecoration(
                                         hintText: showDate,
+                                        suffixIcon: Icon(
+                                          Icons.calendar_today,
+                                          color: Color(0xFF7861D7),
+                                        ),
                                         contentPadding: EdgeInsets.symmetric(
-                                            horizontal: 25, vertical: 18),
+                                            horizontal: 10, vertical: 18),
                                         border: OutlineInputBorder(
                                           borderRadius:
                                               BorderRadius.circular(6),
@@ -358,7 +386,13 @@ class _TicketDetailsState extends State<TicketDetails> {
                                               onPressed: () => pickFile(),
                                               icon: Icon(
                                                   Icons.attach_file_outlined),
-                                              label: Text('Choose File'),
+                                              label: Text(
+                                                'Choose File',
+                                                style: TextStyle(
+                                                    color: Color.fromRGBO(
+                                                        0, 0, 0, 0.54),
+                                                    fontSize: 14),
+                                              ),
                                               style: ElevatedButton.styleFrom(
                                                 primary: Color(0xFFF0F0F0),
                                                 onPrimary: Colors.black,
@@ -461,11 +495,11 @@ class _TicketDetailsState extends State<TicketDetails> {
                               icon: Icon(Icons.arrow_back),
                               label: Text('SUBMIT'),
                               style: ElevatedButton.styleFrom(
-                                minimumSize:
-                                    Size(MediaQuery.of(context).size.width, 50),
-                                primary: Color(0xFF7861D7),
-                                onPrimary: Colors.white,
-                              ),
+                                  minimumSize: Size(320, 50),
+                                  primary: Color(0xFF7861D7),
+                                  onPrimary: Colors.white,
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10))),
                             ),
                           ),
                           SizedBox(
@@ -478,11 +512,11 @@ class _TicketDetailsState extends State<TicketDetails> {
                               icon: Icon(Icons.mail_outline),
                               label: Text('COMPOSE MAIL'),
                               style: ElevatedButton.styleFrom(
-                                minimumSize:
-                                    Size(MediaQuery.of(context).size.width, 50),
-                                primary: Color(0xFF34D1BF),
-                                onPrimary: Colors.white,
-                              ),
+                                  minimumSize: Size(320, 50),
+                                  primary: Color(0xFF34D1BF),
+                                  onPrimary: Colors.white,
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10))),
                             ),
                           ),
                         ],

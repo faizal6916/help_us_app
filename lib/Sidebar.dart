@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:help_us/Widgets/Exit_alert.dart';
 import 'dart:math' as math;
 
 class Sidebar extends StatefulWidget {
@@ -20,6 +21,7 @@ class _SidebarState extends State<Sidebar> {
           Container(
             height: MediaQuery.of(context).size.height,
             padding: EdgeInsets.only(left: 15, right: 15),
+            color: Colors.white,
             child: Column(
               children: [
                 SizedBox(
@@ -81,11 +83,14 @@ class _SidebarState extends State<Sidebar> {
                   //visualDensity: VisualDensity(vertical: -4),
                 ),
                 ListTile(
-                  leading: Icon(Icons.event),
+                  leading: Icon(
+                    Icons.event,
+                    color: Color(0xFF7861D7),
+                  ),
                   title: Text(
                     'To-Do-List',
                     style: TextStyle(
-                        color: Color(0xFF414D55),
+                        color: Color(0xFF7861D7),
                         fontSize: 16,
                         fontWeight: FontWeight.w400),
                   ),
@@ -156,24 +161,46 @@ class _SidebarState extends State<Sidebar> {
                   },
                   //visualDensity: VisualDensity(vertical: -3),
                 ),
-                //SizedBox(height: 80,),
+                ListTile(
+                  leading: Transform.rotate(
+                      angle: 270 * math.pi / 180, child: Icon(Icons.tune)),
+                  title: Text(
+                    'Settings',
+                    style: TextStyle(
+                        color: Color(0xFF414D55),
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400),
+                  ),
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  //visualDensity: VisualDensity(vertical: -3),
+                ),
                 Expanded(
                   child: Align(
                     alignment: Alignment.bottomCenter,
                     child: ListTile(
                       leading: Transform.rotate(
-                          angle: 270 * math.pi / 180, child: Icon(Icons.tune)),
+                          angle: 90 * math.pi / 180,
+                          child: Icon(
+                            Icons.power_settings_new_outlined,
+                            color: Color(0xFF7861D7),
+                          )),
                       title: Text(
-                        'Settings',
+                        'Logout',
                         style: TextStyle(
-                            color: Color(0xFF414D55),
+                            color: Color(0xFF7861D7),
                             fontSize: 16,
                             fontWeight: FontWeight.w400),
                       ),
                       hoverColor: Colors.red,
                       enabled: true,
                       onTap: () {
-                        Navigator.pop(context);
+                        showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return ExitAlert();
+                            });
                       },
                       //visualDensity: VisualDensity(vertical: -3),
                     ),

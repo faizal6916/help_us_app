@@ -2,7 +2,6 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
-
 class DepartmentData extends StatefulWidget {
   final int? totalTicket;
   final int? pendingTcts;
@@ -158,10 +157,9 @@ class _DepartmentDataState extends State<DepartmentData> {
         ),
         Expanded(
           child: Stack(
+            alignment: Alignment.center,
             children: [
               Positioned(
-                top: 50,
-                left: 28,
                 child: Column(
                   children: [
                     Text(
@@ -199,25 +197,22 @@ class _DepartmentDataState extends State<DepartmentData> {
     );
   }
 
-  double pendingPercIndicator(){
+  double pendingPercIndicator() {
     final pendingNos = widget.pendingTcts;
     final totalNos = widget.totalTicket;
     final pendPerc = (pendingNos! / totalNos! * 100);
     return pendPerc;
   }
 
-  List<PieChartSectionData> showingSection(){
+  List<PieChartSectionData> showingSection() {
     return List.generate(3, (index) {
-      switch(index){
+      switch (index) {
         case 0:
           return PieChartSectionData(
-            color: Color(0xFFFF715B),
-            value: pendingPercIndicator(),
-            title: '${pendingPercIndicator().floor()}%',
-            titleStyle: TextStyle(
-              color: Colors.white
-            )
-          );
+              color: Color(0xFFFF715B),
+              value: pendingPercIndicator(),
+              title: '${pendingPercIndicator().floor()}%',
+              titleStyle: TextStyle(color: Colors.white));
         case 1:
           return PieChartSectionData(
             color: Color(0xFF29E7CD),

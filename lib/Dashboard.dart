@@ -6,6 +6,7 @@ import 'package:help_us/Widgets/Selector_widget.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:help_us/Widgets/Department_section_data.dart';
 import 'package:help_us/Widgets/Ticket_status_widget.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({Key? key}) : super(key: key);
@@ -71,23 +72,36 @@ class _DashboardState extends State<Dashboard> {
         key: _scaffoldKey,
         drawer: Sidebar(),
         appBar: AppBar(
-          leading: IconButton(
-            icon: Icon(
-              Icons.menu,
-              color: Color(0xFF2662F0),
-            ),
-            onPressed: () {
+          leading: GestureDetector(
+            onTap: () {
               _scaffoldKey.currentState!.openDrawer();
             },
+            child: Container(
+              margin: EdgeInsets.only(left: 12),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Icon(
+                    Icons.menu,
+                    size: 24,
+                    color: Color(0xFF7861D7),
+                  ),
+                  Text(
+                    'Menu',
+                    style: TextStyle(fontSize: 7, color: Color(0xFF7861D7)),
+                  )
+                ],
+              ),
+            ),
           ),
-          backgroundColor: Color(0xFFE5E5E5),
+          backgroundColor: Color(0xFFF1F5F8),
           elevation: 0,
-          title: Text(
-            'Menu',
-            style: TextStyle(color: Color(0xFF2662F0)),
-          ),
+          // title: Text(
+          //   'Menu',
+          //   style: TextStyle(color: Color(0xFF7861D7),fontSize: 14),
+          // ),
           bottom: PreferredSize(
-            preferredSize: Size.fromHeight(20),
+            preferredSize: Size.fromHeight(30),
             child: Container(
               margin: EdgeInsets.only(left: 12),
               child: Row(
@@ -102,7 +116,7 @@ class _DashboardState extends State<Dashboard> {
                         size: 30,
                       )),
                   SizedBox(
-                    width: 5,
+                    width: 10,
                   ),
                   Text(
                     'Home',
@@ -138,7 +152,7 @@ class _DashboardState extends State<Dashboard> {
             )
           ],
         ),
-        backgroundColor: Color(0xFFE5E5E5),
+        //backgroundColor: Color(0xFFE5E5E5),
         body: SafeArea(
           child: ListView(
             children: [
@@ -333,9 +347,10 @@ class _DashboardState extends State<Dashboard> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  Image(
-                                      image: AssetImage(
-                                          'assets/images/Create.png')),
+                                  // Image(
+                                  //     image: AssetImage(
+                                  //         'assets/images/Create.png')),
+                                  SvgPicture.asset('assets/icons/Create.svg'),
                                   SizedBox(
                                     width: 5,
                                   ),
@@ -364,9 +379,7 @@ class _DashboardState extends State<Dashboard> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  Image(
-                                      image:
-                                          AssetImage('assets/images/View.png')),
+                                  SvgPicture.asset('assets/icons/View.svg'),
                                   SizedBox(
                                     width: 5,
                                   ),
@@ -395,9 +408,7 @@ class _DashboardState extends State<Dashboard> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  Image(
-                                      image: AssetImage(
-                                          'assets/images/Todoicon.png')),
+                                  SvgPicture.asset('assets/icons/Todo.svg'),
                                   SizedBox(
                                     width: 5,
                                   ),
