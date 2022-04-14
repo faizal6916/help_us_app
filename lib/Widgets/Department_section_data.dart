@@ -184,7 +184,7 @@ class _DepartmentDataState extends State<DepartmentData> {
                   height: 150,
                   child: PieChart(PieChartData(
                     sections: showingSection(),
-                    centerSpaceRadius: 45,
+                    centerSpaceRadius: 60,
                   )),
                 ),
               ),
@@ -209,17 +209,20 @@ class _DepartmentDataState extends State<DepartmentData> {
           return PieChartSectionData(
               color: Color(0xFFFF715B),
               value: pendingPercIndicator(),
+              radius: 25,
               title: '${pendingPercIndicator().floor()}%',
               titleStyle: TextStyle(color: Colors.white));
         case 1:
           return PieChartSectionData(
             color: Color(0xFF29E7CD),
+            radius: 25,
             value: 20,
             title: '',
           );
         case 2:
           return PieChartSectionData(
             color: Color(0xFF6665DD),
+            radius: 25,
             value: 20,
             title: '',
           );

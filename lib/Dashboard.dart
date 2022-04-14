@@ -144,7 +144,7 @@ class _DashboardState extends State<Dashboard> {
             children: [
               Container(
                 width: MediaQuery.of(context).size.width,
-                margin: EdgeInsets.fromLTRB(20, 10, 20, 20),
+                margin: EdgeInsets.all(20),
                 child: Column(
                   children: [
                     Container(

@@ -421,7 +421,7 @@ class _CreateTicketState extends State<CreateTicket> {
                                     focusedBorder: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(6),
                                       borderSide:
-                                          BorderSide(color: Color(0xFFC9DEF8)),
+                                          BorderSide(color: Color(0xFFDDDDDD)),
                                     ),
                                   ),
                                 )

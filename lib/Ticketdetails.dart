@@ -106,7 +106,7 @@ class _TicketDetailsState extends State<TicketDetails> {
           children: [
             Container(
               width: MediaQuery.of(context).size.width,
-              margin: EdgeInsets.fromLTRB(20, 0, 20, 20),
+              margin: EdgeInsets.fromLTRB(20, 10, 20, 20),
               child: Column(
                 children: [
                   TicketSummary(),
@@ -160,7 +160,7 @@ class _TicketDetailsState extends State<TicketDetails> {
                                   decoration: InputDecoration(
                                     hintStyle: TextStyle(color: Colors.red),
                                     contentPadding: EdgeInsets.symmetric(
-                                        horizontal: 15, vertical: 10),
+                                        horizontal: 15, vertical: 0),
                                     fillColor: Color(0xFF2395FF),
                                     filled: true,
                                     border: OutlineInputBorder(

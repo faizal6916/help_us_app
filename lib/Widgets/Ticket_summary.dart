@@ -17,7 +17,10 @@ class TicketSummary extends StatelessWidget {
           image: DecorationImage(
         image: AssetImage('assets/images/Ticketbg.png'),
         fit: BoxFit.cover,
-      )),
+
+       ),
+              borderRadius: BorderRadius.only(topLeft: Radius.circular(12),topRight: Radius.circular(12))
+      ),
       child: Column(
         children: [
           Row(

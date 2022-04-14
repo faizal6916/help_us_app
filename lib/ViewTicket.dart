@@ -128,7 +128,7 @@ class _ViewTicketState extends State<ViewTicket> with TickerProviderStateMixin {
             children: [
               Container(
                 width: MediaQuery.of(context).size.width,
-                margin: EdgeInsets.fromLTRB(20, 0, 20, 20),
+                margin: EdgeInsets.fromLTRB(20, 10, 20, 20),
                 child: Column(
                   children: [
                     SizedBox(
