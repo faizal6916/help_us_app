@@ -2,6 +2,8 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
+import 'package:google_fonts/google_fonts.dart';
+
 class DepartmentData extends StatefulWidget {
   final int? totalTicket;
   final int? pendingTcts;
@@ -162,20 +164,16 @@ class _DepartmentDataState extends State<DepartmentData> {
               Positioned(
                 child: Column(
                   children: [
-                    Text(
-                      widget.totalTicket.toString(),
-                      style: TextStyle(
-                          color: Color(0xFF414D55),
-                          fontWeight: FontWeight.w500,
-                          fontSize: 20),
-                    ),
-                    Text(
-                      'Total Tickets',
-                      style: TextStyle(
-                          color: Color(0xFF414D55),
-                          fontWeight: FontWeight.w400,
-                          fontSize: 14),
-                    ),
+                    Text(widget.totalTicket.toString(),
+                        style: GoogleFonts.rubik(
+                            color: Color(0xFF414D55),
+                            fontWeight: FontWeight.w500,
+                            fontSize: 20)),
+                    Text('Total Tickets',
+                        style: GoogleFonts.roboto(
+                            color: Color(0xFF414D55),
+                            fontWeight: FontWeight.w400,
+                            fontSize: 14)),
                   ],
                 ),
               ),

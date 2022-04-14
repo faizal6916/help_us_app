@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({Key? key}) : super(key: key);
@@ -35,13 +36,12 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               Positioned(
                   top: size.height * 0.08,
                   child: Text(
-                    'Track your issues with\n          our simple,\n    intuitive interface.',
-                    style: TextStyle(
+                      'Track your issues with\n          our simple,\n    intuitive interface.',
+                      style: GoogleFonts.nunitoSans(
                         fontSize: 25,
-                        fontWeight: FontWeight.w600,
-                        letterSpacing: 1,
-                        color: Color(0xFF1B344B)),
-                  )),
+                        fontWeight: FontWeight.w700,
+                        color: Color(0xFF1B344B),
+                      ))),
               Positioned(
                   top: size.height * 0.28,
                   left: 50,

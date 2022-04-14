@@ -4,6 +4,7 @@ import 'package:help_us/Sidebar.dart';
 import 'dart:async';
 import 'package:file_picker/file_picker.dart';
 import 'package:help_us/Widgets/Ticket_summary.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class TicketDetails extends StatefulWidget {
   const TicketDetails({Key? key}) : super(key: key);
@@ -32,28 +33,15 @@ class _TicketDetailsState extends State<TicketDetails> {
       key: _scaffoldKey,
       drawer: Sidebar(),
       appBar: AppBar(
-        leading: GestureDetector(
-          onTap: () {
-            _scaffoldKey.currentState!.openDrawer();
-          },
-          child: Container(
-            margin: EdgeInsets.only(left: 12),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Icon(
-                  Icons.menu,
-                  size: 24,
-                  color: Color(0xFF7861D7),
-                ),
-                Text(
-                  'Menu',
-                  style: TextStyle(fontSize: 7, color: Color(0xFF7861D7)),
-                )
-              ],
-            ),
-          ),
-        ),
+        leading: IconButton(
+            onPressed: () {
+              _scaffoldKey.currentState!.openDrawer();
+            },
+            icon: Icon(
+              Icons.menu,
+              size: 28,
+              color: Color(0xFF7861D7),
+            )),
         backgroundColor: Color(0xFFF1F5F8),
         elevation: 0,
         // title: Text(
@@ -80,10 +68,10 @@ class _TicketDetailsState extends State<TicketDetails> {
                 ),
                 Text(
                   'Ticket Details',
-                  style: TextStyle(
+                  style: GoogleFonts.rubik(
                       color: Color(0xFF414D55),
                       fontSize: 28,
-                      fontWeight: FontWeight.bold),
+                      fontWeight: FontWeight.w500),
                 ),
               ],
             ),
@@ -139,20 +127,18 @@ class _TicketDetailsState extends State<TicketDetails> {
                           Row(
                             children: [
                               Expanded(
-                                  child: Text(
-                                'Ticket Actions',
-                                style: TextStyle(
-                                    color: Color(0xFF414D55),
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w500),
-                              )),
+                                  child: Text('Ticket Actions',
+                                      style: GoogleFonts.rubik(
+                                          color: Color(0xFF414D55),
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.w500))),
                               Expanded(
                                 child: DropdownButtonFormField(
-                                  hint: Text(
-                                    'Assign Ticket',
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 14),
-                                  ),
+                                  hint: Text('Assign Ticket',
+                                      style: GoogleFonts.poppins(
+                                          color: Colors.white,
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w600)),
                                   icon: Icon(
                                     Icons.arrow_drop_down_outlined,
                                     color: Colors.white,
@@ -172,14 +158,27 @@ class _TicketDetailsState extends State<TicketDetails> {
                                   onChanged: (_) {},
                                   isExpanded: true,
                                   decoration: InputDecoration(
-                                      hintStyle: TextStyle(color: Colors.red),
-                                      contentPadding: EdgeInsets.symmetric(
-                                          horizontal: 15, vertical: 10),
-                                      fillColor: Color(0xFF2395FF),
-                                      filled: true,
-                                      border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(8),
-                                      )),
+                                    hintStyle: TextStyle(color: Colors.red),
+                                    contentPadding: EdgeInsets.symmetric(
+                                        horizontal: 15, vertical: 10),
+                                    fillColor: Color(0xFF2395FF),
+                                    filled: true,
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(6),
+                                    ),
+                                    enabledBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Colors.transparent,
+                                      ),
+                                      borderRadius: BorderRadius.circular(6),
+                                    ),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Colors.transparent,
+                                      ),
+                                      borderRadius: BorderRadius.circular(6),
+                                    ),
+                                  ),
                                 ),
                               ),
                             ],
@@ -192,7 +191,7 @@ class _TicketDetailsState extends State<TicketDetails> {
                             children: [
                               Text(
                                 'Department',
-                                style: TextStyle(
+                                style: GoogleFonts.poppins(
                                     color: Color(0xFF6B6B6B),
                                     fontSize: 14,
                                     fontWeight: FontWeight.w500),
@@ -201,10 +200,10 @@ class _TicketDetailsState extends State<TicketDetails> {
                                 height: 10,
                               ),
                               DropdownButtonFormField(
-                                hint: Text('Accadamic-  Primary&Middle'),
+                                //hint: Text('Accadamic-  Primary&Middle'),
                                 icon: Icon(
                                   Icons.arrow_drop_down_outlined,
-                                  color: Color(0xFF7861D7),
+                                  color: Color(0xFF2395FF),
                                 ),
                                 validator: (value) => value == null
                                     ? 'Select a Department'
@@ -218,6 +217,11 @@ class _TicketDetailsState extends State<TicketDetails> {
                                 }).toList(),
                                 onChanged: (_) {},
                                 decoration: InputDecoration(
+                                  hintText: 'Accadamic-  Primary&Middle',
+                                  hintStyle: GoogleFonts.lato(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w700,
+                                      color: Colors.black),
                                   contentPadding: EdgeInsets.symmetric(
                                       horizontal: 15, vertical: 15),
                                   fillColor: Colors.white,
@@ -252,7 +256,7 @@ class _TicketDetailsState extends State<TicketDetails> {
                                   children: [
                                     Text(
                                       'Severity Level',
-                                      style: TextStyle(
+                                      style: GoogleFonts.poppins(
                                           color: Color(0xFF6B6B6B),
                                           fontSize: 14,
                                           fontWeight: FontWeight.w500),
@@ -261,10 +265,16 @@ class _TicketDetailsState extends State<TicketDetails> {
                                       height: 10,
                                     ),
                                     DropdownButtonFormField(
-                                      hint: Text('Critical'),
+                                      hint: Text(
+                                        'Critical',
+                                        style: GoogleFonts.lato(
+                                            fontWeight: FontWeight.w700,
+                                            fontSize: 14,
+                                            color: Colors.black),
+                                      ),
                                       icon: Icon(
                                         Icons.arrow_drop_down_outlined,
-                                        color: Color(0xFF7861D7),
+                                        color: Color(0xFF2395FF),
                                       ),
                                       validator: (value) => value == null
                                           ? 'Select Severity level'
@@ -277,6 +287,15 @@ class _TicketDetailsState extends State<TicketDetails> {
                                       }).toList(),
                                       onChanged: (_) {},
                                       decoration: InputDecoration(
+                                        prefix: Padding(
+                                          padding:
+                                              const EdgeInsets.only(right: 4),
+                                          child: Icon(
+                                            Icons.radio_button_off,
+                                            size: 10,
+                                            color: Color(0xFFFF3F3F),
+                                          ),
+                                        ),
                                         contentPadding: EdgeInsets.symmetric(
                                             horizontal: 15, vertical: 15),
                                         border: OutlineInputBorder(
@@ -310,7 +329,7 @@ class _TicketDetailsState extends State<TicketDetails> {
                                   children: [
                                     Text(
                                       'Expected Date',
-                                      style: TextStyle(
+                                      style: GoogleFonts.poppins(
                                           color: Color(0xFF6B6B6B),
                                           fontSize: 14,
                                           fontWeight: FontWeight.w500),
@@ -326,9 +345,13 @@ class _TicketDetailsState extends State<TicketDetails> {
                                               : null,
                                       decoration: InputDecoration(
                                         hintText: showDate,
+                                        hintStyle: GoogleFonts.lato(
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w700,
+                                            color: Colors.black),
                                         suffixIcon: Icon(
-                                          Icons.calendar_today,
-                                          color: Color(0xFF7861D7),
+                                          Icons.calendar_month_outlined,
+                                          color: Color(0xFF2395FF),
                                         ),
                                         contentPadding: EdgeInsets.symmetric(
                                             horizontal: 10, vertical: 18),
@@ -369,7 +392,7 @@ class _TicketDetailsState extends State<TicketDetails> {
                             children: [
                               Text(
                                 'Attachment',
-                                style: TextStyle(
+                                style: GoogleFonts.poppins(
                                     color: Color(0xFF6B6B6B),
                                     fontSize: 14,
                                     fontWeight: FontWeight.w500),
@@ -442,7 +465,7 @@ class _TicketDetailsState extends State<TicketDetails> {
                             children: [
                               Text(
                                 'Comments',
-                                style: TextStyle(
+                                style: GoogleFonts.poppins(
                                     color: Color(0xFF6B6B6B),
                                     fontSize: 14,
                                     fontWeight: FontWeight.w500),

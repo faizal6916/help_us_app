@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:help_us/TicketHistory.dart';
 
 class TicketSummary extends StatelessWidget {
@@ -27,17 +28,19 @@ class TicketSummary extends StatelessWidget {
                 children: [
                   Text(
                     'TICKT - 582',
-                    style: TextStyle(
-                        color: Color(0xFF8B92BB),
-                        fontSize: 20,
-                        fontWeight: FontWeight.w500),
+                    style: GoogleFonts.roboto(
+                      color: Color(0xFF8B92BB),
+                      fontSize: 20,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                   Text(
                     'NIMS-DXB',
-                    style: TextStyle(
-                        color: Color(0xFF2395FF),
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500),
+                    style: GoogleFonts.roboto(
+                      color: Color(0xFF2395FF),
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                 ],
               ),

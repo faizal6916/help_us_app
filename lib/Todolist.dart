@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:help_us/Sidebar.dart';
 import 'package:help_us/Ticketdetails.dart';
 import 'package:help_us/Widgets/Selector_widget.dart';
@@ -39,28 +40,15 @@ class _TodoState extends State<Todo> {
         key: _scaffoldKey,
         drawer: Sidebar(),
         appBar: AppBar(
-          leading: GestureDetector(
-            onTap: () {
-              _scaffoldKey.currentState!.openDrawer();
-            },
-            child: Container(
-              margin: EdgeInsets.only(left: 12),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Icon(
-                    Icons.menu,
-                    size: 24,
-                    color: Color(0xFF7861D7),
-                  ),
-                  Text(
-                    'Menu',
-                    style: TextStyle(fontSize: 7, color: Color(0xFF7861D7)),
-                  )
-                ],
-              ),
-            ),
-          ),
+          leading: IconButton(
+              onPressed: () {
+                _scaffoldKey.currentState!.openDrawer();
+              },
+              icon: Icon(
+                Icons.menu,
+                size: 28,
+                color: Color(0xFF7861D7),
+              )),
           backgroundColor: Color(0xFFF1F5F8),
           elevation: 0,
           // title: Text(
@@ -87,10 +75,10 @@ class _TodoState extends State<Todo> {
                   ),
                   Text(
                     'To Do List',
-                    style: TextStyle(
+                    style: GoogleFonts.rubik(
                         color: Color(0xFF414D55),
                         fontSize: 28,
-                        fontWeight: FontWeight.bold),
+                        fontWeight: FontWeight.w500),
                   ),
                 ],
               ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:help_us/Sidebar.dart';
 import 'package:help_us/Widgets/Selector_widget.dart';
 import 'package:help_us/Widgets/Ticket_view.dart';
@@ -11,9 +12,11 @@ class ViewTicket extends StatefulWidget {
   State<ViewTicket> createState() => _ViewTicketState();
 }
 
-class _ViewTicketState extends State<ViewTicket> {
+class _ViewTicketState extends State<ViewTicket> with TickerProviderStateMixin {
   final _scaffoldKey = GlobalKey<ScaffoldState>();
   int i = 77;
+  bool isClicked = false;
+  TabController? _tabController;
   List<String> navBarItem = [
     'Opened',
     'Assigned (12)',
@@ -37,6 +40,14 @@ class _ViewTicketState extends State<ViewTicket> {
     'December',
   ];
   @override
+  void initState() {
+    // TODO: implement initState
+
+    super.initState();
+    _tabController = TabController(length: 4, vsync: this);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async => false,
@@ -44,28 +55,15 @@ class _ViewTicketState extends State<ViewTicket> {
         key: _scaffoldKey,
         drawer: Sidebar(),
         appBar: AppBar(
-          leading: GestureDetector(
-            onTap: () {
-              _scaffoldKey.currentState!.openDrawer();
-            },
-            child: Container(
-              margin: EdgeInsets.only(left: 12),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Icon(
-                    Icons.menu,
-                    size: 24,
-                    color: Color(0xFF7861D7),
-                  ),
-                  Text(
-                    'Menu',
-                    style: TextStyle(fontSize: 7, color: Color(0xFF7861D7)),
-                  )
-                ],
-              ),
-            ),
-          ),
+          leading: IconButton(
+              onPressed: () {
+                _scaffoldKey.currentState!.openDrawer();
+              },
+              icon: Icon(
+                Icons.menu,
+                size: 28,
+                color: Color(0xFF7861D7),
+              )),
           backgroundColor: Color(0xFFF1F5F8),
           elevation: 0,
           // title: Text(
@@ -92,10 +90,10 @@ class _ViewTicketState extends State<ViewTicket> {
                   ),
                   Text(
                     'View Tickets',
-                    style: TextStyle(
+                    style: GoogleFonts.rubik(
                         color: Color(0xFF414D55),
                         fontSize: 28,
-                        fontWeight: FontWeight.bold),
+                        fontWeight: FontWeight.w500),
                   ),
                 ],
               ),
@@ -187,26 +185,30 @@ class _ViewTicketState extends State<ViewTicket> {
                     ),
                     Container(
                       height: 40,
-                      child: ListView.builder(
-                          shrinkWrap: true,
-                          scrollDirection: Axis.horizontal,
-                          itemCount: navBarItem.length,
-                          itemBuilder: (context, index) {
-                            return InkWell(
-                              onTap: () {
-                                print(navBarItem[index]);
-                              },
-                              child: Container(
-                                padding: EdgeInsets.all(10),
-                                margin: EdgeInsets.symmetric(horizontal: 5),
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                                child: Center(child: Text(navBarItem[index])),
-                              ),
-                            );
-                          }),
+                      child: TabBar(
+                        isScrollable: true,
+                        labelColor: Color(0xFF7F6AD8),
+                        indicator: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            color: Colors.white),
+                        indicatorColor: Colors.transparent,
+                        unselectedLabelColor: Color(0xFF414D55),
+                        controller: _tabController,
+                        tabs: [
+                          Tab(
+                            text: 'Opened',
+                          ),
+                          Tab(
+                            text: 'Assigned (12)',
+                          ),
+                          Tab(
+                            text: 'My actioned (12)',
+                          ),
+                          Tab(
+                            text: 'Closed',
+                          ),
+                        ],
+                      ),
                     ),
                     SizedBox(
                       height: 15,

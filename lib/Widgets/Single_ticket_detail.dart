@@ -98,6 +98,7 @@ class SingleTicket extends StatelessWidget {
                           style: TextStyle(fontSize: 8),
                         ),
                         style: ElevatedButton.styleFrom(
+                            minimumSize: Size(100, 30),
                             primary: Color(0xFFA1A0FD),
                             onPrimary: Colors.white,
                             elevation: 0,
@@ -118,6 +119,7 @@ class SingleTicket extends StatelessWidget {
                           style: TextStyle(fontSize: 8),
                         ),
                         style: ElevatedButton.styleFrom(
+                            minimumSize: Size(100, 30),
                             primary: Color(0xFF7BEBA1),
                             onPrimary: Colors.white,
                             elevation: 0,
@@ -133,7 +135,7 @@ class SingleTicket extends StatelessWidget {
                       flex: 1,
                       child: Container(
                         width: 30,
-                        height: 38,
+                        height: 30,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(30),
                             color: Color(0xFFEDF4FF)),
@@ -154,7 +156,7 @@ class SingleTicket extends StatelessWidget {
                       flex: 1,
                       child: Container(
                         width: 30,
-                        height: 38,
+                        height: 30,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(30),
                             color: Color(0xFFEDF4FF)),

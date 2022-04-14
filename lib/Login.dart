@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:help_us/Dashboard.dart';
 
 class Login extends StatefulWidget {
@@ -100,12 +101,15 @@ class _LoginState extends State<Login> {
                         ),
                       ),
                       SizedBox(
-                        height: 30,
+                        height: 40,
                       ),
-                      Text(
-                        'Login',
-                        style: TextStyle(
-                            fontSize: 28, fontWeight: FontWeight.w600),
+                      Text('Login',
+                          style: GoogleFonts.poppins(
+                            fontSize: 30,
+                            fontWeight: FontWeight.w600,
+                          )),
+                      SizedBox(
+                        height: 10,
                       ),
                       TextFormField(
                         controller: _userName,
@@ -162,7 +166,7 @@ class _LoginState extends State<Login> {
                             )),
                       ),
                       SizedBox(
-                        height: 20,
+                        height: 25,
                       ),
                       Center(
                         child: ElevatedButton(
@@ -188,23 +192,27 @@ class _LoginState extends State<Login> {
                         ),
                       ),
                       SizedBox(
-                        height: 15,
+                        height: 20,
                       ),
                       Center(
                           child: Text(
                         'Did you forgot your password',
-                        style: TextStyle(color: Color(0xFF595959)),
+                        style: GoogleFonts.lato(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400,
+                          color: Color(0xFF595959),
+                        ),
                       )),
                       SizedBox(
                         height: 10,
                       ),
                       Center(
-                          child: Text(
-                        'Tap here to reset',
-                        style: TextStyle(
-                            color: Color(0xFF2395FF),
-                            decoration: TextDecoration.underline),
-                      )),
+                          child: Text('Tap here to reset',
+                              style: GoogleFonts.lato(
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 16,
+                                  color: Color(0xFF2395FF),
+                                  decoration: TextDecoration.underline))),
                       SizedBox(
                         height: 15,
                       ),
@@ -215,7 +223,10 @@ class _LoginState extends State<Login> {
                       Center(
                           child: Text(
                         'or sign in with google',
-                        style: TextStyle(color: Color(0xFF4D4D4D)),
+                        style: GoogleFonts.lato(
+                            color: Color(0xFF4D4D4D),
+                            fontSize: 14,
+                            fontWeight: FontWeight.w400),
                       )),
                       SizedBox(
                         height: 15,

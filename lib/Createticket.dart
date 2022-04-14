@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:help_us/Sidebar.dart';
 import 'package:file_picker/file_picker.dart';
 
@@ -29,28 +30,11 @@ class _CreateTicketState extends State<CreateTicket> {
         key: _scaffoldKey,
         drawer: Sidebar(),
         appBar: AppBar(
-          leading: GestureDetector(
-            onTap: () {
-              _scaffoldKey.currentState!.openDrawer();
-            },
-            child: Container(
-              margin: EdgeInsets.only(left: 12),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Icon(
-                    Icons.menu,
-                    size: 24,
-                    color: Color(0xFF7861D7),
-                  ),
-                  Text(
-                    'Menu',
-                    style: TextStyle(fontSize: 7, color: Color(0xFF7861D7)),
-                  )
-                ],
-              ),
-            ),
-          ),
+          leading: IconButton(
+              onPressed: (){
+                _scaffoldKey.currentState!.openDrawer();
+              },
+              icon: Icon(Icons.menu,size: 28,color: Color(0xFF7861D7),)),
           backgroundColor: Color(0xFFF1F5F8),
           elevation: 0,
           // title: Text(
@@ -77,10 +61,11 @@ class _CreateTicketState extends State<CreateTicket> {
                   ),
                   Text(
                     'Create Ticket',
-                    style: TextStyle(
+                    style: GoogleFonts.rubik(
                         color: Color(0xFF414D55),
                         fontSize: 28,
-                        fontWeight: FontWeight.bold),
+                        fontWeight: FontWeight.w500
+                    ),
                   ),
                 ],
               ),
@@ -132,10 +117,11 @@ class _CreateTicketState extends State<CreateTicket> {
                           children: [
                             Text(
                               'Ticket Details',
-                              style: TextStyle(
+                              style: GoogleFonts.rubik(
                                   color: Color(0xFF414D55),
                                   fontSize: 18,
-                                  fontWeight: FontWeight.w500),
+                                  fontWeight: FontWeight.w500
+                              )
                             ),
                             SizedBox(
                               height: 20,
@@ -145,19 +131,20 @@ class _CreateTicketState extends State<CreateTicket> {
                               children: [
                                 Text(
                                   'Institute',
-                                  style: TextStyle(
+                                  style: GoogleFonts.poppins(
                                       color: Color(0xFF6B6B6B),
                                       fontSize: 14,
-                                      fontWeight: FontWeight.w500),
+                                      fontWeight: FontWeight.w500
+                                  )
                                 ),
                                 SizedBox(
                                   height: 10,
                                 ),
                                 DropdownButtonFormField(
-                                  hint: Text('Nims Dubai'),
+                                  //hint: Text('Nims Dubai'),
                                   icon: Icon(
                                     Icons.arrow_drop_down_outlined,
-                                    color: Color(0xFF7861D7),
+                                    color: Color(0xFF2395FF),
                                   ),
                                   validator: (value) => value == null
                                       ? 'Select an institute'
@@ -171,6 +158,12 @@ class _CreateTicketState extends State<CreateTicket> {
                                   }).toList(),
                                   onChanged: (_) {},
                                   decoration: InputDecoration(
+                                    hintText: 'Nims Dubai',
+                                    hintStyle: GoogleFonts.lato(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w700,
+                                        color: Colors.black
+                                    ),
                                     contentPadding: EdgeInsets.symmetric(
                                         horizontal: 15, vertical: 15),
                                     fillColor: Colors.white,
@@ -201,19 +194,20 @@ class _CreateTicketState extends State<CreateTicket> {
                               children: [
                                 Text(
                                   'Department',
-                                  style: TextStyle(
+                                  style: GoogleFonts.poppins(
                                       color: Color(0xFF6B6B6B),
                                       fontSize: 14,
-                                      fontWeight: FontWeight.w500),
+                                      fontWeight: FontWeight.w500
+                                  ),
                                 ),
                                 SizedBox(
                                   height: 10,
                                 ),
                                 DropdownButtonFormField(
-                                  hint: Text('Accadamic-  Primary&Middle'),
+                                  //hint: Text('Accadamic-  Primary&Middle'),
                                   icon: Icon(
                                     Icons.arrow_drop_down_outlined,
-                                    color: Color(0xFF7861D7),
+                                    color: Color(0xFF2395FF),
                                   ),
                                   validator: (value) => value == null
                                       ? 'Select a department'
@@ -227,6 +221,12 @@ class _CreateTicketState extends State<CreateTicket> {
                                   }).toList(),
                                   onChanged: (_) {},
                                   decoration: InputDecoration(
+                                    hintText: 'Accadamic-  Primary&Middle',
+                                    hintStyle: GoogleFonts.lato(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w700,
+                                        color: Colors.black
+                                    ),
                                     contentPadding: EdgeInsets.symmetric(
                                         horizontal: 15, vertical: 15),
                                     fillColor: Colors.white,
@@ -262,19 +262,24 @@ class _CreateTicketState extends State<CreateTicket> {
                                     children: [
                                       Text(
                                         'Severity Level',
-                                        style: TextStyle(
+                                        style: GoogleFonts.poppins(
                                             color: Color(0xFF6B6B6B),
                                             fontSize: 14,
-                                            fontWeight: FontWeight.w500),
+                                            fontWeight: FontWeight.w500
+                                        ),
                                       ),
                                       SizedBox(
                                         height: 10,
                                       ),
                                       DropdownButtonFormField(
-                                        hint: Text('Critical'),
+                                        hint: Text('Critical',style: GoogleFonts.lato(
+                                            fontWeight: FontWeight.w700,
+                                            fontSize: 14,
+                                            color: Colors.black
+                                        ),),
                                         icon: Icon(
                                           Icons.arrow_drop_down_outlined,
-                                          color: Color(0xFF7861D7),
+                                          color: Color(0xFF2395FF),
                                         ),
                                         validator: (value) => value == null
                                             ? 'Select Severity Level'
@@ -287,6 +292,10 @@ class _CreateTicketState extends State<CreateTicket> {
                                         }).toList(),
                                         onChanged: (_) {},
                                         decoration: InputDecoration(
+                                          prefix: Padding(
+                                            padding: const EdgeInsets.only(right: 4,),
+                                            child: Icon(Icons.radio_button_off,size: 10,color: Color(0xFFFF3F3F),),
+                                          ),
                                           contentPadding: EdgeInsets.symmetric(
                                               horizontal: 15, vertical: 15),
                                           border: OutlineInputBorder(
@@ -321,10 +330,11 @@ class _CreateTicketState extends State<CreateTicket> {
                                     children: [
                                       Text(
                                         'Expected Date',
-                                        style: TextStyle(
+                                        style: GoogleFonts.poppins(
                                             color: Color(0xFF6B6B6B),
                                             fontSize: 14,
-                                            fontWeight: FontWeight.w500),
+                                            fontWeight: FontWeight.w500
+                                        ),
                                       ),
                                       SizedBox(
                                         height: 10,
@@ -337,9 +347,14 @@ class _CreateTicketState extends State<CreateTicket> {
                                                 : null,
                                         decoration: InputDecoration(
                                           hintText: showDate,
+                                          hintStyle: GoogleFonts.lato(
+                                              fontWeight: FontWeight.w700,
+                                              fontSize: 14,
+                                              color: Colors.black
+                                          ),
                                           suffixIcon: Icon(
-                                            Icons.calendar_today,
-                                            color: Color(0xFF7861D7),
+                                            Icons.calendar_month_outlined,
+                                            color: Color(0xFF2395FF),
                                           ),
                                           contentPadding: EdgeInsets.symmetric(
                                               horizontal: 10, vertical: 18),
@@ -380,10 +395,11 @@ class _CreateTicketState extends State<CreateTicket> {
                               children: [
                                 Text(
                                   'Ticket Subject',
-                                  style: TextStyle(
+                                  style: GoogleFonts.poppins(
                                       color: Color(0xFF6B6B6B),
                                       fontSize: 14,
-                                      fontWeight: FontWeight.w500),
+                                      fontWeight: FontWeight.w500
+                                  ),
                                 ),
                                 SizedBox(
                                   height: 10,
@@ -419,10 +435,11 @@ class _CreateTicketState extends State<CreateTicket> {
                               children: [
                                 Text(
                                   'Discription',
-                                  style: TextStyle(
+                                  style: GoogleFonts.poppins(
                                       color: Color(0xFF6B6B6B),
                                       fontSize: 14,
-                                      fontWeight: FontWeight.w500),
+                                      fontWeight: FontWeight.w500
+                                  ),
                                 ),
                                 SizedBox(
                                   height: 10,
@@ -458,10 +475,11 @@ class _CreateTicketState extends State<CreateTicket> {
                               children: [
                                 Text(
                                   'Attachment',
-                                  style: TextStyle(
+                                  style: GoogleFonts.poppins(
                                       color: Color(0xFF6B6B6B),
                                       fontSize: 14,
-                                      fontWeight: FontWeight.w500),
+                                      fontWeight: FontWeight.w500
+                                  ),
                                 ),
                                 SizedBox(
                                   height: 10,

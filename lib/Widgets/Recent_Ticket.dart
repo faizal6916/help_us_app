@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:help_us/Ticketdetails.dart';
 
 class RecentTicket extends StatefulWidget {
@@ -32,7 +33,7 @@ class _RecentTicketState extends State<RecentTicket> {
               margin: EdgeInsets.only(left: 10, right: 10),
               child: Text(
                 'Recent Tickets',
-                style: TextStyle(
+                style: GoogleFonts.rubik(
                     color: Color(0xFF414D55),
                     fontSize: 18,
                     fontWeight: FontWeight.w500),
@@ -162,10 +163,10 @@ class _RecentTicketState extends State<RecentTicket> {
                               children: [
                                 CircleAvatar(
                                   backgroundColor: Color(0xFFF1F5F8),
-                                  radius: 10,
+                                  radius: 8,
                                   child: CircleAvatar(
                                     backgroundColor: Color(0xFFFF3F3F),
-                                    radius: 8,
+                                    radius: 6,
                                   ),
                                 ),
                                 SizedBox(
@@ -173,10 +174,11 @@ class _RecentTicketState extends State<RecentTicket> {
                                 ),
                                 Text(
                                   'TICKET-$i',
-                                  style: TextStyle(
-                                      color: Color(0xFF414D55),
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w400),
+                                  style: GoogleFonts.rubik(
+                                    color: Color(0xFF414D55),
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w400,
+                                  ),
                                 ),
                                 SizedBox(
                                   width: 10,
@@ -193,10 +195,11 @@ class _RecentTicketState extends State<RecentTicket> {
                                 ),
                                 Text(
                                   'Abdul Manaf',
-                                  style: TextStyle(
-                                      color: Color(0xFF414D55),
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w400),
+                                  style: GoogleFonts.rubik(
+                                    color: Color(0xFF414D55),
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w400,
+                                  ),
                                 ),
                               ],
                             ),
@@ -207,10 +210,11 @@ class _RecentTicketState extends State<RecentTicket> {
                               'Amet minim mollit non deserunt ullamco est sit aliqua dolor.Amet minim mollit non deserunt ullamco est sit aliqua dolor',
                               maxLines: 3,
                               overflow: TextOverflow.ellipsis,
-                              style: TextStyle(
-                                  color: Color(0xFF414D55),
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500),
+                              style: GoogleFonts.roboto(
+                                color: Color(0xFF414D55),
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                              ),
                             ),
                             //SizedBox(height: 5,),
                             Container(

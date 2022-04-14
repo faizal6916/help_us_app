@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class MonthlyTicket extends StatefulWidget {
   final String? monthName;
@@ -145,10 +146,10 @@ class _MonthlyTicketState extends State<MonthlyTicket> {
                       children: [
                         CircleAvatar(
                           backgroundColor: Color(0xFFF1F5F8),
-                          radius: 10,
+                          radius: 8,
                           child: CircleAvatar(
                             backgroundColor: Color(0xFFFF3F3F),
-                            radius: 8,
+                            radius: 6,
                           ),
                         ),
                         SizedBox(
@@ -156,10 +157,11 @@ class _MonthlyTicketState extends State<MonthlyTicket> {
                         ),
                         Text(
                           'TICKET-$i',
-                          style: TextStyle(
-                              color: Color(0xFF414D55),
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400),
+                          style: GoogleFonts.rubik(
+                            color: Color(0xFF414D55),
+                            fontSize: 14,
+                            fontWeight: FontWeight.w400,
+                          ),
                         ),
                         SizedBox(
                           width: 10,
@@ -176,10 +178,11 @@ class _MonthlyTicketState extends State<MonthlyTicket> {
                         ),
                         Text(
                           'Abdul Manaf',
-                          style: TextStyle(
-                              color: Color(0xFF414D55),
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400),
+                          style: GoogleFonts.rubik(
+                            color: Color(0xFF414D55),
+                            fontSize: 14,
+                            fontWeight: FontWeight.w400,
+                          ),
                         ),
                       ],
                     ),
@@ -188,10 +191,11 @@ class _MonthlyTicketState extends State<MonthlyTicket> {
                     ),
                     Text(
                       'Amet minim mollit non deserunt ullamco est sit aliqua dolor',
-                      style: TextStyle(
-                          color: Color(0xFF414D55),
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500),
+                      style: GoogleFonts.roboto(
+                        color: Color(0xFF414D55),
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                     //SizedBox(height: 5,),
                     Container(

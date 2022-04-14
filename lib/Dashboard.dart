@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:help_us/Sidebar.dart';
 import 'package:help_us/Widgets/Selector_widget.dart';
 import 'package:percent_indicator/percent_indicator.dart';
@@ -72,28 +73,15 @@ class _DashboardState extends State<Dashboard> {
         key: _scaffoldKey,
         drawer: Sidebar(),
         appBar: AppBar(
-          leading: GestureDetector(
-            onTap: () {
-              _scaffoldKey.currentState!.openDrawer();
-            },
-            child: Container(
-              margin: EdgeInsets.only(left: 12),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Icon(
-                    Icons.menu,
-                    size: 24,
-                    color: Color(0xFF7861D7),
-                  ),
-                  Text(
-                    'Menu',
-                    style: TextStyle(fontSize: 7, color: Color(0xFF7861D7)),
-                  )
-                ],
-              ),
-            ),
-          ),
+          leading: IconButton(
+              onPressed: () {
+                _scaffoldKey.currentState!.openDrawer();
+              },
+              icon: Icon(
+                Icons.menu,
+                size: 28,
+                color: Color(0xFF7861D7),
+              )),
           backgroundColor: Color(0xFFF1F5F8),
           elevation: 0,
           // title: Text(
@@ -118,13 +106,11 @@ class _DashboardState extends State<Dashboard> {
                   SizedBox(
                     width: 10,
                   ),
-                  Text(
-                    'Home',
-                    style: TextStyle(
-                        color: Color(0xFF414D55),
-                        fontSize: 28,
-                        fontWeight: FontWeight.bold),
-                  ),
+                  Text('Home',
+                      style: GoogleFonts.rubik(
+                          color: Color(0xFF414D55),
+                          fontSize: 28,
+                          fontWeight: FontWeight.w500)),
                 ],
               ),
             ),
@@ -181,23 +167,19 @@ class _DashboardState extends State<Dashboard> {
                         children: [
                           Row(
                             children: [
-                              Text(
-                                'Tickets',
-                                style: TextStyle(
-                                    color: Color(0xFF414D55),
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold),
-                              ),
+                              Text('Tickets',
+                                  style: GoogleFonts.rubik(
+                                      color: Color(0xFF414D55),
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w500)),
                               SizedBox(
                                 width: 5,
                               ),
-                              Text(
-                                'Nims DXB',
-                                style: TextStyle(
-                                    color: Color(0xFF2395FF),
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold),
-                              )
+                              Text('Nims DXB',
+                                  style: GoogleFonts.rubik(
+                                      color: Color(0xFF2395FF),
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w500))
                             ],
                           ),
                           LinearPercentIndicator(
@@ -354,12 +336,11 @@ class _DashboardState extends State<Dashboard> {
                                   SizedBox(
                                     width: 5,
                                   ),
-                                  Text(
-                                    'Create',
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold),
-                                  ),
+                                  Text('Create',
+                                      style: GoogleFonts.poppins(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w600,
+                                          fontSize: 12)),
                                 ],
                               ),
                             ),
@@ -385,9 +366,10 @@ class _DashboardState extends State<Dashboard> {
                                   ),
                                   Text(
                                     'View',
-                                    style: TextStyle(
+                                    style: GoogleFonts.poppins(
                                         color: Colors.white,
-                                        fontWeight: FontWeight.bold),
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 12),
                                   ),
                                 ],
                               ),
@@ -414,9 +396,10 @@ class _DashboardState extends State<Dashboard> {
                                   ),
                                   Text(
                                     'To-Do-List',
-                                    style: TextStyle(
+                                    style: GoogleFonts.poppins(
                                         color: Colors.white,
-                                        fontWeight: FontWeight.bold),
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 12),
                                   ),
                                 ],
                               ),
@@ -445,13 +428,11 @@ class _DashboardState extends State<Dashboard> {
                       ),
                       child: Column(
                         children: [
-                          Text(
-                            'Departments',
-                            style: TextStyle(
-                                color: Color(0xFF414D55),
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold),
-                          ),
+                          Text('Departments',
+                              style: GoogleFonts.rubik(
+                                  color: Color(0xFF414D55),
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w500)),
                           SizedBox(
                             height: 5,
                           ),
@@ -507,10 +488,10 @@ class _DashboardState extends State<Dashboard> {
                         children: [
                           Text(
                             'Ticket Status',
-                            style: TextStyle(
+                            style: GoogleFonts.rubik(
                                 color: Color(0xFF414D55),
                                 fontSize: 18,
-                                fontWeight: FontWeight.bold),
+                                fontWeight: FontWeight.w500),
                           ),
                           SizedBox(
                             height: 5,
