@@ -188,6 +188,7 @@ class _ViewTicketState extends State<ViewTicket> with TickerProviderStateMixin {
                       child: TabBar(
                         isScrollable: true,
                         labelColor: Color(0xFF7F6AD8),
+                        labelStyle: GoogleFonts.roboto(fontWeight: FontWeight.w400,fontSize: 16),
                         indicator: BoxDecoration(
                             borderRadius: BorderRadius.circular(8),
                             color: Colors.white),

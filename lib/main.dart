@@ -6,6 +6,7 @@ import 'package:help_us/Todolist.dart';
 import 'package:help_us/Createticket.dart';
 import 'package:help_us/ViewTicket.dart';
 import 'package:help_us/Welcome_screen.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -14,6 +15,26 @@ void main() {
     DeviceOrientation.portraitDown
   ]);
   runApp(const MyApp());
+  configLoading();
+}
+
+
+void configLoading() {
+  EasyLoading.instance
+    ..displayDuration = const Duration(milliseconds: 2000)
+    ..indicatorType = EasyLoadingIndicatorType.ring
+    ..maskType = EasyLoadingMaskType.custom
+    ..loadingStyle = EasyLoadingStyle.custom
+    ..indicatorSize = 45.0
+    ..radius = 10.0
+    ..progressColor = Color(0xFF7861D7)
+    ..backgroundColor = Colors.white
+    ..indicatorColor = Color(0xFF7861D7)
+    ..textColor = Color(0xFF7861D7)
+    ..maskColor = Colors.black.withOpacity(0.5)
+    ..userInteractions = true
+    ..dismissOnTap = false;
+    //..customAnimation = CustomAnimation();
 }
 
 class MyApp extends StatelessWidget {
@@ -48,6 +69,7 @@ class MyApp extends StatelessWidget {
         '/createticket': (context) => CreateTicket(),
         '/viewticket': (context) => ViewTicket(),
       },
+      builder: EasyLoading.init(),
     );
   }
 }
