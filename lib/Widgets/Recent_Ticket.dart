@@ -166,7 +166,7 @@ class _RecentTicketState extends State<RecentTicket> {
                                   radius: 8,
                                   child: CircleAvatar(
                                     backgroundColor: Color(0xFFFF3F3F),
-                                    radius: 6,
+                                    radius: 5,
                                   ),
                                 ),
                                 SizedBox(

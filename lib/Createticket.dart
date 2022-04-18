@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:help_us/Sidebar.dart';
 import 'package:file_picker/file_picker.dart';
+import 'dart:math' as math;
 
 class CreateTicket extends StatefulWidget {
   const CreateTicket({Key? key}) : super(key: key);
@@ -14,6 +15,7 @@ class _CreateTicketState extends State<CreateTicket> {
   final _scaffoldKey = GlobalKey<ScaffoldState>();
   final _formkey = GlobalKey<FormState>();
   TextEditingController selectdatectrl = TextEditingController();
+  TextEditingController ticketSubject = TextEditingController();
   DateTime selectedDate = DateTime.now();
   String showDate = 'Date';
   FilePickerResult? result;
@@ -293,8 +295,8 @@ class _CreateTicketState extends State<CreateTicket> {
                                         onChanged: (_) {},
                                         decoration: InputDecoration(
                                           prefix: Padding(
-                                            padding: const EdgeInsets.only(right: 4,),
-                                            child: Icon(Icons.radio_button_off,size: 10,color: Color(0xFFFF3F3F),),
+                                            padding: const EdgeInsets.only(right: 6,),
+                                            child: Icon(Icons.radio_button_off_rounded,size: 10,color: Color(0xFFFF3F3F),),
                                           ),
                                           contentPadding: EdgeInsets.symmetric(
                                               horizontal: 15, vertical: 15),
@@ -356,8 +358,7 @@ class _CreateTicketState extends State<CreateTicket> {
                                             Icons.calendar_month_outlined,
                                             color: Color(0xFF2395FF),
                                           ),
-                                          contentPadding: EdgeInsets.symmetric(
-                                              horizontal: 10, vertical: 18),
+                                          contentPadding: EdgeInsets.fromLTRB(15,18,0,18),
                                           border: OutlineInputBorder(
                                             borderRadius:
                                                 BorderRadius.circular(6),
@@ -406,6 +407,8 @@ class _CreateTicketState extends State<CreateTicket> {
                                 ),
                                 TextFormField(
                                   //maxLines: 5,
+                                  controller: ticketSubject,
+                                  validator: (value) => value == null || value.isEmpty ? 'Required Ticket Subject' : null ,
                                   decoration: InputDecoration(
                                     hintText: 'Motor not workimg',
                                     contentPadding: EdgeInsets.symmetric(
@@ -493,8 +496,11 @@ class _CreateTicketState extends State<CreateTicket> {
                                                 onPressed: () {
                                                   pickFile();
                                                 },
-                                                icon: Icon(
-                                                    Icons.attach_file_outlined),
+                                                icon: Transform.rotate(
+                                                  angle: 30 * math.pi/180,
+                                                  child: Icon(
+                                                      Icons.attach_file_outlined),
+                                                ),
                                                 label: Text(
                                                   'Choose File',
                                                   style: TextStyle(
@@ -565,12 +571,13 @@ class _CreateTicketState extends State<CreateTicket> {
                                       });
                                     }
                                   },
-                                  icon: Icon(Icons.arrow_back),
+                                  icon: Icon(Icons.east),
                                   label: Text(
                                     'SUBMIT',
-                                    style: TextStyle(
+                                    style: GoogleFonts.poppins(
                                         fontSize: 18,
-                                        fontWeight: FontWeight.w700),
+                                        fontWeight: FontWeight.w700
+                                    )
                                   ),
                                   style: ElevatedButton.styleFrom(
                                       minimumSize: Size(320, 50),

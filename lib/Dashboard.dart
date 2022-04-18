@@ -99,7 +99,7 @@ class _DashboardState extends State<Dashboard> {
                         //Navigator.pop(context);
                       },
                       child: Icon(
-                        Icons.home,
+                        Icons.home_outlined,
                         color: Color(0xFF414D55),
                         size: 30,
                       )),

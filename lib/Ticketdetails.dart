@@ -5,6 +5,7 @@ import 'dart:async';
 import 'package:file_picker/file_picker.dart';
 import 'package:help_us/Widgets/Ticket_summary.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'dart:math' as math;
 
 class TicketDetails extends StatefulWidget {
   const TicketDetails({Key? key}) : super(key: key);
@@ -289,7 +290,7 @@ class _TicketDetailsState extends State<TicketDetails> {
                                       decoration: InputDecoration(
                                         prefix: Padding(
                                           padding:
-                                              const EdgeInsets.only(right: 4),
+                                              const EdgeInsets.only(right: 6),
                                           child: Icon(
                                             Icons.radio_button_off,
                                             size: 10,
@@ -353,8 +354,7 @@ class _TicketDetailsState extends State<TicketDetails> {
                                           Icons.calendar_month_outlined,
                                           color: Color(0xFF2395FF),
                                         ),
-                                        contentPadding: EdgeInsets.symmetric(
-                                            horizontal: 10, vertical: 18),
+                                        contentPadding: EdgeInsets.fromLTRB(15,18,0,18),
                                         border: OutlineInputBorder(
                                           borderRadius:
                                               BorderRadius.circular(6),
@@ -407,8 +407,11 @@ class _TicketDetailsState extends State<TicketDetails> {
                                           ? CircularProgressIndicator()
                                           : ElevatedButton.icon(
                                               onPressed: () => pickFile(),
-                                              icon: Icon(
-                                                  Icons.attach_file_outlined),
+                                              icon: Transform.rotate(
+                                                angle: 30 * math.pi/180 ,
+                                                child: Icon(
+                                                    Icons.attach_file_outlined),
+                                              ),
                                               label: Text(
                                                 'Choose File',
                                                 style: TextStyle(
@@ -515,8 +518,11 @@ class _TicketDetailsState extends State<TicketDetails> {
                                   });
                                 }
                               },
-                              icon: Icon(Icons.arrow_back),
-                              label: Text('SUBMIT'),
+                              icon: Icon(Icons.east),
+                              label: Text('SUBMIT',style: GoogleFonts.poppins(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w700
+                              ),),
                               style: ElevatedButton.styleFrom(
                                   minimumSize: Size(320, 50),
                                   primary: Color(0xFF7861D7),
@@ -532,8 +538,11 @@ class _TicketDetailsState extends State<TicketDetails> {
                             textDirection: TextDirection.rtl,
                             child: ElevatedButton.icon(
                               onPressed: () {},
-                              icon: Icon(Icons.mail_outline),
-                              label: Text('COMPOSE MAIL'),
+                              icon: Icon(Icons.mail_outline_rounded),
+                              label: Text('COMPOSE MAIL',style: GoogleFonts.poppins(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w700
+                              ),),
                               style: ElevatedButton.styleFrom(
                                   minimumSize: Size(320, 50),
                                   primary: Color(0xFF34D1BF),

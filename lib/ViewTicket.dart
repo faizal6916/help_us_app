@@ -192,7 +192,8 @@ class _ViewTicketState extends State<ViewTicket> with TickerProviderStateMixin {
                             borderRadius: BorderRadius.circular(8),
                             color: Colors.white),
                         indicatorColor: Colors.transparent,
-                        unselectedLabelColor: Color(0xFF414D55),
+                        unselectedLabelColor:
+                            Color(0xFF414D55).withOpacity(0.36),
                         controller: _tabController,
                         tabs: [
                           Tab(

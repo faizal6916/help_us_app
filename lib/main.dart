@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:help_us/Login.dart';
+import 'package:flutter/services.dart';
 import 'package:help_us/Dashboard.dart';
+import 'package:help_us/Login_screen.dart';
 import 'package:help_us/Todolist.dart';
 import 'package:help_us/Createticket.dart';
 import 'package:help_us/ViewTicket.dart';
 import 'package:help_us/Welcome_screen.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown
+  ]);
   runApp(const MyApp());
 }
 
@@ -36,7 +42,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/welcomescreen',
       routes: {
         '/welcomescreen': (context) => WelcomeScreen(),
-        '/loginscreen': (context) => Login(),
+        '/loginscreen': (context) => LoginPage(),
         '/dashboard': (context) => Dashboard(),
         '/todolist': (context) => Todo(),
         '/createticket': (context) => CreateTicket(),

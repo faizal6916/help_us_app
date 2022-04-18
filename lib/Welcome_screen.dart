@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:help_us/Login_screen.dart';
 
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({Key? key}) : super(key: key);
@@ -74,7 +75,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                         height: size.height * 0.02,
                       ),
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          //Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginPage()));
+                        },
                         child: Text(
                           'Create Ticket',
                           style: TextStyle(

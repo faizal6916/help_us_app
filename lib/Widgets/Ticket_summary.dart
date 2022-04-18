@@ -14,12 +14,11 @@ class TicketSummary extends StatelessWidget {
       height: 480,
       padding: EdgeInsets.all(20),
       decoration: BoxDecoration(
-          image: DecorationImage(
-        image: AssetImage('assets/images/Ticketbg.png'),
-        fit: BoxFit.cover,
-
-       ),
-              borderRadius: BorderRadius.only(topLeft: Radius.circular(12),topRight: Radius.circular(12))
+        image: DecorationImage(
+          image: AssetImage('assets/images/Ticketbg.png'),
+          fit: BoxFit.cover,
+        ),
+        borderRadius: BorderRadius.circular(12),
       ),
       child: Column(
         children: [
