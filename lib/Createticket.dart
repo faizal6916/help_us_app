@@ -580,6 +580,8 @@ class _CreateTicketState extends State<CreateTicket> {
                                     )
                                   ),
                                   style: ElevatedButton.styleFrom(
+                                      shadowColor: Color.fromRGBO(132, 111, 218, 0.3),
+                                      elevation: 10,
                                       minimumSize: Size(320, 50),
                                       primary: Color(0xFF7861D7),
                                       onPrimary: Colors.white,

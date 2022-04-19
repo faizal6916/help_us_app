@@ -524,6 +524,8 @@ class _TicketDetailsState extends State<TicketDetails> {
                                 fontWeight: FontWeight.w700
                               ),),
                               style: ElevatedButton.styleFrom(
+                                  shadowColor: Color.fromRGBO(132, 111, 218, 0.3),
+                                  elevation: 10,
                                   minimumSize: Size(320, 50),
                                   primary: Color(0xFF7861D7),
                                   onPrimary: Colors.white,
@@ -544,6 +546,8 @@ class _TicketDetailsState extends State<TicketDetails> {
                                   fontWeight: FontWeight.w700
                               ),),
                               style: ElevatedButton.styleFrom(
+                                  shadowColor: Color.fromRGBO(52, 209, 191, 0.4),
+                                  elevation: 10,
                                   minimumSize: Size(320, 50),
                                   primary: Color(0xFF34D1BF),
                                   onPrimary: Colors.white,

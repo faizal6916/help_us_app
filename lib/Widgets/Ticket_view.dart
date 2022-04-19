@@ -235,7 +235,7 @@ class _MonthlyTicketState extends State<MonthlyTicket> {
                                           style: TextStyle(
                                               color: Color(0xFF7861D7),
                                               fontSize: 16,
-                                              fontWeight: FontWeight.w400),
+                                              fontWeight: FontWeight.w500),
                                         ),
                                         Text(
                                           'Created',
@@ -282,7 +282,7 @@ class _MonthlyTicketState extends State<MonthlyTicket> {
                                             style: TextStyle(
                                                 color: Color(0xFF7861D7),
                                                 fontSize: 16,
-                                                fontWeight: FontWeight.w400),
+                                                fontWeight: FontWeight.w500),
                                           )),
                                           Expanded(
                                               child: Text(

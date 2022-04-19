@@ -1,5 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:help_us/Widgets/Exit_alert.dart';
 import 'dart:math' as math;
 
@@ -134,7 +138,19 @@ class _SidebarState extends State<Sidebar> {
                   },
                 ),
                 ListTile(
-                  leading: Icon(Icons.messenger_outline_outlined),
+                  leading: Stack(
+                    children: [
+                      Icon(Icons.messenger_outline_outlined),
+                      Positioned(
+                          top: -1,
+                          right: -1,
+                          child: Icon(
+                            Icons.brightness_1,
+                            color: Color(0xFFFDCA40),
+                            size: 10,
+                          ))
+                    ],
+                  ),
                   title: Text(
                     'Mail Tickets',
                     style: TextStyle(
@@ -196,11 +212,12 @@ class _SidebarState extends State<Sidebar> {
                       hoverColor: Colors.red,
                       enabled: true,
                       onTap: () {
-                        showDialog(
-                            context: context,
-                            builder: (BuildContext context) {
-                              return ExitAlert();
-                            });
+                        // showDialog(
+                        //     context: context,
+                        //     builder: (BuildContext context) {
+                        //       return ExitAlert();
+                        //     });
+                        showAlertDialog(context);
                       },
                       //visualDensity: VisualDensity(vertical: -3),
                     ),
@@ -212,5 +229,87 @@ class _SidebarState extends State<Sidebar> {
         ],
       ),
     );
+  }
+
+  void showAlertDialog(BuildContext context) {
+    showDialog(
+        barrierDismissible: false,
+        context: context,
+        builder: (BuildContext context) {
+          return Dialog(
+            child: Container(
+              height: MediaQuery.of(context).size.height * 0.45,
+              padding: EdgeInsets.only(top: 10),
+              decoration: BoxDecoration(
+                  color: Colors.white, borderRadius: BorderRadius.circular(10)),
+              child: Column(
+                children: [
+                  SvgPicture.asset('assets/icons/lgoutlogo.svg'),
+                  Text(
+                    'Alert!',
+                    style: GoogleFonts.rubik(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                        letterSpacing: 0.1,
+                        color: Color(0xFF7861D7)),
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Text(
+                    'Are you sure want to logout',
+                    style: GoogleFonts.roboto(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                        color: Color(0xFF414D55)),
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      ElevatedButton(
+                        onPressed: () {
+                          SystemNavigator.pop();
+                        },
+                        child: Text(
+                          'OK',
+                          style: GoogleFonts.poppins(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 15,
+                          ),
+                        ),
+                        style: ElevatedButton.styleFrom(
+                            primary: Color(0xFF7861D7),
+                            onPrimary: Colors.white,
+                            minimumSize: Size(100, 40)),
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      ElevatedButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        child: Text(
+                          'CANCEL',
+                          style: GoogleFonts.poppins(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 15,
+                          ),
+                        ),
+                        style: ElevatedButton.styleFrom(
+                            primary: Color(0xFFDAE0EB),
+                            onPrimary: Colors.white,
+                            minimumSize: Size(100, 40)),
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            ),
+          );
+        });
   }
 }

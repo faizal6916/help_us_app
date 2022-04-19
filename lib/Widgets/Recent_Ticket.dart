@@ -258,7 +258,7 @@ class _RecentTicketState extends State<RecentTicket> {
                                                     color: Color(0xFF7861D7),
                                                     fontSize: 16,
                                                     fontWeight:
-                                                        FontWeight.w400),
+                                                        FontWeight.w500),
                                               ),
                                               Text(
                                                 'Created',
@@ -305,7 +305,7 @@ class _RecentTicketState extends State<RecentTicket> {
                                                     color: Color(0xFF7861D7),
                                                     fontSize: 16,
                                                     fontWeight:
-                                                        FontWeight.w400),
+                                                        FontWeight.w500),
                                               ),
                                               Text(
                                                 'Expected',

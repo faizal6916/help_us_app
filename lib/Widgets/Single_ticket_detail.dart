@@ -24,10 +24,10 @@ class SingleTicket extends StatelessWidget {
                   margin: EdgeInsets.only(left: 4.5),
                   width: 3,
                   height: 75,
-                  decoration: BoxDecoration(color: Color(0xFF3B6DF1)),
+                  decoration: BoxDecoration(color: Color(0xFF7F6AD8)),
                 ),
                 CircleAvatar(
-                  backgroundColor: Color(0xFF3B6DF1),
+                  backgroundColor: Color(0xFF7F6AD8),
                   radius: 6,
                   child: CircleAvatar(
                     backgroundColor: Colors.white,
@@ -39,7 +39,7 @@ class SingleTicket extends StatelessWidget {
                   width: 3,
                   height: 75,
                   decoration: BoxDecoration(
-                    color: Color(0xFF3B6DF1),
+                    color: Color(0xFF7F6AD8),
                   ),
                 ),
               ],
