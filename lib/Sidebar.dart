@@ -212,11 +212,7 @@ class _SidebarState extends State<Sidebar> {
                       hoverColor: Colors.red,
                       enabled: true,
                       onTap: () {
-                        // showDialog(
-                        //     context: context,
-                        //     builder: (BuildContext context) {
-                        //       return ExitAlert();
-                        //     });
+                        Navigator.pop(context);
                         showAlertDialog(context);
                       },
                       //visualDensity: VisualDensity(vertical: -3),
@@ -238,13 +234,14 @@ class _SidebarState extends State<Sidebar> {
         builder: (BuildContext context) {
           return Dialog(
             child: Container(
-              height: MediaQuery.of(context).size.height * 0.45,
-              padding: EdgeInsets.only(top: 10),
+              height: 295,
+              padding: EdgeInsets.only(top: 20),
               decoration: BoxDecoration(
                   color: Colors.white, borderRadius: BorderRadius.circular(10)),
               child: Column(
                 children: [
                   SvgPicture.asset('assets/icons/lgoutlogo.svg'),
+                  SizedBox(height: 10,),
                   Text(
                     'Alert!',
                     style: GoogleFonts.rubik(
@@ -264,7 +261,7 @@ class _SidebarState extends State<Sidebar> {
                         color: Color(0xFF414D55)),
                   ),
                   SizedBox(
-                    height: 5,
+                    height: 15,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -283,7 +280,9 @@ class _SidebarState extends State<Sidebar> {
                         style: ElevatedButton.styleFrom(
                             primary: Color(0xFF7861D7),
                             onPrimary: Colors.white,
-                            minimumSize: Size(100, 40)),
+                            minimumSize: Size(100, 40),
+                            elevation: 0,
+                        ),
                       ),
                       SizedBox(
                         width: 10,
@@ -302,7 +301,9 @@ class _SidebarState extends State<Sidebar> {
                         style: ElevatedButton.styleFrom(
                             primary: Color(0xFFDAE0EB),
                             onPrimary: Colors.white,
-                            minimumSize: Size(100, 40)),
+                            minimumSize: Size(100, 40),
+                            elevation: 0,
+                        ),
                       ),
                     ],
                   )
